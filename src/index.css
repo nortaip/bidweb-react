@@ -1,13 +1,180 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Lexend;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Lexend;
+}
+
+.products-i {
+  width: 229px;
+  margin-right: 18px;
+  margin-bottom: 15px;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: -webkit-box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out
+}
+
+.products-i:hover {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(177,181,199,0.48);
+  box-shadow: 0 4px 8px 0 rgba(177,181,199,0.48)
+}
+
+.products-i__top {
+  height: 171px
+}
+
+.products-i__top.spincar .products-i__icon.spincar360 {
+  width: 31px;
+  height: 21px
+}
+
+.products-i__label {
+  font-weight: 500
+}
+
+.products-i__label-container {
+  max-width: 153px
+}
+
+.products-i__info {
+  height: 21px
+}
+
+.products-i__icon {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  cursor: pointer
+}
+
+.products-i__icon--barter {
+  background: url(//turbo.azstatic.com/assets/application/sprites/main-9f39667ed6b24b37e8c24105c123433982a33c8cd513ea43c376ca256a42fab4.svg#barter) no-repeat center/cover,#76c81c
+}
+
+.products-i__icon--loan {
+  background: url(//turbo.azstatic.com/assets/application/sprites/main-9f39667ed6b24b37e8c24105c123433982a33c8cd513ea43c376ca256a42fab4.svg#loan) no-repeat center/cover,#f5a623
+}
+
+.products-i__icon:hover {
+  overflow: visible
+}
+
+.products-i__icon:hover .products-i__tooltip {
+  opacity: 1
+}
+
+.products-i__icon+.products-i__icon .products-i__tooltip {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%)
+}
+
+.products-i__icon+.products-i__icon .products-i__tooltip::after {
+  left: 50%;
+  margin-left: -4px
+}
+
+.products-i__tooltip {
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-transition: 0.2s opacity;
+  -o-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 0 5px;
+  color: #fff;
+  font-size: 11px;
+  white-space: nowrap;
+  line-height: 18px;
+  z-index: 1
+}
+
+.fonts-loaded .products-i__tooltip {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+.windows-os .products-i__tooltip {
+  font-family: Helvetica, Arial, sans-serif
+}
+
+.products-i__tooltip::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg)
+}
+
+.products-i__tooltip--barter {
+  background-color: #76c81c
+}
+
+.products-i__tooltip--barter::after {
+  background-color: #76c81c
+}
+
+.products-i__tooltip--loan {
+  background-color: #f5a623
+}
+
+.products-i__tooltip--loan::after {
+  background-color: #f5a623
+}
+
+.products-i.with-services .products-i__link {
+  height: calc(100% - 52px)
+}
+
+.products-i__price {
+  font-size: 18px
+}
+
+.products-i__name {
+  font-size: 16px
+}
+
+.products-i__attributes {
+  font-size: 16px
+}
+
+.products-i__datetime {
+  font-size: 14px
+}
+
+.products-i__paid {
+  padding: 4px 6px
+}
+
+.products-i__paid .featured-icon {
+  width: 16px;
+  height: 13px;
+  background: url(//turbo.azstatic.com/assets/application/sprites/main-9f39667ed6b24b37e8c24105c123433982a33c8cd513ea43c376ca256a42fab4.svg#featured-icon) no-repeat center;
+  background-size: 29px
+}
+
+.products-i__paid .featured-icon+.vipped-icon {
+  margin-left: 4px
+}
+
+.products-i__paid .vipped-icon {
+  width: 16px;
+  height: 13px;
+  background: url(//turbo.azstatic.com/assets/application/sprites/main-9f39667ed6b24b37e8c24105c123433982a33c8cd513ea43c376ca256a42fab4.svg#vipped-icon) no-repeat center;
+  background-size: 24px
 }
