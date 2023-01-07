@@ -244,6 +244,21 @@ body {
   background-size: 29px
 }
 
+.products-i__paid .Gear-icon {
+  width: 20px;
+  height: 20px;
+  background: url(../src/imgs/icons/Gear.svg) no-repeat center;
+  /* background-size: 29px */
+}
+
+.products-i_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
 .products-i__paid {
   padding: 4px 6px
 }

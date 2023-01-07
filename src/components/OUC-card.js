@@ -22,13 +22,18 @@ const Cards = ({ item }) => {
               </div>
             </div>
             <div class="products-i__bottom">
+              <div class="products-i__name products-i__bottom-text">{Val.title}</div>
+              <div class="products-i__attributes products-i__bottom-text">{Val.desc}</div>
+              <div class="products-i_info products-i__bottom-text">
+                <span class="Gear-icon"></span>
+                <span class="Vector-icon"></span>
+                <span class="people-icon"></span>
+              </div>
               <div class="products-i__price products-i__bottom-text">
                 <div class="product-price">{Val.price} <span>AZN</span>
                 </div>
               </div>
-              <div class="products-i__name products-i__bottom-text">{Val.title}</div>
-              <div class="products-i__attributes products-i__bottom-text">{Val.desc}</div>
-              <div class="products-i__datetime">{Val.time}</div>
+
             </div>
           </div>
         );
