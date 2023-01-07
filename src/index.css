@@ -355,8 +355,8 @@ h6 {
 
 .products-i {
   width: 300px;
-  margin-right: 12px;
-  margin-bottom: 15px;
+  /* margin-right: 12px; */
+  margin-bottom: 20px;
   -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
   transition: -webkit-box-shadow 0.2s ease-in-out;
   -o-transition: box-shadow 0.2s ease-in-out;
@@ -366,16 +366,19 @@ h6 {
 
 .products {
   margin: 29px 0 15px;
-  margin-right: -18px
+  margin-right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-items: center;
+  justify-content: space-around;
 }
 
-/* Card-css end */
-
-
-.like{
+.like {
   width: 24px;
   height: 24px;
   background: url(../src/imgs/icons/Heart.svg) no-repeat center/25px;
+  color: #FFFFFF;
 }
 
 .like {
@@ -396,3 +399,5 @@ h6 {
   z-index: 2;
   display: block
 }
+
+/* Card-css end */

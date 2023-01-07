@@ -11,9 +11,7 @@ function App() {
       <section>
         <div className='container'>
           <AuctionsCardGroup />
-          
         </div>
-
       </section>
     </>
   );

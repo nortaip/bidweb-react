@@ -36,7 +36,6 @@ const Cards = ({ item }) => {
                 <div class="product-price">{Val.price} <span>AZN</span>
                 </div>
               </div>
-
             </div>
           </div>
         );
