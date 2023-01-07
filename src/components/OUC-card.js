@@ -1,5 +1,5 @@
-import React from "react";
-import img from "../imgs/Products/shadow.jpg"
+import React, { useState } from "react";
+
 const Cards = ({ item }) => {
   return (
     <>
@@ -9,27 +9,30 @@ const Cards = ({ item }) => {
             <div class="products-i__top">
               <img loading="lazy" src={Val.img} alt={Val.title} />
               <div class="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap">
-                <div class="products-i__label products-i__label--salon">{Val.activity}</div>
+                <div class="products-i__label products-i__label_active">{Val.activity}</div>
               </div>
-              <div class="products-i__paid">
-                <span class="featured-icon"></span>
-                <span class="vipped-icon"></span>
-              </div>
-              <div class="products-i__info">
-                <div class="products-i__icon products-i__icon--barter">
-                  <div class="products-i__tooltip products-i__tooltip--barter">Barter mümkündür</div>
-                </div>
-              </div>
+              <div class="like" ></div>
             </div>
             <div class="products-i__bottom">
-              <div class="products-i__name products-i__bottom-text">{Val.title}</div>
-              <div class="products-i__attributes products-i__bottom-text">{Val.desc}</div>
-              <div class="products-i_info products-i__bottom-text">
-                <span class="Gear-icon"></span>
-                <span class="Vector-icon"></span>
-                <span class="people-icon"></span>
+              <div className="title">
+                <div class="products-i__name Title">{Val.title}</div>
+                <div class="products-i__attributes  Desc">{Val.desc}</div>
               </div>
-              <div class="products-i__price products-i__bottom-text">
+              <div class="products-i_info ">
+                <div className="ico">
+                  <span class="Gear-icon"></span>
+                  <h6 className="Card-icon">{Val.mekanik}</h6>
+                </div>
+                <div className="ico">
+                  <span class="Vector-icon ico"></span>
+                  <h6 className="Card-icon">{Val.Benzin}</h6>
+                </div>
+                <div className="ico">
+                  <span class="people-icon ico"></span>
+                  <h6 className="Card-icon">{Val.people}</h6>
+                </div>
+              </div>
+              <div class="products-i__price ">
                 <div class="product-price">{Val.price} <span>AZN</span>
                 </div>
               </div>
