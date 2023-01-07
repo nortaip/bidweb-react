@@ -4,7 +4,7 @@ import banner from '../imgs/Banner.jpg';
 
 function UncontrolledExample() {
     return (
-        <Carousel>
+        <Carousel className='Banner'>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -16,6 +16,7 @@ function UncontrolledExample() {
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </Carousel.Caption>
             </Carousel.Item>
+            
         </Carousel>
     );
 }

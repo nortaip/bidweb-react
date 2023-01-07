@@ -1,14 +1,30 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import CardGroup from 'react-bootstrap/CardGroup';
-import OUCcard from './OUCcard';
+import React, { useState } from "react";
+import Data from "./Data";
+import Card from "./OUC-card";
+import Buttons from "./Button";
 
-function GroupExample() {
-    return (
-        <CardGroup>
-            <OUCcard />
-            <OUCcard />
-        </CardGroup>
-    );
-}
+const App = () => {
+  const [item, setItem] = useState(Data);
 
-export default GroupExample;
+  const menuItems = [...new Set(Data.map((Val) => Val.category))];
+
+  const filterItem = (curcat) => {
+    const newItem = Data.filter((newVal) => {
+      return newVal.category === curcat;
+    });
+    setItem(newItem);
+  };
+  return (
+    <>
+      <Buttons
+        filterItem={filterItem}
+        setItem={setItem}
+        menuItems={menuItems}
+      />
+      <div className="products">
+        <Card item={item} /></div>
+    </>
+  );
+};
+
+export default App;

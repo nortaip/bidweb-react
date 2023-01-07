@@ -8,9 +8,13 @@ function App() {
     <>
       <Navbar />
       <Banner />
-      <div className='container'>
-        <AuctionsCardGroup />
-      </div>
+      <section>
+        <div className='container'>
+          <AuctionsCardGroup />
+          
+        </div>
+
+      </section>
     </>
   );
 }
