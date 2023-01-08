@@ -11,14 +11,14 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
               return (
                 <li className="nav-item">
                   <a className="nav-link" onClick={() => filterItem(Val)}
-                    key={id}><i className="text-blueGray-400  text-lg leading-lg fa fa-scroll"></i>{Val}</a>
+                    key={id}>{Val}</a>
                 </li>
               );
             })}
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" onClick={() => setItem(Data)}
               ><i className="text-blueGray-400  text-lg leading-lg fa fa-scroll"></i>All</a>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
