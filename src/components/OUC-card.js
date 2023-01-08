@@ -7,7 +7,7 @@ const Cards = ({ item }) => {
       {item.map((Val) => {
         return (
           <div className="products-i vipped featured salon" key={Val.id}>
-            <Link href={Val.id}>
+            <Link to={`/products/${Val.id}`}>
               <div className="products-i__top">
                 <img loading="lazy" src={Val.img} alt={Val.title} />
                 <div className="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap">
