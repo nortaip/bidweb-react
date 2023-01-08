@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar.js';
 import Banner from '../components/Banner.js';
 import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
 import Footer from '../components/footer';
-import { Route } from "react-router-dom";
 
 function App() {
   return (
@@ -12,9 +11,7 @@ function App() {
       <Banner />
       <section>
         <div className='container'>
-          <Route path="/products/:ValId">
-            <AuctionsCardGroup />
-          </Route>
+          <AuctionsCardGroup />
         </div>
       </section>
       <Footer />

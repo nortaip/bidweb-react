@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 const Cards = ({ item }) => {
   return (
     <>
       {item.map((Val) => {
         return (
           <div className="products-i vipped featured salon" key={Val.id}>
-            <Link to={`/products/${Val.id}`}>
+            <Link to={`/ProductDetails/${Val.id}`}>
               <div className="products-i__top">
                 <img loading="lazy" src={Val.img} alt={Val.title} />
                 <div className="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap">

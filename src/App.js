@@ -1,21 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
-import Products from "./Products";
-import ProductDetail from "./ProductDetail";
+import "./App.css";
+import Main from './pages/main';
+import ProductDetails from './pages/ProductDetail';
 
-function App() {
-  return (
-    <div>
+class App extends Component {
+  render() {
+    return (
       <Routes>
-        <Route exact path="/">
-          <Products />
-        </Route>
-        <Route path="/products/:ValId">
-          <ProductDetail />
-        </Route>
+        <Route path="/" element={<Main />}></Route>
+        <Route path="/products/:ValId" element={<ProductDetails/>} ></Route>
       </Routes>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
