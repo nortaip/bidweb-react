@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Data from "./Data";
 import Card from "./OUC-card";
 import Buttons from "./Button";
-
 const App = () => {
   const [item, setItem] = useState(Data);
 
@@ -22,7 +21,8 @@ const App = () => {
         menuItems={menuItems}
       />
       <div className="products">
-        <Card item={item} /></div>
+        <Card item={item} />
+      </div>
     </>
   );
 };

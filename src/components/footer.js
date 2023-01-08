@@ -5,8 +5,8 @@ import Form from 'react-bootstrap/Form';
 export default function Footer() {
     return (
         <>
-            <footer className="bg-white">
-                <div className="container py-5">
+            <footer className="container bg-white">
+                <div className="col-md-12 py-5">
                     <div className="row py-4 footer">
                         <div className="col-lg-4  mb-lg-0">
                             <img src={logoxl} alt="Logo" className="mb-3" />
