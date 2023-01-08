@@ -1,15 +1,32 @@
+import nRlssF9X from "../imgs/Products/87650_277VIOdLOszxsC2cAzgf6A.jpg";
+import sfhdgsd from '../imgs/Products/10018_oVojqO0HUQ_oTMc70bUeYw.jpg';
+import fgcxrej from '../imgs/Products/10485_LJGXdzuvcmAJIpXkOK61FA.jpg';
+import bvsdfhds from '../imgs/Products/10489_JVg6h65iQHp_g6_NVER0-g.jpg';
+import cbdetrdy from '../imgs/Products/11735_T8uBuZKu8bR3XKalDKF82w.jpg';
+import vxcijds from '../imgs/Products/20730_XsCaKyvsuCxxeRpjLhebNg.jpg';
+import ihtbsrg from '../imgs/Products/29333_nB-qbFD-QGJ_zPxnbmVMCg.jpg';
+import njuvbewuir from '../imgs/Products/29430_01fUgtINn_6IYpBwmDZEXw.jpg';
+import sasjdbfgyuas from '../imgs/Products/42043_ptG02P2aRd73olzN9cvMwQ.jpg';
+import sfhvusr from '../imgs/Products/44044_A1dBpM9bRD-hDQz7IKmJww.jpg';
+import sfhdgspkasdfd from '../imgs/Products/51394_6R45tZVPa7QqnBz2tpUH1w.jpg';
+import sfhdg00e93sd from '../imgs/Products/51539_Qq133Agpgy56BIY3azi-tw.jpg';
+import sfhdgs47d from '../imgs/Products/51544_TZeW3kVicObuC8LKd12-fw.jpg';
+import sfdgvsedhdgsd from '../imgs/Products/57687_-No8SPGQDlTvaLVOZyq7hA.jpg';
+import sfhdgdfghesd from '../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
+import werbvinsk from '../imgs/Products/shadow.jpg';
+
+
 const Data = [
   {
     id: "1",
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/shadow.e0d0ad4b113a287d911a.jpg",
+    img: nRlssF9X,
     desc: "Sport",
   },
   {
@@ -17,12 +34,11 @@ const Data = [
     title: "M3",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/87650_277VIOdLOszxsC2cAzgf6A.jpg",
+    img: sfhdgsd,
     desc: "Sport",
   },
   {
@@ -30,12 +46,11 @@ const Data = [
     title: "M3 ",
     category: "Audi",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg",
+    img: fgcxrej,
     desc: "Sport",
   },
   {
@@ -43,12 +58,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/57687_-No8SPGQDlTvaLVOZyq7hA.jpg",
+    img: bvsdfhds,
     desc: "Sport",
   },
   {
@@ -56,12 +70,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/51544_TZeW3kVicObuC8LKd12-fw.jpg",
+    img: cbdetrdy,
     desc: "Sport",
   },
   {
@@ -69,12 +82,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/51539_Qq133Agpgy56BIY3azi-tw.jpg",
+    img: vxcijds,
     desc: "Sport",
   },
   {
@@ -82,12 +94,11 @@ const Data = [
     title: "M3 ",
     category: "Audi",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/51394_6R45tZVPa7QqnBz2tpUH1w.jpg",
+    img: ihtbsrg,
     desc: "Sport",
   },
   {
@@ -95,12 +106,11 @@ const Data = [
     title: "A3 ",
     category: "Audi",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/44044_A1dBpM9bRD-hDQz7IKmJww.jpg",
+    img: njuvbewuir,
     desc: "Sport",
   },
   {
@@ -108,12 +118,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/42043_ptG02P2aRd73olzN9cvMwQ.jpg",
+    img: sasjdbfgyuas,
     desc: "Sport",
   },
   {
@@ -121,12 +130,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/29333_nB-qbFD-QGJ_zPxnbmVMCg.jpg",
+    img: sfhvusr,
     desc: "Sport",
   },
   {
@@ -134,12 +142,11 @@ const Data = [
     title: "M3 ",
     category: "Audi",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/20730_XsCaKyvsuCxxeRpjLhebNg.jpg",
+    img: sfhdgspkasdfd,
     desc: "Sport",
   },
   {
@@ -147,12 +154,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/11735_T8uBuZKu8bR3XKalDKF82w.jpg",
+    img: sfhdg00e93sd,
     desc: "Sport",
   },
   {
@@ -160,12 +166,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/10489_JVg6h65iQHp_g6_NVER0-g.jpg",
+    img: sfhdgs47d,
     desc: "Sport",
   },
   {
@@ -173,12 +178,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/10485_LJGXdzuvcmAJIpXkOK61FA.jpg",
+    img: sfdgvsedhdgsd,
     desc: "Sport",
   },
   {
@@ -186,12 +190,11 @@ const Data = [
     title: "M3 ",
     category: "Audi",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "src/imgs/Products/10018_oVojqO0HUQ_oTMc70bUeYw.jpg",
+    img: sfhdgdfghesd,
     desc: "Sport",
   },
   {
@@ -199,12 +202,11 @@ const Data = [
     title: "M3 ",
     category: "Bmw",
     price: "30000",
-    people: "5",
     mekanik: "Mekanik",
     Benzin: "Benzin",
     activity: "Active",
     people: "5 People",
-    img: "/static/media/29430_01fUgtINn_6IYpBwmDZEXw.jpg",
+    img: werbvinsk,
     desc: "Sport",
   },
 

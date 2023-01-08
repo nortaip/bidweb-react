@@ -45,6 +45,10 @@ h6 {
   border-radius: 10px;
 }
 
+.Banner .banner-img {
+  height: 650px;
+}
+
 .Header {
   display: flex;
   flex-direction: row;
@@ -386,6 +390,11 @@ h6 {
   cursor: pointer;
   z-index: 2;
   display: block
+}
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
 
 /* Card-css end */
