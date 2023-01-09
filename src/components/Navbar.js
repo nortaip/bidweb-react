@@ -13,8 +13,8 @@ function NavScrollExample() {
         <Navbar bg="light" expand="lg">
             <Container fluid>
                 {/* <Link to={`/products/${Val.id}`}> */}
-                    <Navbar.Brand href="/"><img src={logo} /></Navbar.Brand>
-                    {/* </Link> */}
+                <Navbar.Brand href="/"><img src={logo} /></Navbar.Brand>
+                {/* </Link> */}
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -23,8 +23,10 @@ function NavScrollExample() {
                         navbarScroll
                     >
                     </Nav>
-                    <Button className='Btn-main btn'>Giriş et</Button>
-                    <Button className='Btn-second btn'>Qeydiyyatdan keç</Button>
+                    <div className='nav-left'>
+                        <Button className='Btn-main btn'>Giriş et</Button>
+                        <Button className='Btn-second btn'>Qeydiyyatdan keç</Button>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
