@@ -4,7 +4,6 @@ import Card from "./OUC-card";
 import Buttons from "./Button";
 const App = () => {
   const [item, setItem] = useState(Data);
-
   const menuItems = [...new Set(Data.map((Val) => Val.category))];
 
   const filterItem = (curcat) => {

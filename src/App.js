@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Main from './pages/main';
-import ProductDetails from './components/Products';
+import ProductDetails from '../src/pages/Products';
 
 class App extends Component {
   render() {
