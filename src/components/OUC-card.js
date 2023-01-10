@@ -13,7 +13,7 @@ const Cards = ({ item }) => {
                 <div className="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap">
                   <div className="products-i__label products-i__label_active">{Val.activity}</div>
                 </div>
-                <div className="like" ></div>
+                <div className="like"></div>
               </div>
               <div className="products-i__bottom">
                 <div className="title">
