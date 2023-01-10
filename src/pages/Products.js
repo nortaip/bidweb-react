@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table';
 import Navbar from "../components/Navbar";
 import Footer from "../components/footer";
 import { AiOutlineHeart } from "react-icons/ai";
+import { Button } from "react-bootstrap";
 
 function ProductDetail() {
 
@@ -19,15 +20,15 @@ function ProductDetail() {
                     <div className="col-md-4">
                         <img className=" imgdfsd" loading="lazy" src={P.img} alt={P.title} />
                     </div>
-                    <div className="left-info col-md-8 container">
-                        <div className="Frame42 col-md-8" >
+                    <div className="right-info col-md-8 container">
+                        <div className="header" >
                             <h2 className="title" >{P.title}</h2>
                             <div className="live-end" >
                                 <h6 className="live" >LIVE</h6>
                                 <AiOutlineHeart />
                             </div>
                         </div>
-                        <div className="Frame42" >
+                        <div className="stdfhds" >
                             <div className="Frame427320631" style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start', }}>
                                 <div className="Frame427320631" style={{ height: 49, display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'space-between', }}>
                                     <p className="Lotnumber" style={{ fontSize: 13, lineHeight: '100%', color: 'rgba(144, 163, 191, 1)', }}>Lot number</p>
@@ -60,31 +61,30 @@ function ProductDetail() {
                                 <div style={{ height: 5, }} />
                                 <p className="4.5" style={{ fontSize: 20, fontWeight: '600', lineHeight: '100%', color: 'rgba(21, 128, 61, 1)', }}>4.5</p>
                             </div>
-
                         </div>
-                        <Table className="row">
-                            <tbody className="table-start col-md-2">
+                        <Table className="sdfhsfyjg table">
+                            <tbody className="table-start col-md-4">
                                 <td>Model</td>
                                 <td>Buraxılış ili</td>
                                 <td>Ban növü</td>
                                 <td>Şassi İD</td>
                                 <td>Rəng</td>
                             </tbody>
-                            <tbody className="table-end col-md-3">
+                            <tbody className="table-end col-md-4">
                                 <td>Model</td>
                                 <td>Buraxılış ili</td>
                                 <td>Ban növü</td>
                                 <td>Şassi İD</td>
                                 <td>Rəng</td>
                             </tbody >
-                            <tbody className="table-start col-md-2">
+                            <tbody className="table-start col-md-4">
                                 <td>Model</td>
                                 <td>Buraxılış ili</td>
                                 <td>Ban növü</td>
                                 <td>Şassi İD</td>
                                 <td>Rəng</td>
                             </tbody>
-                            <tbody className="table-end col-md-3">
+                            <tbody className="table-end col-md-4">
                                 <td>Model</td>
                                 <td>Buraxılış ili</td>
                                 <td>Ban növü</td>
@@ -92,26 +92,21 @@ function ProductDetail() {
                                 <td>Rəng</td>
                             </tbody>
                         </Table>
-                        <div className="Frame42">
-                            <div className="price" style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', }}>
-                                <div className="Frame427320631" style={{ display: 'inline-flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
-                                    <p className="Price" style={{ fontSize: 31, fontWeight: '700', lineHeight: '100%', color: 'rgba(26, 32, 44, 1)', }}>{P.price}/ </p>
-                                    <div style={{ width: 4, }} />
-                                    <p className="currentbid" style={{ fontSize: 16, fontWeight: '600', lineHeight: '100%', color: 'rgba(144, 163, 191, 1)', }}>current bid</p>
+                        <div className="jgfdt">
+                            <div className="price" >
+                                <div className="dfgjmes">
+                                    <h2 className="Price Bold">{P.price}/</h2>
+                                    <h5 className="currentbid semiBold">current bid</h5>
                                 </div>
-                                <div style={{ height: 4, }} />
-                                <div className="Frame427320631" style={{ display: 'inline-flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
-                                    <p className="$100.00" style={{ fontSize: 16, fontWeight: '600', lineHeight: '100%', color: 'rgba(144, 163, 191, 1)', }}>$100.00</p>
-                                    <div style={{ width: 4, }} />
-                                    <p className="startprice" style={{ fontSize: 13, fontWeight: '500', lineHeight: '100%', color: 'rgba(144, 163, 191, 1)', }}>start price</p>
+                                <div className="gfhdfhgd">
+                                    <h5 className="str-prc">$100.00</h5>
+                                    <h6 className="startprice">start price</h6>
                                 </div>
                             </div>
-                            <div className="Icon=Off,Size=56" style={{ height: 56, paddingLeft: 40, paddingRight: 40, paddingTop: 16, paddingBottom: 16, backgroundColor: 'rgba(0, 102, 255, 1)', borderRadius: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
-                                <p className="Label" style={{ fontSize: 18, fontWeight: '600', lineHeight: 24, color: 'rgba(233, 234, 239, 1)', }}>Join to auction</p>
-                            </div>
+                            <Button className="btn join-btn"><h4>Join to auction</h4></Button>
                         </div>
                     </div>
-                    <div className="description" style={{ width: 1200, paddingTop: 24, paddingBottom: 24, paddingLeft: 25, backgroundColor: 'white', borderRadius: 10, display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', }}>
+                    {/* <div className=" container" >
                         <div className="TotalReview" style={{ width: '100%', paddingRight: 20, display: 'inline-flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', }}>
                             <p className="Description" style={{ fontSize: 20, fontWeight: '600', lineHeight: '100%', color: 'rgba(26, 32, 44, 1)', }}>Description</p>
                         </div>
@@ -120,7 +115,7 @@ function ProductDetail() {
                             <p className="NISMOhas become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the " style={{ flex: '1 1 0%', fontSize: 20, lineHeight: '100%', color: 'rgba(27, 28, 33, 1)', }}>NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the "race track".</p>
                         </div>
                     </div>
-                    <div className="Reviews" style={{ paddingTop: 24, paddingBottom: 24, backgroundColor: 'white', borderRadius: 10, display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', }}>
+                    <div className="container">
                         <div className="TotalReview" style={{ width: '100%', paddingLeft: 20, paddingRight: 20, display: 'inline-flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', }}>
                             <p className="Reviews" style={{ fontSize: 20, fontWeight: '600', lineHeight: '100%', color: 'rgba(26, 32, 44, 1)', }}>Reviews</p>
                             <div style={{ width: 12, }} />
@@ -216,7 +211,7 @@ function ProductDetail() {
                                 <img className="arrow-down" style={{ width: 16, height: 16, borderRadius: 8, }} src="https://via.placeholder.com/16x16" />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <Footer />
