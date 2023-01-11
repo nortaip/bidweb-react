@@ -1,13 +1,14 @@
 import React from "react";
 import Data from "./Data";
-
+import { Button } from "react-bootstrap";
 const Buttons = ({ filterItem, setItem, menuItems }) => {
+
   return (
     <>
-      <div className="filter">
-        <nav>
+      <div className="filtr conrainer ">
+        <nav className="fdfghri">
           <ul className="nav">
-            {menuItems.map((Val, id) => {
+            {menuItems.map((Val, id, title) => {
               return (
                 <li className="nav-item">
                   <a className="nav-link" onClick={() => filterItem(Val)}
@@ -15,12 +16,42 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
                 </li>
               );
             })}
-            {/* <li className="nav-item">
-              <a className="nav-link" onClick={() => setItem(Data)}
-              ><i className="text-blueGray-400  text-lg leading-lg fa fa-scroll"></i>All</a>
-            </li> */}
           </ul>
         </nav>
+        <div className="conrainer filter">
+          <div className="bvisdt">
+            <label className="bvye9eh Bold ">
+              Marka
+              <input type="text" name="name" className="input" placeholder="test" />
+            </label>
+            <label className="bvye9eh Bold">
+              Model
+              <input type="text" name="name" className="input" placeholder="test" />
+            </label>
+            <label className="bvye9eh Bold">
+              Qiymət
+              <input type="text" name="name" className="input" placeholder="test" />
+            </label>
+            <label className="bvye9eh Bold">
+              Şəhər
+              <input type="text" name="name" className="input" placeholder="test" />
+            </label>
+          </div>
+          <div className="bvisdt">
+            <label className="bvye9eh Bold">
+              İli
+              <input type="text" name="name" className="input" placeholder="test" />
+            </label>
+            <label className="bvye9eh Bold">
+              Salon
+              <input type="text" name="name" className="input" placeholder="test" />
+            </label>
+            <Button variant="light" className="all"onClick={() => setItem(Data)}>Sıfırla</Button>
+            <Button className="sehdfsa">Search</Button>
+          </div>
+
+        </div>
+
       </div>
     </>
   );

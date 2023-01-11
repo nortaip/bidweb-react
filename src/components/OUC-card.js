@@ -18,7 +18,7 @@ const Cards = ({ item }) => {
               <div className="products-i__bottom">
                 <div className="title">
                   <div className="products-i__name Title">{Val.title}</div>
-                  <div className="products-i__attributes  Desc">{Val.desc}</div>
+                  <div className="products-i__attributes  Desc">{Val.category}</div>
                 </div>
                 <div className="products-i_info ">
                   <div className="ico">
@@ -38,6 +38,10 @@ const Cards = ({ item }) => {
                   <div className="product-price">{Val.price} <span>AZN</span>
                   </div>
                 </div>
+               <div className="fofgsdfgsr">
+                <div className="post-date Medium">{Val.date}</div>
+                <div className="post-date Medium">{Val.location}</div>
+                </div> 
               </div>
             </Link>
           </div>

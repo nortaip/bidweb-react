@@ -9,7 +9,7 @@ function App() {
     <>
       <Navbar />
       <Banner />
-      <section>
+      <section style={{marginTop: 100,}}>
         <div className='container'>
           <AuctionsCardGroup />
         </div>
