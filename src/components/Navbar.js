@@ -2,10 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../imgs/logo.png';
-import { Link } from "react-router-dom";
 
 
 function NavScrollExample() {
@@ -14,7 +12,6 @@ function NavScrollExample() {
             <Container fluid>
                 {/* <Link to={`/products/${Val.id}`}> */}
                 <Navbar.Brand href="/"><img src={logo} /></Navbar.Brand>
-                {/* </Link> */}
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

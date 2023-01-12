@@ -13,6 +13,7 @@ function ProductDetail() {
     const { productId } = useParams()
     const P = productsData.find(prod => prod.id === productId)
 
+
     return (
         <>
             <Navbar />

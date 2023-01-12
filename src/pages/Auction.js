@@ -2,8 +2,6 @@ import React from "react"
 import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
 import Navbar from "../components/Navbar";
-import Footer from "../components/footer";
-
 
 function ProductDetail() {
 
@@ -13,8 +11,6 @@ function ProductDetail() {
     return (
         <>
             <Navbar />
-          
-            <Footer />
         </>
     )
 }
