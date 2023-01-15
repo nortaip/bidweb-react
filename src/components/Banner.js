@@ -1,28 +1,27 @@
-// import { Carousel } from 'react-responsive-carousel'
-import banner from '../imgs/Banner.jpg';
-import banner2 from '../imgs/Banner2.jpg';
+import { Carousel } from 'antd';
+import img from '../imgs/Banner.jpg';
+import img2 from '../imgs/Banner2.jpg';
 
-function UncontrolledExample() {
+const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+};
+const App = () => {
+    const onChange = (currentSlide) => {
+        console.log(currentSlide);
+    };
     return (
-        // <Carousel>
-        <>
+        <Carousel autoplay>
             <div>
-                <img
-                    className="banner-img d-block w-100"
-                    src={banner2}
-                    alt="First slide"
-                />
+                <img src={img} style={contentStyle} alt='Banner' />
             </div>
             <div>
-                <img
-                    className="banner-img d-block w-100"
-                    src={banner}
-                    alt="First slide"
-                />
+                <img src={img2} style={contentStyle} alt='Banner' />
             </div>
-            {/* </Carousel> */}
-        </>
+        </Carousel>
     );
-}
-
-export default UncontrolledExample;
+};
+export default App;

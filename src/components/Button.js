@@ -1,22 +1,27 @@
-import React from "react";
+import React ,{ useState } from 'react';
 import Data from "./Data";
-import Button from '@mui/material/Button';
-const Buttons = ({ filterItem, setItem, menuItems }) => {
+import { Button, Dropdown, Space } from 'antd';
 
+const Buttons = ({ filterItem, setItem, menuItems }) => {
+  const [size, setSize] = useState('large');
   return (
-    <>
-      <div className="filtr">
+
+    <Space>
+      <div className="filtr conrainer ">
         <nav className="fdfghri">
-          <ul className="nav">
-            {menuItems.map((Val, id, title) => {
+            {menuItems.map((Val, ID, title) => {
               return (
-                <li className="nav-item">
-                  <a className="nav-link" onClick={() => filterItem(Val)}
-                    key={id}>{Val}</a>
-                </li>
+                <Dropdown.Button
+                  menu={{
+                    title,
+                  }}
+                  key={ID}
+                  onClick={() => filterItem(Val)}
+                >
+                  Submit
+                </Dropdown.Button>
               );
             })}
-          </ul>
         </nav>
         <div className="conrainer filter">
           <div className="bvisdt">
@@ -38,22 +43,16 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
             </label>
           </div>
           <div className="bvisdt">
-            <label className="bvye9eh Bold">
-              İli
-              <input type="text" name="name" className="input" placeholder="test" />
-            </label>
-            <label className="bvye9eh Bold">
-              Salon
-              <input type="text" name="name" className="input" placeholder="test" />
-            </label>
-            <Button  className="all"onClick={() => setItem(Data)}>Sıfırla</Button>
-            <Button className="sehdfsa">Search</Button>
+            <Button variant="light" className="all" onClick={() => setItem(Data)}>Sıfırla</Button>
+            <Button type="primary" size={size}>
+              Download
+            </Button>
           </div>
 
         </div>
 
       </div>
-    </>
+    </Space>
   );
 };
 

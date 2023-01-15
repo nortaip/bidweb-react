@@ -1,40 +1,29 @@
 import '../App.css';
-import React, { useState } from "react";
+import React from "react";
 import Navbar from '../components/Navbar.js';
 import Banner from '../components/Banner.js';
 import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
-import Footer from '../components/footer';
-import Buttons from "../components/Button";
-import Data from "../components/Data";
-import Card from "../components/OUC-card";
-
+import Footers from '../components/footer';
+import { Layout } from 'antd';
+const { Header, Footer, Content } = Layout;
 function App() {
-  const [item, setItem] = useState(Data);
-  const menuItems = [...new Set(Data.map((Val) => Val.category))];
 
-  const filterItem = (curcat) => {
-    const newItem = Data.filter((newVal) => {
-      return newVal.category === curcat;
-    });
-    setItem(newItem);
-  };
   return (
     <>
-      <Navbar />
-      <Banner />
-      <Buttons
-        filterItem={filterItem}
-        setItem={setItem}
-        menuItems={menuItems}
-      />
-      <section>
-        <div className='container'>
-          <div className="products">
-            <Card item={item} />
+      <Layout>
+        <Header>
+          <Navbar />
+        </Header>
+        <Content>
+          <Banner />
+          <div className='space-align-container'>
+            <AuctionsCardGroup />
           </div>
-        </div>
-      </section>
-      <Footer />
+        </Content>
+        <Footer>
+          <Footers />
+        </Footer>
+      </Layout>
     </>
   );
 }

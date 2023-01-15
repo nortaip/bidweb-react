@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Watermark } from 'antd';
 
 const Cards = ({ item }) => {
   return (
@@ -9,7 +10,9 @@ const Cards = ({ item }) => {
           <div className="products-i vipped featured salon" key={Val.id}>
             <Link to={`/products/${Val.id}`}>
               <div className="products-i__top">
-                <img loading="lazy" src={Val.img} alt={Val.title} />
+                <Watermark content="Bid.az">
+                  <img loading="lazy" src={Val.img} alt={Val.title} />
+                </Watermark>
                 <div className="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap">
                   <div className="products-i__label products-i__label_active">{Val.activity}</div>
                 </div>
@@ -38,10 +41,10 @@ const Cards = ({ item }) => {
                   <div className="product-price">{Val.price} <span>AZN</span>
                   </div>
                 </div>
-               <div className="fofgsdfgsr">
-                <div className="post-date Medium">{Val.date}</div>
-                <div className="post-date Medium">{Val.location}</div>
-                </div> 
+                <div className="fofgsdfgsr">
+                  <div className="post-date Medium">{Val.date}</div>
+                  <div className="post-date Medium">{Val.location}</div>
+                </div>
               </div>
             </Link>
           </div>
