@@ -1,11 +1,11 @@
 import React from "react";
 import Data from "./Data";
-import { Button } from "react-bootstrap";
+import Button from '@mui/material/Button';
 const Buttons = ({ filterItem, setItem, menuItems }) => {
 
   return (
     <>
-      <div className="filtr conrainer ">
+      <div className="filtr">
         <nav className="fdfghri">
           <ul className="nav">
             {menuItems.map((Val, id, title) => {
@@ -46,7 +46,7 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
               Salon
               <input type="text" name="name" className="input" placeholder="test" />
             </label>
-            <Button variant="light" className="all"onClick={() => setItem(Data)}>Sıfırla</Button>
+            <Button  className="all"onClick={() => setItem(Data)}>Sıfırla</Button>
             <Button className="sehdfsa">Search</Button>
           </div>
 

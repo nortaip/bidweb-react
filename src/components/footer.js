@@ -1,6 +1,6 @@
 import React from "react";
 import logoxl from '../imgs/logoxl.png';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 
 export default function Footer() {
     return (
@@ -43,14 +43,14 @@ export default function Footer() {
                         </div>
                         <div className="col-lg-4  mb-lg-0">
                             <h6 className="text-uppercase font-weight-bold mb-4">CONTACT INFO</h6>
-                            <Form className="d-flex">
+                            {/* <Form className="d-flex">
                                 <Form.Control
                                     type="Mail"
                                     placeholder="Test@test.com"
                                     className="me-2"
                                     aria-label="Search"
                                 />
-                            </Form>
+                            </Form> */}
                         </div>
                     </div>
                     <hr className="hr" />
