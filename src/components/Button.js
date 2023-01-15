@@ -1,7 +1,7 @@
 import React ,{ useState } from 'react';
 import Data from "./Data";
 import { Button, Dropdown, Space } from 'antd';
-
+import { Radio, Select } from 'antd';
 const Buttons = ({ filterItem, setItem, menuItems }) => {
   const [size, setSize] = useState('large');
   return (
@@ -11,15 +11,16 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
         <nav className="fdfghri">
             {menuItems.map((Val, ID, title) => {
               return (
-                <Dropdown.Button
+              <Radio.Group>
+                <Radio.Button
                   menu={{
                     title,
                   }}
                   key={ID}
                   onClick={() => filterItem(Val)}
-                >
-                  Submit
-                </Dropdown.Button>
+                >{Val.title}
+                </Radio.Button>
+              </Radio.Group>
               );
             })}
         </nav>

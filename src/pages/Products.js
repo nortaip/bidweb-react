@@ -1,26 +1,38 @@
-import React from "react"
+import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
 import Navbar from "../components/Navbar";
-import Footer from "../components/footer";
+import Footers from "../components/footer";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { Button, Col, Row, Space } from 'antd';
-
+import { Button, Col, Row, Space, Image,Layout } from 'antd';
+const { Header, Footer, Content } = Layout;
 function ProductDetail() {
-
+    const [visible, setVisible] = useState(false);
     const { productId } = useParams()
     const P = productsData.find(prod => prod.id === productId)
-
+    
     return (
         <>
-            <Navbar />
-            <Space direction="vertical" size="middle" align="center"style={{ display: 'flex' }}>
-                <Row gutter={12} offset={6}>
+            <Header>
+                <Navbar />
+            </Header>
+            <Space direction="vertical" size="middle" align="center" style={{ display: 'flex' }}>
+                <Row gutter={24} offset={12}>
                     <Col span={6}>
-                        <img className=" imgdfsd" loading="lazy" src={P.img} alt={P.title} />
+                        <Image
+                            preview={{ visible: false }}
+                            width={200}
+                            src={P.img} alt={P.title}
+                            onClick={() => setVisible(true)}
+                        />
+                        <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
+                            <Image src={P.img} />
+                            <Image src={P.img} />
+                            <Image src={P.img} />
+                        </Image.PreviewGroup>
                     </Col>
-                    <Col span={6}>
+                    <Col span={12}>
                         <div className="header" >
                             <h2 className="title" >{P.title}</h2>
                             <div className="live-end" >
@@ -105,15 +117,15 @@ function ProductDetail() {
                             <Link to={`/auction/${P.id}`}><Button className="btn">Join to auction</Button></Link>
                         </div>
                     </Col>
-                    <Row gutter={12} >
-                        <div className="fgsdfgsd">
-                            <h4 className="SemiBold">Description</h4>
-                            <h5 className="Regular">{P.desc}</h5>
-                        </div>
-                    </Row>
+                </Row>
+                <Row gutter={24} >
+                    <div className="fgsdfgsd">
+                        <h4 className="SemiBold">Description</h4>
+                        <h5 className="Regular">{P.desc}</h5>
+                    </div>
                 </Row>
             </Space>
-            <Footer />
+            <Footers />
         </>
     )
 }

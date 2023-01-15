@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Watermark } from 'antd';
+import { Badge, Watermark } from 'antd';
 
 const Cards = ({ item }) => {
   return (
@@ -14,7 +14,7 @@ const Cards = ({ item }) => {
                   <img loading="lazy" src={Val.img} alt={Val.title} />
                 </Watermark>
                 <div className="products-i__label-container tz-d-flex tz-gap-5 tz-wrap-wrap">
-                  <div className="products-i__label products-i__label_active">{Val.activity}</div>
+                  <Badge className="products-i__label products-i__label_active">{Val.activity}</Badge>
                 </div>
                 <div className="like"></div>
               </div>
