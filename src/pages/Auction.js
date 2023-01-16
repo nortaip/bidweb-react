@@ -4,9 +4,10 @@ import Footermini from "../components/Footermini";
 import { Col, Row, Space, Layout } from 'antd';
 import Table from '../components/TableProduct';
 import ProductTitle from '../components/ProductTitlle';
-import JoinProduct from '../components/JoinProduct';
 import ProducrImg from '../components/ProductImg';
-
+import AuctionLive from '../components/Bid';
+import JoinProductLevel from '../components/JoinProductLevel';
+import ActivityAuction from '../components/ActibityAuction';
 const { Header, Footer, Content } = Layout;
 function ProductDetail() {
 
@@ -24,7 +25,11 @@ function ProductDetail() {
                         <Col className='right-info'>
                             <ProductTitle />
                             <Table />
-                            <JoinProduct />
+                            <JoinProductLevel />
+                        </Col>
+                        <Col>
+                            <AuctionLive />
+                            <ActivityAuction />
                         </Col>
                     </Row>
                 </Space>

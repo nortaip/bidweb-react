@@ -22,7 +22,7 @@ function JoinProduct() {
                     <h6 className="startprice">start price</h6>
                 </div>
             </div>
-            <Link to={`/auction/${P.id}`}><Button type="primary">Join to auction</Button></Link>
+            <Link to={`/auction-live/${P.id}`}><Button type="primary">Join to auction</Button></Link>
         </div>
 
     )

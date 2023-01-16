@@ -11,7 +11,7 @@ class App extends Component {
       <Routes>
         <Route path="/" element={<Main />}/>
         <Route path="/products/:productId" element={<ProductDetails/>} />
-        <Route path="/auction/:productId" element={<Auction/>} />
+        <Route path="/auction-live/:productId" element={<Auction/>} />
       </Routes>
     );
   }

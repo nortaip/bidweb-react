@@ -12,5 +12,46 @@
     margin-bottom: 8px;
 }
 
+.bid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 35px;
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-wrap: nowrap;
+}
 
+.countdown-title {
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 39px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
 
+.bid-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 35px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-wrap: nowrap;
+}
+
+.btn-group-bid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+}
