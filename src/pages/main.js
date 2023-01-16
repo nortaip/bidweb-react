@@ -6,6 +6,7 @@ import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
 import Footers from '../components/footer';
 import { Layout } from 'antd';
 const { Header, Footer, Content } = Layout;
+
 function App() {
 
   return (

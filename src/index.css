@@ -8,10 +8,9 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 h1,
@@ -50,8 +49,8 @@ a {
   background: rgba(150, 150, 150, 0.2);
 }
 
-section {
-  /* margin: 60px 0 20px 0; */
+.section {
+  margin: 60px 0 20px 0;
 }
 
 .font-weight-bold {
