@@ -1,9 +1,10 @@
 import { Avatar, Badge, Button, Dropdown } from 'antd';
 import Logo from '../imgs/logo.png'
+import { Link } from 'react-router-dom';
 const App = () => {
   const items = [
     {
-      label:'1st menu item',
+      label: '1st menu item',
       key: '0',
     },
     {
@@ -21,7 +22,9 @@ const App = () => {
   return (
     <>
       <div className='navbar'>
-        <img src={Logo} alt='Logo' />
+        <Link to={'/'}>
+          <img src={Logo} alt='Logo' />
+        </Link>
         <div className='nav-prof'>
           <Button type="primary">Sel Item</Button>
           <Dropdown
@@ -30,7 +33,7 @@ const App = () => {
             }}
             trigger={['click']}
           >
-            <Badge count={1000} overflowCount={999} size='default'>
+            <Badge count={1000} overflowCount={9} size='default'>
               <Avatar
                 style={{
                   backgroundColor: '#7265e6',
