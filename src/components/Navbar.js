@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const App = () => {
   const items = [
     {
-      label: '1st menu item',
+      label: 'Profile',
       key: '0',
     },
     {
@@ -26,7 +26,7 @@ const App = () => {
           <img src={Logo} alt='Logo' />
         </Link>
         <div className='nav-prof'>
-          <Button type="primary">Sel Item</Button>
+          <Button type="primary">se Item</Button>
           <Dropdown
             menu={{
               items,
@@ -36,16 +36,13 @@ const App = () => {
             <Badge count={1000} overflowCount={9} size='default'>
               <Avatar
                 style={{
-                  backgroundColor: '#7265e6',
-                  verticalAlign: 'middle',
+                  color: '#f56a00',
+                  backgroundColor: '#fde3cf',
                 }}
-                size="large"
-                gap={3}
               >
-                Lucy
+                U
               </Avatar>
             </Badge>
-
           </Dropdown>
         </div>
       </div>
