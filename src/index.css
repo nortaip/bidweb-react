@@ -401,7 +401,6 @@ a {
   line-height: 25px;
   display: flex;
   align-items: center;
-
   color: #1A202C;
 }
 
@@ -504,9 +503,9 @@ img {
   align-items: center;
   padding: 20px;
   gap: 10px;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 20px rgba(1, 23, 54, 0.05);
-  border-radius: 0px 20px 20px 20px;
+  /* background: #FFFFFF; */
+  /* box-shadow: 0px 0px 20px rgba(1, 23, 54, 0.05); */
+  /* border-radius: 0px 20px 20px 20px; */
   /* flex: none;
   order: 1;
   align-self: stretch;
@@ -581,7 +580,7 @@ img {
 }
 
 .filtr {
-  width: 100%;
+  /* width: 100%; */
   padding: 20px 0 20px 0;
   background: #FBFBFB;
   box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -993,6 +992,38 @@ img {
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+  flex-wrap: nowrap;
+}
+
+.main-img-border {
+  border-radius: 10px;
+  align-self: stretch;
+}
+
+.mini-imgs {
+  width: 132px;
+  height: 108px;
+}
+
+.img-mini-container {
+  overflow-y: scroll;
+}
+
+.img-group-p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.Product-imgs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  order: 1;
   flex-wrap: nowrap;
 }
 

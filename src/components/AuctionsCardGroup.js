@@ -14,11 +14,11 @@ const App = () => {
   };
   return (
     <>
-      <Buttons
+      {/* <Buttons
         filterItem={filterItem}
         setItem={setItem}
         menuItems={menuItems}
-      />
+      /> */}
       <div className="products">
         <Card item={item} />
       </div>

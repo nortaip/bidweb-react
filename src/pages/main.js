@@ -5,6 +5,7 @@ import Banner from '../components/Banner.js';
 import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
 import Footers from '../components/footer';
 import { Layout } from 'antd';
+import Buttons from '../components/Button';
 const { Header, Footer, Content } = Layout;
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         </Header>
         <Content>
           <Banner />
+          <Buttons/>
           <div className='space-align-container'>
             <AuctionsCardGroup />
           </div>

@@ -33,7 +33,7 @@ const App = () => {
             }}
             trigger={['click']}
           >
-            <Badge count={1000} overflowCount={9} size='default'>
+            <Badge dot>
               <Avatar
                 style={{
                   color: '#f56a00',

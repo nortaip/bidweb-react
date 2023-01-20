@@ -11,25 +11,31 @@ function ProducrImg() {
 
     return (
         <>
-            <Image
-                preview={{
-                    visible: false,
-                }}
-                src={P.img}
-                className='main-img'
-                onClick={() => setVisible(true)}
-            />
-            <div>
-                <Image.PreviewGroup
+            <div className='Product-imgs'>
+                <Image
                     preview={{
-                        visible,
-                        onVisibleChange: (vis) => setVisible(vis),
+                        visible: false,
                     }}
-                >
-                    <Image className='mini-imgs' src={Imagess} />
-                    <Image className='mini-imgs' src={P.img} />
-                    <Image className='mini-imgs' src={Imagess} />
-                </Image.PreviewGroup>
+                    src={P.img}
+                    className='main-img main-img-border'
+                    onClick={() => setVisible(true)}
+                />
+                <div className='img-group-p'>
+                    <Image.PreviewGroup
+className='img-mini-container'
+                        preview={{
+                            visible,
+                            onVisibleChange: (vis) => setVisible(vis),
+                        }}
+                    >
+                        <Image className='mini-imgs main-img-border' src={Imagess} />
+                        <Image className='mini-imgs main-img-border' src={P.img} />
+                        <Image className='mini-imgs main-img-border' src={Imagess} />
+                        <Image className='mini-imgs main-img-border' src={P.img} />
+                        <Image className='mini-imgs main-img-border' src={Imagess} />
+                        
+                    </Image.PreviewGroup>
+                </div>
             </div>
         </>
     )
