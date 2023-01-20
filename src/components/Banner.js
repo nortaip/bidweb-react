@@ -14,7 +14,7 @@ const App = () => {
         console.log(currentSlide);
     };
     return (
-        <Carousel className='container' autoplay>
+        <Carousel autoplay>
             <div>
                 <img src={img} style={contentStyle} alt='Banner' />
             </div>

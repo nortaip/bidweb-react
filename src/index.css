@@ -11,6 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  max-width: 1200px;
 }
 
 h1,
@@ -1001,8 +1002,8 @@ img {
 }
 
 .mini-imgs {
-  width: 132px;
-  height: 108px;
+  width: 100px !important;
+  height: 100px;
 }
 
 .img-mini-container {
@@ -1025,6 +1026,56 @@ img {
   gap: 16px;
   order: 1;
   flex-wrap: nowrap;
+  /* max-width: 516px; */
+  align-items: center;
+}
+
+.code-box-demo .ant-tag {
+  margin-bottom: 8px;
+}
+
+.bid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 35px;
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+}
+
+.countdown-title {
+  font-weight: 700;
+  font-size: 31px;
+  line-height: 39px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.bid-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 35px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+}
+
+.btn-group-bid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
 }
 
 /* Product Details end */

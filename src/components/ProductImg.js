@@ -22,7 +22,7 @@ function ProducrImg() {
                 />
                 <div className='img-group-p'>
                     <Image.PreviewGroup
-className='img-mini-container'
+                        className='img-mini-container'
                         preview={{
                             visible,
                             onVisibleChange: (vis) => setVisible(vis),
@@ -31,9 +31,7 @@ className='img-mini-container'
                         <Image className='mini-imgs main-img-border' src={Imagess} />
                         <Image className='mini-imgs main-img-border' src={P.img} />
                         <Image className='mini-imgs main-img-border' src={Imagess} />
-                        <Image className='mini-imgs main-img-border' src={P.img} />
-                        <Image className='mini-imgs main-img-border' src={Imagess} />
-                        
+
                     </Image.PreviewGroup>
                 </div>
             </div>

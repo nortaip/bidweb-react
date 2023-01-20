@@ -3,9 +3,9 @@ import React from "react";
 import Navbar from '../components/Navbar.js';
 import Banner from '../components/Banner.js';
 import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
-import Footers from '../components/footer';
 import { Layout } from 'antd';
 import Buttons from '../components/Button';
+import FooterMain from '../components/FooterMain';
 const { Header, Footer, Content } = Layout;
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           </div>
         </Content>
         <Footer>
-          <Footers />
+          <FooterMain/>
         </Footer>
       </Layout>
     </>

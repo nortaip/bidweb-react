@@ -1,11 +1,13 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
-import Footermini from "../components/Footermini";
 import { Col, Row, Space, Layout } from 'antd';
 import Table from '../components/TableProduct';
 import ProductTitle from '../components/ProductTitlle';
 import JoinProduct from '../components/JoinProduct';
 import ProducrImg from '../components/ProductImg';
+import Description from '../components/Description';
+import Similar from '../components/ProductSimilar';
+import FooterMain from '../components/FooterMain';
 
 const { Header, Footer, Content } = Layout;
 function ProductDetail() {
@@ -27,10 +29,13 @@ function ProductDetail() {
                             <JoinProduct />
                         </Col>
                     </Row>
+                    <Description />
+                    <Similar />
                 </Space>
+
             </Content>
             <Footer>
-                <Footermini />
+                <FooterMain />
             </Footer>
         </Layout>
     )

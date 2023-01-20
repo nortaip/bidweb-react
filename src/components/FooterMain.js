@@ -1,11 +1,11 @@
 import React from "react";
 import logoxl from '../imgs/logoxl.png';
-import { Col, Row, Space } from 'antd';
+import { Col, Row,Form } from 'antd';
 
-export default function Footer() {
+function FooterMain() {
     return (
         <>
-        <div className="space-align-container">
+            <div className="space-align-container">
                 <Row >
                     <Col flex="auto">
                         <Row className="footer">
@@ -44,14 +44,7 @@ export default function Footer() {
                             </Col>
                             <Col span={6}>
                                 <h6 className="text-uppercase font-weight-bold mb-4">CONTACT INFO</h6>
-                                {/* <Form className="d-flex">
-                                <Form.Control
-                                    type="Mail"
-                                    placeholder="Test@test.com"
-                                    className="me-2"
-                                    aria-label="Search"
-                                />
-                            </Form> */}
+              
                             </Col>
                         </Row>
                         <hr className="hr" />
@@ -67,9 +60,9 @@ export default function Footer() {
                         </div>
                     </Col>
                 </Row>
-        </div>
+            </div>
         </>
     );
 }
 
-
+export default FooterMain;

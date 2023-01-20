@@ -40,7 +40,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: nRlssF9X,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "2",
@@ -65,7 +65,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sfhdgsd,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "3",
@@ -90,7 +90,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: fgcxrej,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "4",
@@ -115,7 +115,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: bvsdfhds,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "5",
@@ -140,7 +140,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: cbdetrdy,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "6",
@@ -165,7 +165,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: vxcijds,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "7",
@@ -190,7 +190,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: ihtbsrg,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "8",
@@ -215,7 +215,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: njuvbewuir,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "9",
@@ -240,7 +240,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sasjdbfgyuas,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "10",
@@ -265,7 +265,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sfhvusr,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "11",
@@ -315,7 +315,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sfhdg00e93sd,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "13",
@@ -340,7 +340,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sfhdgs47d,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "14",
@@ -365,7 +365,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sfdgvsedhdgsd,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "15",
@@ -390,7 +390,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: sfhdgdfghesd,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "16",
@@ -415,7 +415,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: werbvinsk,
-    desc: "Sport",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
 
 ];
