@@ -22,9 +22,11 @@ const App = () => {
   return (
     <>
       <div className='navbar'>
-        <Link to={'/'}>
-          <img src={Logo} alt='Logo' />
-        </Link>
+        <div className='logo'>
+          <Link to={'/'} className="logo">
+            <img src={Logo} alt='Logo'/>
+          </Link>
+        </div>
         <div className='nav-prof'>
           <Button type="primary">se Item</Button>
           <Dropdown

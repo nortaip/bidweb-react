@@ -54,7 +54,7 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
           <div className="bvisdt">
             {/* <Button variant="light" className="all" onClick={() => setItem(Data)}>Sıfırla</Button> */}
             <Button type="primary" size={size}>
-              Download
+              Search
             </Button>
           </div>
         </div>
