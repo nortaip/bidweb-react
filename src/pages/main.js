@@ -18,13 +18,14 @@ function App() {
         </Header>
         <Content>
           <Banner />
-          <Buttons/>
+          <Buttons />
           <div className='space-align-container'>
+            <AuctionsCardGroup />
             <AuctionsCardGroup />
           </div>
         </Content>
         <Footer>
-          <FooterMain/>
+          <FooterMain />
         </Footer>
       </Layout>
     </>

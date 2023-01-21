@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Data from "./Data";
 import Card from "./OUC-card";
-import Buttons from "./Button";
+import { Divider } from 'antd';
+
 const App = () => {
   const [item, setItem] = useState(Data);
   const menuItems = [...new Set(Data.map((Val) => Val.category))];
@@ -19,7 +20,11 @@ const App = () => {
         setItem={setItem}
         menuItems={menuItems}
       /> */}
+
       <div className="products">
+        <Divider orientation="left" orientationMargin="50">
+          Auctions
+        </Divider>
         <Card item={item} />
       </div>
     </>
