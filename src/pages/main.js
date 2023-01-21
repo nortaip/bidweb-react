@@ -19,7 +19,7 @@ function App() {
         <Content>
           <Banner />
           <Buttons />
-          <div className='space-align-container'>
+          <div className='space-align-container '>
             <AuctionsCardGroup />
             <AuctionsCardGroup />
           </div>

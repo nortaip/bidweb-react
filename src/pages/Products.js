@@ -29,10 +29,11 @@ function ProductDetail() {
                             <JoinProduct />
                         </Col>
                     </Row>
-                    <Description />
+                    <div className='container'>
+                        <Description />
+                    </div>
                     <Similar />
                 </Space>
-
             </Content>
             <Footer>
                 <FooterMain />

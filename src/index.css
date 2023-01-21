@@ -7,11 +7,7 @@ body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  max-width: 1200px;
+  max-width: 1100px;
 }
 
 h1,
@@ -35,6 +31,7 @@ a {
   flex-wrap: nowrap;
   align-items: center;
   flex-direction: column;
+  padding-top: 5px;
 }
 
 .space-align-block {
@@ -318,9 +315,17 @@ a {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  display: flex;
-  align-items: center;
-  color: #90A3BF;
+  color: #1B1C21;
+  flex: none;
+  word-wrap: break-word;
+  order: 4;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+p {
+  text-align: justify;
+  word-wrap: break-word;
 }
 
 .Card-icon {
@@ -771,9 +776,9 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0px;
-  gap: 287px;
+  gap: 200px;
   flex: none;
   order: 3;
   align-self: stretch;
@@ -1020,16 +1025,6 @@ img {
   justify-content: space-evenly;
 }
 
-.Product-imgs {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  order: 1;
-  flex-wrap: nowrap;
-  /* max-width: 516px; */
-  align-items: center;
-}
-
 .code-box-demo .ant-tag {
   margin-bottom: 8px;
 }
@@ -1041,10 +1036,16 @@ img {
   padding: 0px;
   gap: 35px;
   flex: none;
-  order: 3;
+  order: 0;
   align-self: stretch;
   flex-grow: 0;
-  flex-wrap: nowrap;
+}
+
+.Activityoverview {
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
 .countdown-title {
@@ -1056,7 +1057,7 @@ img {
   flex-grow: 0;
 }
 
-.bid-input-container {
+/* .bid-input-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -1068,7 +1069,7 @@ img {
   flex-grow: 0;
   flex-wrap: nowrap;
 }
-
+*/
 .btn-group-bid {
   display: flex;
   flex-direction: row;
@@ -1076,6 +1077,28 @@ img {
   align-items: center;
   padding: 0px;
   gap: 10px;
+}
+
+.inf--o {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 15px 50px;
+  gap: 16px;
+  overflow: auto;
+  background: #FFFFFF;
+  border-radius: 4px;
+  order: 0;
+  margin: 0 1px;
+  max-height: 100vh;
+  height: 100%;
+  max-width: 600px;
+}
+
+.ant-row {
+  flex-flow: nowrap !important;
+  max-height: 100vh;
+  height: 100%;
 }
 
 /* Product Details end */

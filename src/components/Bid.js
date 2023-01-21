@@ -68,8 +68,8 @@ function AuctionLive() {
                         </Form.Item>
                     </Form.Item>
                     <ButtonGroup className='btn-group-bid'>
-                        <Button size='large'>Auto</Button>
-                        <Button type="primary" onClick={success} size='large'>Bid Your Price</Button>
+                        <Button size='large' block>Auto</Button>
+                        <Button type="primary" block onClick={success} size='large'>Bid Your Price</Button>
                     </ButtonGroup>
                 </div>
             </div>

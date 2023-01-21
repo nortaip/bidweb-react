@@ -2,6 +2,7 @@ import React from "react";
 import ProductTitle from './ProductTitlle';
 import TableProduct from './TableProduct'
 import JoinProductLevel from "./JoinProductLevel";
+import Descriptions from "./Description";
 function ProductInfo() {
 
     return (
@@ -10,6 +11,7 @@ function ProductInfo() {
                 <ProductTitle />
                 <TableProduct/>
                 <JoinProductLevel/>
+                <Descriptions/>
             </div>
         </>
     );

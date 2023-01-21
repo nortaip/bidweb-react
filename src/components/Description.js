@@ -10,12 +10,14 @@ function Descriptions() {
 
     return (
         <>
-            <Divider orientation="left" orientationMargin="0">
-                Descriptions
-            </Divider>
-            <p>
-                {P.desc}
-            </p>
+            <div className='Desc'>
+                <Divider orientation="left" orientationMargin="0">
+                    Descriptions
+                </Divider>
+                <p className='container'>
+                    {P.desc}
+                </p >
+            </div>
         </>
     )
 }

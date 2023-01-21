@@ -1,14 +1,13 @@
 import { FileOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme, Col, Row, Space } from 'antd';
+import { Layout, Menu, theme, Col, Row } from 'antd';
 import React, { useState } from 'react';
 import ProducrImg from '../components/ProductImg';
 import Navbar from "../components/Navbar";
-import AuctionLive from '../components/Bid';
-import ActivityAuction from '../components/ActibityAuction';
 import ProductInfo from '../components/ProductInfo';
-import Footermini from '../components/Footermini';
+import AuctionInfo from '../components/AuctionInfo';
+import LiveChat from '../components/LiveChat';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
     return {
@@ -39,50 +38,35 @@ const App = () => {
                 minHeight: '100vh',
             }}
         >
-
             <Layout className="site-layout">
                 <Header>
                     <Navbar />
                 </Header>
-                <Layout>
+                <Layout style={{
+                    maxHeight: '100vh'
+                }}>
                     <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-                        <div
-                            style={{
-                                height: 32,
-                                margin: 16,
-                                background: 'rgba(255, 255, 255, 0.2)',
-                            }}
-                        />
                         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
                     </Sider>
-                    <Content
-                        style={{
-                            margin: '3px',
-                        }}
-                    >
-                        <Row>
+                    <Content>
+                        <Row >
                             <Col>
                                 <ProducrImg />
                             </Col>
                             <Col>
                                 <ProductInfo />
                             </Col>
-                            <Col><AuctionLive />
-                                <ActivityAuction />
+                            <Col>
+                                <AuctionInfo />
+                            </Col>
+                            <Col>
+                                <LiveChat />
                             </Col>
                         </Row>
-                        <Footer
-                            style={{
-                                textAlign: 'center',
-                                background: 'none'
-                            }}
-                        >
-                            <Footermini />
-                        </Footer>
                     </Content>
                 </Layout>
             </Layout>
-        </Layout>
+        </Layout >
     );
 };
 export default App;

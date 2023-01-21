@@ -40,7 +40,7 @@ const Data = [
     people: "5 People",
     Button: "1",
     img: nRlssF9X,
-    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
+    desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
     id: "2",

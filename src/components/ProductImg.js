@@ -11,7 +11,7 @@ function ProducrImg() {
 
     return (
         <>
-            <div className='Product-imgs'>
+            <div className='Product-imgs inf--o'>
                 <Image
                     preview={{
                         visible: false,
