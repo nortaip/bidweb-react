@@ -1092,7 +1092,7 @@ img {
   margin: 0 1px;
   max-height: 100vh;
   height: 100%;
-  max-width: 600px;
+  /* max-width: 600px; */
 }
 
 .ant-row {
