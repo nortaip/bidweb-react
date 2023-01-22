@@ -8,6 +8,7 @@ import ProducrImg from '../components/ProductImg';
 import Description from '../components/Description';
 import Similar from '../components/ProductSimilar';
 import FooterMain from '../components/FooterMain';
+import Supply from '../components/Supply';
 
 const { Header, Footer, Content } = Layout;
 function ProductDetail() {
@@ -17,10 +18,8 @@ function ProductDetail() {
             <Header>
                 <Navbar />
             </Header>
-            <Content style={{
-                textAlign: 'center',
-            }}>
-                <Space direction="vertical" size="middle" align="center" className='section' style={{ display: 'flex' }}>
+            <Content className='container'>
+                <Space direction="vertical" size="middle" align="center" className='section container' style={{ display: 'flex' }}>
                     <Row gutter={24} offset={12} >
                         <Col >
                             <ProducrImg />
@@ -29,6 +28,7 @@ function ProductDetail() {
                             <ProductTitle />
                             <Table />
                             <JoinProduct />
+                            <Supply/>
                         </Col>
                     </Row>
                     <div className='container'>

@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <Routes>
-        <Route path="/" element={<Main />}/>
-        <Route path="/products/:productId" element={<ProductDetails/>} />
-        <Route path="/auction-live/:productId" element={<Auction/>} />
+        <Route target="_blank" path="/" element={<Main />} />
+        <Route target="_blank" path="/products/:productId" element={<ProductDetails />} />
+        <Route target="_blank" path="/auction-live/:productId" element={<Auction />} />
       </Routes>
     );
   }
