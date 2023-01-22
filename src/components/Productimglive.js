@@ -4,14 +4,14 @@ import productsData from "../components/Data"
 import Imagess from '../imgs/Products/10018_oVojqO0HUQ_oTMc70bUeYw.jpg';
 import { Image } from 'antd';
 
-function ProducrImg() {
+function ProducrImgLive() {
     const [visible, setVisible] = useState(false);
     const { productId } = useParams()
     const P = productsData.find(prod => prod.id === productId)
 
     return (
         <>
-            <div className='Product-imgs'>
+            <div className='Product-imgs  inf--o'>
                 <Image
                     preview={{
                         visible: false,
@@ -40,4 +40,4 @@ function ProducrImg() {
     )
 }
 
-export default ProducrImg
+export default ProducrImgLive

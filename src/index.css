@@ -24,7 +24,8 @@ h6 {
 a {
   text-decoration: none !important;
 }
-.ant-space-itemhdf{
+
+.ant-space-itemhdf {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -32,6 +33,7 @@ a {
   align-items: center;
   gap: 8px;
 }
+
 .space-align-container {
   display: flex;
   justify-content: center;
@@ -161,10 +163,6 @@ a {
 
 .dsc {
   color: #90A3BF;
-}
-
-.like {
-  color: red;
 }
 
 .car-name {
@@ -785,7 +783,7 @@ img {
   justify-content: space-between;
   align-items: flex-start;
   padding: 0px;
-  gap: 200px;
+  /* gap: 200px; */
   flex: none;
   order: 3;
   align-self: stretch;

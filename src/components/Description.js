@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
-import { Divider } from 'antd';
+import { Divider, Typography } from 'antd';
+const { Paragraph, Text } = Typography;
 
 function Descriptions() {
     const [visible, setVisible] = useState(false);
@@ -14,9 +15,9 @@ function Descriptions() {
                 <Divider orientation="left" orientationMargin="0">
                     Descriptions
                 </Divider>
-                <p className='container'>
+                <Text className='container'>
                     {P.desc}
-                </p >
+                </Text >
             </div>
         </>
     )

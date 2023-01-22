@@ -17,7 +17,9 @@ function ProductDetail() {
             <Header>
                 <Navbar />
             </Header>
-            <Content>
+            <Content style={{
+                textAlign: 'center',
+            }}>
                 <Space direction="vertical" size="middle" align="center" className='section' style={{ display: 'flex' }}>
                     <Row gutter={24} offset={12} >
                         <Col >

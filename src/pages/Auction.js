@@ -1,8 +1,8 @@
 import { FileOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme, Col, Row } from 'antd';
 import React, { useState } from 'react';
-import ProducrImg from '../components/ProductImg';
 import Navbar from "../components/Navbar";
+import ProducrImgLive from '../components/Productimglive';
 import ProductInfo from '../components/ProductInfo';
 import AuctionInfo from '../components/AuctionInfo';
 import LiveChat from '../components/LiveChat';
@@ -51,13 +51,13 @@ const App = () => {
                     <Content>
                         <Row >
                             <Col>
-                                <ProducrImg />
+                                <ProducrImgLive/>
                             </Col>
                             <Col>
                                 <ProductInfo />
                             </Col>
                             <Col>
-                                <AuctionInfo />
+<AuctionInfo />
                             </Col>
                             <Col>
                                 <LiveChat />

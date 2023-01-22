@@ -24,7 +24,13 @@ const App = () => {
       <div className='navbar'>
         <div className='logo'>
           <Link to={'/'} className="logo">
-            <img src={Logo} alt='Logo'/>
+            <div
+              style={{
+                height: 32,
+                margin: 16,
+                background: 'rgba(255, 255, 255, 0.2)',
+              }}
+            />
           </Link>
         </div>
         <div className='nav-prof'>
