@@ -24,7 +24,14 @@ h6 {
 a {
   text-decoration: none !important;
 }
-
+.ant-space-itemhdf{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 8px;
+}
 .space-align-container {
   display: flex;
   justify-content: center;
@@ -1082,17 +1089,18 @@ img {
 .inf--o {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   padding: 8px 15px 50px;
   gap: 16px;
   overflow: auto;
   background: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   order: 0;
-  margin: 0 1px;
+  margin: 0 2px;
   max-height: 100vh;
   height: 100%;
-  /* max-width: 600px; */
+  min-width: 350px;
 }
 
 .ant-row {
@@ -1102,3 +1110,61 @@ img {
 }
 
 /* Product Details end */
+
+
+/* Chat start */
+.Chat-dexsffa {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  padding: 8px 10px 60px;
+  gap: 16px;
+  overflow: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  order: 0;
+  margin: 0 2px;
+  max-height: 100vh;
+  height: 100%;
+  min-width: 350px;
+}
+
+.chahesfkt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.bedgedsgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 10px;
+  background: #3563E9;
+  border-radius: 4px;
+  color: #FFFFFF;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.chat-container {
+  display: flex;
+  /* flex: 1 1; */
+  height: 100%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Chat end */
