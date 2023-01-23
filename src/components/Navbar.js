@@ -34,7 +34,9 @@ const App = () => {
           </Link>
         </div>
         <div className='nav-prof'>
-          <Button type="primary">se Item</Button>
+          <Link to={'/sell'}>
+            <Button type="primary">se Item</Button>
+          </Link>
           <Dropdown
             menu={{
               items,

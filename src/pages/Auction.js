@@ -76,7 +76,9 @@ const App = () => {
                     </Sider>
                     <Content>
 
-                        <Row >
+                        <Row style={{
+                            flexFlow: 'nowrap'
+                        }}>
                             <Col>
                                 <ProducrImgLive />
                             </Col>
