@@ -21,7 +21,6 @@ function App() {
           <Buttons />
           <div className='space-align-container '>
             <AuctionsCardGroup />
-            <AuctionsCardGroup />
           </div>
         </Content>
         <Footer>

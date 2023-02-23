@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
-import Imagess from '../imgs/Products/10018_oVojqO0HUQ_oTMc70bUeYw.jpg';
 import { Image } from 'antd';
+import Data from '../components/Data';
 
 function ProducrImg() {
     const [visible, setVisible] = useState(false);
@@ -16,7 +16,7 @@ function ProducrImg() {
                     preview={{
                         visible: false,
                     }}
-                    src={P.img}
+                    src={P.imgM}
                     className='main-img main-img-border'
                     onClick={() => setVisible(true)}
                 />
@@ -28,11 +28,17 @@ function ProducrImg() {
                             onVisibleChange: (vis) => setVisible(vis),
                         }}
                     >
-                        <Image className='mini-imgs main-img-border' src={Imagess} />
-                        <Image className='mini-imgs main-img-border' src={P.img} />
-                        <Image className='mini-imgs main-img-border' src={P.img} />
-                        <Image className='mini-imgs main-img-border' src={Imagess} />
-
+                            <Image className='mini-imgs main-img-border'  src={P.img.ImgS} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imge} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgb} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgc} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgd} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgf} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgg} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgv} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgj} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgk} />
+                            <Image className='mini-imgs main-img-border'  src={P.img.Imgh} />
                     </Image.PreviewGroup>
                 </div>
             </div>
