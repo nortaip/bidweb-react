@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar.js';
 import Banner from '../components/Banner.js';
 import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
 import { Layout } from 'antd';
-import Buttons from '../components/Button';
 import FooterMain from '../components/FooterMain';
+import Filter from '../components/Filters';
 const { Header, Footer, Content } = Layout;
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         </Header>
         <Content>
           <Banner />
-          <Buttons />
+          <Filter />
           <div className='space-align-container '>
             <AuctionsCardGroup />
           </div>
