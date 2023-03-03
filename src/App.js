@@ -5,7 +5,7 @@ import Main from './pages/main';
 import ProductDetails from '../src/pages/Products';
 import Auction from '../src/pages/Auction';
 import Sell from "./pages/Sell";
-
+import { firestore } from "./config/firebase";
 class App extends Component {
   render() {
     return (
