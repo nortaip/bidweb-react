@@ -21,4 +21,10 @@
     align-items: center;
     padding: 0px;
     gap: 10px;
+    /* max-width: 600px !important; */
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: black;
+    border-color: black;
 }
