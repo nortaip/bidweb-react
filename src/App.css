@@ -1,193 +1,198 @@
-.tabs-content {
+.gdgf-left {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 22px;
 }
 
-.main {
+.e1113_11587 {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    background: #ebebeb;
-    border-radius: 16px;
-}
-
-.first {
-    display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 10px;
-    /* max-width: 600px !important; */
-}
-
-.ant-checkbox-checked .ant-checkbox-inner {
-    background-color: black;
-    border-color: black;
-}
-
-.space {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 100%;
-    padding: 0px;
-    gap: 8px;
+    gap: 143px;
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
 
-.asss {
-    width: calc(100% - 300px) !important;
+.e1126_12355 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 6px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
-.colors {
-    width: 30px;
+.e1113_11586 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 24px;
     background: #FFFFFF;
-    border-radius: 23px;
-    border-color: #FFFFFF;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.17);
+    border-radius: 10px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.sdfdgh345t {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    /* eco */
+    background: #B2D182;
+    color: #15803D;
+    /* jawel */
+    border: 1px solid #15803D;
+    border-radius: 10px;
     flex: none;
     order: 1;
     flex-grow: 0;
-    box-shadow: none;
 }
 
-.btnclorgroup {
+.e1113_11600 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+    background: #2563EB;
+    color: #FFFFFF;
+    border-radius: 5px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.e1113_11610 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.btn-phone {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 10px 58px;
+    gap: 10px;
+    /* button main */
+    background: #0066FF;
+    border-radius: 8px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.Hash {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 15px;
+    gap: 10px;
+    /* secondary */
+    background: #E9EAEF;
+    border-radius: 8px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.e1113_11617 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    max-width: 384px;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.e1113_11627 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 7px;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.e1113_11593 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    isolation: isolate;
+    gap: 10px;
 
-    background: #FFFFFF;
-    border-radius: 23px;
+}
 
+.Checked {
+    background-image: url(../src/imgs/icons/VerifiedCheck.svg);
+    width: 24px;
+    height: 24px;
+}
+
+.e1113_11602 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 10px;
+    background: #FEE2E2;
+    color: #EF4444;
+    border-radius: 32px;
     /* Inside auto layout */
-    margin-left: 8px;
-    flex: none;
-    order: 6;
-    flex-grow: 0;
-}
-
-.white {
-    background-color: #FFFFFF;
-}
-
-.black {
-    background-color: #000;
-}
-
-.brown {
-    background: #9C5B11;
-}
-
-.purple {
-    background: #8703F9;
-}
-
-.green {
-    background: #00AB3B;
-}
-
-.grey {
-    background: #8C8C8C;
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 1;
 }
 
-.grey2 {
-    background: linear-gradient(90deg, #D3D3D3 0%, #E7E7E7 15.27%, #F3F3F3 48.09%, #AFAFAF 100%);
-}
-
-.blue {
-    background: #0049E5;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 1;
-}
-
-.blue2 {
-    background: #00B9FB;
+.e1113_11606 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 10px;
+    /* Green / 100 */
+    background: #D1FAE5;
+    color: #047857;
+    border-radius: 32px;
+    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
-    z-index: 0;
-}
-
-.yellow1 {
-    background: #FEE2A3;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 3;
-}
-
-.yellow2 {
-    background: #FFF249;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 2;
-}
-
-.yellow3 {
-    background: linear-gradient(90deg, #F1D358 1.04%, #FEEE89 40.1%, #E5CA4C 74.48%, #E9CD44 100%);
-    flex: none;
-    order: 3;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: -1;
-}
-
-.red {
-    background: #F9211B;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 3;
-}
-
-.rd {
-    margin-left: 18px;
-}
-
-.red2 {
-    background: #BF0813;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 2;
-}
-
-.red3 {
-    background: #FC882B;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: 1;
-}
-
-.red4 {
-    background: #FE3EB1;
-    flex: none;
-    order: 3;
-    flex-grow: 0;
-    margin: 0px -9px;
-    z-index: -1;
 }

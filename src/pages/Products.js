@@ -22,12 +22,15 @@ function ProductDetail() {
                 <Space direction="vertical" size="middle" align="center" className='section container' style={{ display: 'flex' }}>
                     <ProducrImg />
                     <Row gutter={24} offset={12} >
+                        <Col>
+                            <Table />
+                        </Col>
                         <Col className='right-info'>
                             <ProductTitle />
-                            <Table />
-                            <JoinProduct />
-                            <Supply />
+                            {/* <JoinProduct />  */}
+                            {/* <Supply />  */}
                         </Col>
+
                     </Row>
                     <div className='container'>
                         <Description />
