@@ -519,7 +519,20 @@ const Data = [
     activity: "Active",
     people: "5 People",
     Button: "1",
-    img: sfhdgs47d,
+    imgM:sfhdgs47d,
+    img: {
+      Simg: Mer921,
+      Img: mer767,
+      Img: mer662,
+      Img: Mer103,
+      Img: Mer274,
+      Img: Mer431,
+      Img: Mer436,
+      Img: Mer463,
+      Img: Mer475,
+      Img: Mer718,
+      Img: Mer639,
+    },
     desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
@@ -545,7 +558,7 @@ const Data = [
     activity: "Active",
     people: "5 People",
     Button: "1",
-    img: sfdgvsedhdgsd,
+    imgM: sfdgvsedhdgsd,
     desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
@@ -571,7 +584,7 @@ const Data = [
     activity: "Active",
     people: "5 People",
     Button: "1",
-    img: sfhdgdfghesd,
+    imgM: sfhdgdfghesd,
     desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
   {
@@ -597,7 +610,7 @@ const Data = [
     activity: "Active",
     people: "5 People",
     Button: "1",
-    img: werbvinsk,
+    imgM: werbvinsk,
     desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
 

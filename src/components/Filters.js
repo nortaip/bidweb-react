@@ -3,11 +3,6 @@ import React, { useState } from 'react';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Collapse } from 'antd';
 
-const { Panel } = Collapse;
-const mockVal = (str, repeat = 1) => ({
-  value: str.repeat(repeat),
-});
-
 function Filter() {
 
   const [options, setOptions] = useState([]);
@@ -18,8 +13,13 @@ function Filter() {
   };
 
   const [form] = Form.useForm();
-  const onFinish = (values) => {
-    console.log('Received values of form:', values);
+  const onFinish = async () => {
+    try {
+      const values = await form.validateFields();
+      console.log('Submit:', values);
+    } catch (errInfo) {
+      console.log('Error:', errInfo);
+    }
   };
 
   const handleChange = () => {
@@ -31,6 +31,11 @@ function Filter() {
   const onkbox = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
+
+  const onReset = () => {
+    form.resetFields();
+  };
+
   return (
     <div className="container filter">
       <div className="tabs">
@@ -45,7 +50,7 @@ function Filter() {
           form={form}
           name="dynamic_form_complex"
           onFinish={onFinish}
-          autoComplete="off"
+          autoComplete="on"
         >
           <Form.List name="sights">
             {(fields, { add, remove }) => (
@@ -255,164 +260,162 @@ function Filter() {
                 </Space>
                 {/* Km,VIP,New */}
                 <Space>
-                  <Collapse defaultActiveKey={['1']} ghost>
-                    <Panel header="Ümumi axtarış" key="1">
-                      <Space>
-                        <Input.Group compact>
-                          <InputNumber min={1} max={1000000000000000000000000000000000}
-                            style={{
-                              width: 100,
-                              textAlign: 'center',
-                            }}
-                            size="large"
-                            placeholder="Həcmi, l"
-                          />
-                          <InputNumber min={1} max={1000000000000000000000000000000000}
-                            className="site-input-right"
-                            style={{
-                              width: 100,
-                              textAlign: 'center',
-                            }}
-                            size="large"
-                            placeholder="Həcmədək"
-                          />
-                        </Input.Group>
-                        <Input.Group compact >
-                          <Select
-                            placeholder="Ötürücü"
-                            style={{
-                              width: 120,
-                            }}
-                            size="large"
-                            onChange={handleChange}
-                            options={[
-                              {
-                                value: 'jack',
-                                label: 'Jack',
-                              },
-                              {
-                                value: 'lucy',
-                                label: 'Lucy',
-                              },
-                              {
-                                value: 'Yiminghe',
-                                label: 'yiminghe',
-                              },
-                              {
-                                value: 'disabled',
-                                label: 'Disabled',
-                                disabled: true,
-                              },
-                            ]}
-                          />
-                        </Input.Group>
-                        <Input.Group compact>
-                          <InputNumber min={1} max={1000000000000000000000000000000000}
-                            style={{
-                              width: 100,
-                              textAlign: 'center',
-                            }}
-                            size="large"
-                            placeholder="Yürüş,Km dən"
-                          />
-                          <InputNumber min={1} max={1000000000000000000000000000000000}
-                            className="site-input-right"
-                            style={{
-                              width: 100,
-                              textAlign: 'center',
-                            }}
-                            size="large"
-                            placeholder="Km rə"
-                          />
-                        </Input.Group>
-                        <Checkbox onChange={onkbox} className='checkbox-filter'>ViP Elanlar</Checkbox>
-                        <Checkbox onChange={onkbox} className='checkbox-filter'>Yeni elanlar</Checkbox>
-                      </Space>
-                      {/* NO,Color */}
-                      <Space>
-                        <Select
-                          placeholder="Ban tipi"
-                          style={{
-                            width: 120,
-                          }}
-                          size="large"
-                          onChange={handleChange}
-                          options={[
-                            {
-                              value: 'jack',
-                              label: 'Jack',
-                            },
-                            {
-                              value: 'lucy',
-                              label: 'Lucy',
-                            },
-                            {
-                              value: 'Yiminghe',
-                              label: 'yiminghe',
-                            },
-                            {
-                              value: 'disabled',
-                              label: 'Disabled',
-                              disabled: true,
-                            },
-                          ]}
-                        />
-
-                        {/* colors */}
-                        <Space >
-                          <Button shape="round" size="large">Hamısı</Button>
-                          <Button type="primary" className='colors white' shape="circle"></Button>
-                          <Button type="primary" className='colors black' shape="circle"></Button>
-                          <Button type="primary" className='colors brown' shape="circle"></Button>
-                          <Button type="primary" className='colors purple' shape="circle"></Button>
-                          <Button type="primary" className='colors green' shape="circle"></Button>
-                          <div className='btnclorgroup'>
-                            <Button type="primary" className='colors grey' shape="circle"></Button>
-                            <Button type="primary" className='colors grey2' shape="circle"></Button>
-                          </div>
-                          <div className='btnclorgroup'>
-                            <Button type="primary" className='colors blue ' shape="circle"></Button>
-                            <Button type="primary" className='colors blue2' shape="circle"></Button>
-                          </div>
-                          <div className='btnclorgroup '>
-                            <Button type="primary" className='colors yellow1' shape="circle"></Button>
-                            <Button type="primary" className='colors yellow2' shape="circle"></Button>
-                            <Button type="primary" className='colors yellow3' shape="circle"></Button>
-                          </div>
-                          <div className='btnclorgroup rd'>
-                            <Button type="primary" className='colors red' shape="circle"></Button>
-                            <Button type="primary" className='colors red2' shape="circle"></Button>
-                            <Button type="primary" className='colors red3' shape="circle"></Button>
-                            <Button type="primary" className='colors red4' shape="circle"></Button>
-                          </div>
-                        </Space>
-                      </Space>
-                      {/* In addition to */}
-                      <Space >
-
-                        <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Xarici maşınlar</Checkbox>
-                        <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Barter mümkündür</Checkbox>
-
-
-                        <Radio.Group size="large" buttonStyle="solid">
-                          <Radio.Button value="a">Benzin</Radio.Button>
-                          <Radio.Button value="b">Dizel</Radio.Button>
-                          <Radio.Button value="c">Electrik</Radio.Button>
-                        </Radio.Group>
-
-                        <Radio.Group size="large" buttonStyle="solid">
-                          <Radio.Button value="a">Ön</Radio.Button>
-                          <Radio.Button value="b">Arxa</Radio.Button>
-                          <Radio.Button value="c">4x4</Radio.Button>
-                        </Radio.Group>
-                      </Space>
-                    </Panel>
-                  </Collapse>
-                  {/* Button */}
-                  <Button type="primary" htmlType="submit">
-                    Axtar
-                  </Button>
+                  <Input.Group compact>
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Həcmi, l"
+                    />
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      className="site-input-right"
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Həcmədək"
+                    />
+                  </Input.Group>
+                  <Input.Group compact >
+                    <Select
+                      placeholder="Ötürücü"
+                      style={{
+                        width: 120,
+                      }}
+                      size="large"
+                      onChange={handleChange}
+                      options={[
+                        {
+                          value: 'jack',
+                          label: 'Jack',
+                        },
+                        {
+                          value: 'lucy',
+                          label: 'Lucy',
+                        },
+                        {
+                          value: 'Yiminghe',
+                          label: 'yiminghe',
+                        },
+                        {
+                          value: 'disabled',
+                          label: 'Disabled',
+                          disabled: true,
+                        },
+                      ]}
+                    />
+                  </Input.Group>
+                  <Input.Group compact>
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Yürüş,Km dən"
+                    />
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      className="site-input-right"
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Km rə"
+                    />
+                  </Input.Group>
+                  <Checkbox onChange={onkbox} className='checkbox-filter'>ViP Elanlar</Checkbox>
+                  <Checkbox onChange={onkbox} className='checkbox-filter'>Yeni elanlar</Checkbox>
                 </Space>
+                {/* NO,Color */}
+                <Space>
+                  <Select
+                    placeholder="Ban tipi"
+                    style={{
+                      width: 120,
+                    }}
+                    size="large"
+                    onChange={handleChange}
+                    options={[
+                      {
+                        value: 'jack',
+                        label: 'Jack',
+                      },
+                      {
+                        value: 'lucy',
+                        label: 'Lucy',
+                      },
+                      {
+                        value: 'Yiminghe',
+                        label: 'yiminghe',
+                      },
+                      {
+                        value: 'disabled',
+                        label: 'Disabled',
+                        disabled: true,
+                      },
+                    ]}
+                  />
+
+                  {/* colors */}
+                  <Space >
+                    <Button shape="round" size="large">Hamısı</Button>
+                    <Button type="primary" className='colors white' shape="circle"></Button>
+                    <Button type="primary" className='colors black' shape="circle"></Button>
+                    <Button type="primary" className='colors brown' shape="circle"></Button>
+                    <Button type="primary" className='colors purple' shape="circle"></Button>
+                    <Button type="primary" className='colors green' shape="circle"></Button>
+                    <div className='btnclorgroup'>
+                      <Button type="primary" className='colors grey' shape="circle"></Button>
+                      <Button type="primary" className='colors grey2' shape="circle"></Button>
+                    </div>
+                    <div className='btnclorgroup'>
+                      <Button type="primary" className='colors blue ' shape="circle"></Button>
+                      <Button type="primary" className='colors blue2' shape="circle"></Button>
+                    </div>
+                    <div className='btnclorgroup '>
+                      <Button type="primary" className='colors yellow1' shape="circle"></Button>
+                      <Button type="primary" className='colors yellow2' shape="circle"></Button>
+                      <Button type="primary" className='colors yellow3' shape="circle"></Button>
+                    </div>
+                    <div className='btnclorgroup rd'>
+                      <Button type="primary" className='colors red' shape="circle"></Button>
+                      <Button type="primary" className='colors red2' shape="circle"></Button>
+                      <Button type="primary" className='colors red3' shape="circle"></Button>
+                      <Button type="primary" className='colors red4' shape="circle"></Button>
+                    </div>
+                  </Space>
+                </Space>
+                {/* In addition to */}
+                <Space >
+
+                  <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Xarici maşınlar</Checkbox>
+                  <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Barter mümkündür</Checkbox>
+
+
+                  <Radio.Group size="large" buttonStyle="solid">
+                    <Radio.Button value="a">Benzin</Radio.Button>
+                    <Radio.Button value="b">Dizel</Radio.Button>
+                    <Radio.Button value="c">Electrik</Radio.Button>
+                  </Radio.Group>
+
+                  <Radio.Group size="large" buttonStyle="solid">
+                    <Radio.Button value="a">Ön</Radio.Button>
+                    <Radio.Button value="b">Arxa</Radio.Button>
+                    <Radio.Button value="c">4x4</Radio.Button>
+                  </Radio.Group>
+                </Space>
+
+                {/* Buttons */}
+                <Button htmlType="button" onClick={onReset}>
+                  Reset
+                </Button>
+                <Button htmlType="submit" type="primary">
+                  Axtar
+                </Button>
               </Space>
             )}
           </Form.List>
