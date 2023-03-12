@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
 import Description from '../components/Description';
 import { message, Popconfirm } from 'antd';
+import { RWebShare } from "react-web-share";
 
 function TableProduct() {
     const [visible, setVisible] = useState(false);
@@ -30,7 +31,16 @@ function TableProduct() {
                     <div className='f-hrfeed-right'>
                         <div className='f-iconafs'>
                             <div className="like-icon"></div>
-                            <div className="Share"></div>
+                            <RWebShare
+                                data={{
+                                    text: "Web Share - GfG",
+                                    url: "http://localhost:3000",
+                                    title: "GfG",
+                                }}
+                                onClick={() => console.log("shared successfully!")}
+                            >
+                                <div className="Share"></div>
+                            </RWebShare>
                             <Popconfirm
                                 title="Report"
                                 description="Are you sure to Report this Post?"
@@ -140,7 +150,7 @@ function TableProduct() {
                     <Description />
                 </div>
 
-            </div>
+            </div >
         </>
     )
 }

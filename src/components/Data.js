@@ -24,7 +24,6 @@ import Mer463 from '../imgs/Products/Mer46361_aUFEKy2sFmTSS3xJjFZOGA.jpg';
 import Mer475 from '../imgs/Products/Mer47541_fNQwiA-8kR5Dtq-ANu2KfQ.jpg';
 import Mer718 from '../imgs/Products/Mer71812_Rt7wr7Vgcq_7Rw4PL1gJYg.jpg';
 import Mer639 from '../imgs/Products/Mer63935_6CWgsn86oQskAIfJ-DN6sA.jpg';
-import Mer662 from '../imgs/Products/Mer66233_LAr-WYjGe84Xe1dHjlEMFA.jpg';
 
 const Data = [
   {
