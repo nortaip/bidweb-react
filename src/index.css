@@ -1417,10 +1417,21 @@ img {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0px;
   gap: 143px;
   flex: none;
   order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.e1113_115872 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 143px;
+  flex: none;
+  order: 1;
   align-self: stretch;
   flex-grow: 0;
 }
@@ -1430,7 +1441,6 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0px;
   gap: 6px;
   flex: none;
   order: 0;
@@ -1535,13 +1545,15 @@ img {
 .e1113_11617 {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
   padding: 0px;
-  gap: 8px;
-  max-width: 384px;
-  flex-wrap: wrap;
-  align-content: center;
+  gap: 15px;
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+
 }
 
 .e1113_11627 {
