@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Layout>
-        <Header >
+        <Header className='navbarmain'>
           <Navbar />
         </Header>
         <Content>

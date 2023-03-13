@@ -38,96 +38,96 @@ function Filter() {
     form.resetFields();
   };
   const extraContent = <div>
-    {/* NO,Color */}
-    <Space>
-      <Select
-        placeholder="Ban tipi"
-        style={{
-          width: 120,
-        }}
-        size="large"
-        onChange={handleChange}
-        options={[
-          {
-            value: 'jack',
-            label: 'Jack',
-          },
-          {
-            value: 'lucy',
-            label: 'Lucy',
-          },
-          {
-            value: 'Yiminghe',
-            label: 'yiminghe',
-          },
-          {
-            value: 'disabled',
-            label: 'Disabled',
-            disabled: true,
-          },
-        ]}
-      />
+      {/* NO,Color */}
+      <Space>
+        <Select
+          placeholder="Ban tipi"
+          style={{
+            width: 120,
+          }}
+          size="large"
+          onChange={handleChange}
+          options={[
+            {
+              value: 'jack',
+              label: 'Jack',
+            },
+            {
+              value: 'lucy',
+              label: 'Lucy',
+            },
+            {
+              value: 'Yiminghe',
+              label: 'yiminghe',
+            },
+            {
+              value: 'disabled',
+              label: 'Disabled',
+              disabled: true,
+            },
+          ]}
+        />
 
-      {/* colors */}
-      <Space >
-        <Button shape="round" size="large">Hamısı</Button>
-        <Button type="primary" className='colors white' shape="circle"></Button>
-        <Button type="primary" className='colors black' shape="circle"></Button>
-        <Button type="primary" className='colors brown' shape="circle"></Button>
-        <Button type="primary" className='colors purple' shape="circle"></Button>
-        <Button type="primary" className='colors green' shape="circle"></Button>
-        <div className='btnclorgroup'>
-          <Button type="primary" className='colors grey' shape="circle"></Button>
-          <Button type="primary" className='colors grey2' shape="circle"></Button>
-        </div>
-        <div className='btnclorgroup'>
-          <Button type="primary" className='colors blue ' shape="circle"></Button>
-          <Button type="primary" className='colors blue2' shape="circle"></Button>
-        </div>
-        <div className='btnclorgroup '>
-          <Button type="primary" className='colors yellow1' shape="circle"></Button>
-          <Button type="primary" className='colors yellow2' shape="circle"></Button>
-          <Button type="primary" className='colors yellow3' shape="circle"></Button>
-        </div>
-        <div className='btnclorgroup rd'>
-          <Button type="primary" className='colors red' shape="circle"></Button>
-          <Button type="primary" className='colors red2' shape="circle"></Button>
-          <Button type="primary" className='colors red3' shape="circle"></Button>
-          <Button type="primary" className='colors red4' shape="circle"></Button>
-        </div>
+        {/* colors */}
+        <Space >
+          <Button shape="round" size="large">Hamısı</Button>
+          <Button type="primary" className='colors white' shape="circle"></Button>
+          <Button type="primary" className='colors black' shape="circle"></Button>
+          <Button type="primary" className='colors brown' shape="circle"></Button>
+          <Button type="primary" className='colors purple' shape="circle"></Button>
+          <Button type="primary" className='colors green' shape="circle"></Button>
+          <div className='btnclorgroup'>
+            <Button type="primary" className='colors grey' shape="circle"></Button>
+            <Button type="primary" className='colors grey2' shape="circle"></Button>
+          </div>
+          <div className='btnclorgroup'>
+            <Button type="primary" className='colors blue ' shape="circle"></Button>
+            <Button type="primary" className='colors blue2' shape="circle"></Button>
+          </div>
+          <div className='btnclorgroup '>
+            <Button type="primary" className='colors yellow1' shape="circle"></Button>
+            <Button type="primary" className='colors yellow2' shape="circle"></Button>
+            <Button type="primary" className='colors yellow3' shape="circle"></Button>
+          </div>
+          <div className='btnclorgroup rd'>
+            <Button type="primary" className='colors red' shape="circle"></Button>
+            <Button type="primary" className='colors red2' shape="circle"></Button>
+            <Button type="primary" className='colors red3' shape="circle"></Button>
+            <Button type="primary" className='colors red4' shape="circle"></Button>
+          </div>
+        </Space>
       </Space>
-    </Space>
-    {/* In addition to */}
-    <Space >
+      {/* In addition to */}
+      <Space >
 
-      <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Xarici maşınlar</Checkbox>
-      <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Barter mümkündür</Checkbox>
+        <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Xarici maşınlar</Checkbox>
+        <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Barter mümkündür</Checkbox>
 
 
-      <Radio.Group size="large" buttonStyle="solid">
-        <Radio.Button value="a">Benzin</Radio.Button>
-        <Radio.Button value="b">Dizel</Radio.Button>
-        <Radio.Button value="c">Electrik</Radio.Button>
-      </Radio.Group>
+        <Radio.Group size="large" buttonStyle="solid">
+          <Radio.Button value="a">Benzin</Radio.Button>
+          <Radio.Button value="b">Dizel</Radio.Button>
+          <Radio.Button value="c">Electrik</Radio.Button>
+        </Radio.Group>
 
-      <Radio.Group size="large" buttonStyle="solid">
-        <Radio.Button value="a">Ön</Radio.Button>
-        <Radio.Button value="b">Arxa</Radio.Button>
-        <Radio.Button value="c">4x4</Radio.Button>
-      </Radio.Group>
-    </Space>
-  </div>
- 
+        <Radio.Group size="large" buttonStyle="solid">
+          <Radio.Button value="a">Ön</Radio.Button>
+          <Radio.Button value="b">Arxa</Radio.Button>
+          <Radio.Button value="c">4x4</Radio.Button>
+        </Radio.Group>
+      </Space>
+    </div>
+
   const linkName = readMore ? 'Ümumi axtarış ' : 'Ümumi axtarış'
 
   return (
     <div className="container filter">
       <div className="tabs">
-        <div className="tabs-content">
-          <div className="tabs-content-1"><h3>Ətraflı axtarış</h3></div>
-          {/* <div className="tabs-content-2"><h3>İşlənmiş maşın</h3></div>
-          <div className="tabs-content-3"><h3>Salonlar</h3></div> */}
-        </div>
+        {/* <div className="tabs-content">
+           <div className="tabs-content-1"><h3>Ətraflı axtarış</h3></div>
+           <div className="tabs-content-2"><h3>İşlənmiş maşın</h3></div>
+           <div className="tabs-content-3"><h3>Salonlar</h3></div>
+        </div>  */}
       </div>
       <div className="main">
         <Form
@@ -138,7 +138,7 @@ function Filter() {
         >
           <Form.List name="sights">
             {(fields, { add, remove }) => (
-              <div>
+              <Space direction="vertical">
                 {/* Marka,model,add+ */}
                 <div className='space'>
                   <AutoComplete
@@ -177,35 +177,35 @@ function Filter() {
                   />
                 </div>
                 <div>
-                {fields.map((field) => (
-                  <div className='space' >
-                    <AutoComplete
-                      options={options}
-                      className='asss'
-                      size="large"
-                      onSelect={onSelect}
-                      onSearch={(text) => setOptions(getPanelValue(text))}
-                      placeholder="Marka"
-                    />
-                    <AutoComplete
-                      options={options}
-                      className='asss'
-                      size="large"
-                      onSelect={onSelect}
-                      onSearch={(text) => setOptions(getPanelValue(text))}
-                      placeholder="Madel"
-                    />
-                    <AutoComplete
-                      options={options}
-                      className='asss'
-                      size="large"
-                      onSelect={onSelect}
-                      onSearch={(text) => setOptions(getPanelValue(text))}
-                      placeholder="Nəsil"
-                    />
-                    <MinusCircleOutlined onClick={() => remove(field.name)} />
-                  </div>
-                ))}
+                  {fields.map((field) => (
+                    <div className='space' >
+                      <AutoComplete
+                        options={options}
+                        className='asss'
+                        size="large"
+                        onSelect={onSelect}
+                        onSearch={(text) => setOptions(getPanelValue(text))}
+                        placeholder="Marka"
+                      />
+                      <AutoComplete
+                        options={options}
+                        className='asss'
+                        size="large"
+                        onSelect={onSelect}
+                        onSearch={(text) => setOptions(getPanelValue(text))}
+                        placeholder="Madel"
+                      />
+                      <AutoComplete
+                        options={options}
+                        className='asss'
+                        size="large"
+                        onSelect={onSelect}
+                        onSearch={(text) => setOptions(getPanelValue(text))}
+                        placeholder="Nəsil"
+                      />
+                      <MinusCircleOutlined onClick={() => remove(field.name)} />
+                    </div>
+                  ))}
                 </div>
                 {/* Price,year */}
                 <Space>
@@ -428,7 +428,8 @@ function Filter() {
                   <Button htmlType="submit" type="primary">
                     Axtar
                   </Button>
-                </Space></div>
+                </Space>
+              </Space>
             )}
           </Form.List>
         </Form>
