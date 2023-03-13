@@ -108,7 +108,7 @@ function TableProduct() {
                                     <span className='skkgetC'></span>
                                     <h4 className='Regular'>Mühərrik gücü</h4>
                                 </div>
-                                <h4 className='Regular'><a href='#'>{P.HP}</a></h4>
+                                <h4 className='Regular'>{P.HP}</h4>
                             </div>
                             <div className='Lkfsa'>
                                 <div className='skufesf'>

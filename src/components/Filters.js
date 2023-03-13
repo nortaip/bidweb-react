@@ -38,78 +38,6 @@ function Filter() {
     form.resetFields();
   };
   const extraContent = <div>
-    {/* Km,VIP,New */}
-    <Space>
-      <Input.Group compact>
-        <InputNumber min={1} max={1000000000000000000000000000000000}
-          style={{
-            width: 100,
-            textAlign: 'center',
-          }}
-          size="large"
-          placeholder="Həcmi, l"
-        />
-        <InputNumber min={1} max={1000000000000000000000000000000000}
-          className="site-input-right"
-          style={{
-            width: 100,
-            textAlign: 'center',
-          }}
-          size="large"
-          placeholder="Həcmədək"
-        />
-      </Input.Group>
-      <Input.Group compact >
-        <Select
-          placeholder="Ötürücü"
-          style={{
-            width: 120,
-          }}
-          size="large"
-          onChange={handleChange}
-          options={[
-            {
-              value: 'jack',
-              label: 'Jack',
-            },
-            {
-              value: 'lucy',
-              label: 'Lucy',
-            },
-            {
-              value: 'Yiminghe',
-              label: 'yiminghe',
-            },
-            {
-              value: 'disabled',
-              label: 'Disabled',
-              disabled: true,
-            },
-          ]}
-        />
-      </Input.Group>
-      <Input.Group compact>
-        <InputNumber min={1} max={1000000000000000000000000000000000}
-          style={{
-            width: 100,
-            textAlign: 'center',
-          }}
-          size="large"
-          placeholder="Yürüş,Km dən"
-        />
-        <InputNumber min={1} max={1000000000000000000000000000000000}
-          className="site-input-right"
-          style={{
-            width: 100,
-            textAlign: 'center',
-          }}
-          size="large"
-          placeholder="Km rə"
-        />
-      </Input.Group>
-      <Checkbox onChange={onkbox} className='checkbox-filter'>ViP Elanlar</Checkbox>
-      <Checkbox onChange={onkbox} className='checkbox-filter'>Yeni elanlar</Checkbox>
-    </Space>
     {/* NO,Color */}
     <Space>
       <Select
@@ -189,7 +117,9 @@ function Filter() {
       </Radio.Group>
     </Space>
   </div>
-  const linkName = readMore ? 'Read Less << ' : 'Read More >> '
+ 
+  const linkName = readMore ? 'Ümumi axtarış ' : 'Ümumi axtarış'
+
   return (
     <div className="container filter">
       <div className="tabs">
@@ -208,7 +138,7 @@ function Filter() {
         >
           <Form.List name="sights">
             {(fields, { add, remove }) => (
-              <Space direction="vertical">
+              <div>
                 {/* Marka,model,add+ */}
                 <div className='space'>
                   <AutoComplete
@@ -246,6 +176,7 @@ function Filter() {
                     size="large"
                   />
                 </div>
+                <div>
                 {fields.map((field) => (
                   <div className='space' >
                     <AutoComplete
@@ -275,6 +206,7 @@ function Filter() {
                     <MinusCircleOutlined onClick={() => remove(field.name)} />
                   </div>
                 ))}
+                </div>
                 {/* Price,year */}
                 <Space>
                   <Input.Group compact>
@@ -412,16 +344,91 @@ function Filter() {
                     ]}
                   />
                 </Space>
+                {/* Km,VIP,New */}
+                <Space>
+                  <Input.Group compact>
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Həcmi, l"
+                    />
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      className="site-input-right"
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Həcmədək"
+                    />
+                  </Input.Group>
+                  <Input.Group compact >
+                    <Select
+                      placeholder="Ötürücü"
+                      style={{
+                        width: 120,
+                      }}
+                      size="large"
+                      onChange={handleChange}
+                      options={[
+                        {
+                          value: 'jack',
+                          label: 'Jack',
+                        },
+                        {
+                          value: 'lucy',
+                          label: 'Lucy',
+                        },
+                        {
+                          value: 'Yiminghe',
+                          label: 'yiminghe',
+                        },
+                        {
+                          value: 'disabled',
+                          label: 'Disabled',
+                          disabled: true,
+                        },
+                      ]}
+                    />
+                  </Input.Group>
+                  <Input.Group compact>
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Yürüş,Km dən"
+                    />
+                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                      className="site-input-right"
+                      style={{
+                        width: 100,
+                        textAlign: 'center',
+                      }}
+                      size="large"
+                      placeholder="Km rə"
+                    />
+                  </Input.Group>
+                  <Checkbox onChange={onkbox} className='checkbox-filter'>ViP Elanlar</Checkbox>
+                  <Checkbox onChange={onkbox} className='checkbox-filter'>Yeni elanlar</Checkbox>
+                </Space>
                 {/* Buttons */}
                 {readMore && extraContent}
-                <div className="read-more-link" onClick={() => { setReadMore(!readMore) }}><h2>{linkName}</h2></div>
-                <Button htmlType="button" onClick={onReset}>
-                  Reset
-                </Button>
-                <Button htmlType="submit" type="primary">
-                  Axtar
-                </Button>
-              </Space>
+                <Space>
+                  <div className="read-more-link" onClick={() => { setReadMore(!readMore) }}>
+                    <h4>{linkName}</h4>
+                  </div>
+                  <Button htmlType="button" onClick={onReset}>
+                    Reset
+                  </Button>
+                  <Button htmlType="submit" type="primary">
+                    Axtar
+                  </Button>
+                </Space></div>
             )}
           </Form.List>
         </Form>

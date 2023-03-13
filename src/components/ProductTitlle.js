@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
 import { PhoneFilled } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
+import TableSalon from './TableSalon';
 
 function ProductTitle() {
     const [visible, setVisible] = useState(false);
@@ -56,6 +57,7 @@ function ProductTitle() {
                         <span className="e1113_11616">Satıcıya elanı Bidex.az saytında tapdığınızı bildirin</span>
                     </div>
                 </div>
+                <TableSalon />
                 <div className="e1113_11617">
                     <div className="Hash">
                         <h4 className="SemiBold">#Nəsimi</h4>
@@ -75,6 +77,7 @@ function ProductTitle() {
                     <h4 className="e1113_11629 secondary">Yeniləndi: 30 Yanvar 2023</h4>
                 </div>
             </div>
+
         </>
     )
 }
