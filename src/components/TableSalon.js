@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import productsData from "../components/Data"
-import { PhoneFilled } from '@ant-design/icons';
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 
 function TableSalon() {
     const [visible, setVisible] = useState(false);
@@ -41,7 +41,9 @@ function TableSalon() {
                         <div className="e1113_11606">
                             <h4 className="e1113_11605">Best</h4>
                         </div>
-                        <Button className='btn-phonesa' type="primary">Salona kec</Button>
+                        <Link target="_blank" to={`/Salon/$511`}>
+                            <Button className='btn-phonesa' type="primary">Salona kec</Button>
+                        </Link>
                     </div>
 
                 </div>

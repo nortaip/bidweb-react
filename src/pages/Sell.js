@@ -10,7 +10,7 @@ function Sell() {
     return (
         <>
             <Layout>
-                <Header >
+                <Header className='navbarmain'>
                     <Navbar />
                 </Header>
                 <Content>

@@ -58,7 +58,7 @@ const App = () => {
             }}
         >
             <Layout className="site-layout">
-                <Header>
+                <Header className='navbarmain'>
                     <Navbar />
                 </Header>
                 <Layout style={{

@@ -12,7 +12,7 @@ function ProductDetail() {
 
     return (
         <Layout>
-            <Header>
+            <Header className='navbarmain'>
                 <Navbar />
             </Header>
             <Content className='container'>
