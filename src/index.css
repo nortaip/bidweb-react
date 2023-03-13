@@ -4,7 +4,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Lexend";
-  background-color: #fff !important;
+  background-color: #F6F7FA !important;
 }
 
 .container {
@@ -209,9 +209,13 @@ a {
 }
 
 .products-i__top img {
-  display: block;
+  display: flex;
   border-radius: 10px;
-  width: 100%
+  /* width: 100%; */
+  height: 193px;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .products-i {
@@ -595,7 +599,7 @@ img {
 .filtr {
   /* width: 100%; */
   padding: 20px 0 20px 0;
-  background: #FBFBFB;
+  background: #EBEDF3;
   box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -1224,7 +1228,7 @@ img {
   flex-direction: row;
   align-items: center;
   padding: 20px;
-  background: #ebebeb;
+  background: #EBEDF3;
   border-radius: 16px;
 }
 
@@ -1410,6 +1414,7 @@ img {
   align-items: flex-start;
   padding: 0px;
   gap: 22px;
+  max-width: 350px;
 }
 
 .e1113_11587 {

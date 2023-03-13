@@ -8,6 +8,7 @@ const contentStyle = {
     lineHeight: '160px',
     textAlign: 'center',
     background: '#364d79',
+    with: '100%'
 };
 const App = () => {
     const onChange = (currentSlide) => {
@@ -15,12 +16,8 @@ const App = () => {
     };
     return (
         <Carousel autoplay>
-            <div>
-                <img src={img} style={contentStyle} alt='Banner' />
-            </div>
-            <div>
-                <img src={img2} style={contentStyle} alt='Banner' />
-            </div>
+            <img src={img} style={contentStyle} alt='Banner' />
+            <img src={img2} style={contentStyle} alt='Banner' />
         </Carousel>
     );
 };
