@@ -93,6 +93,14 @@ a {
   font-weight: 400;
 }
 
+.main-color {
+  font-family: 'Lexend';
+  font-size: 16px;
+  line-height: 25px;
+  /* identical to box height */
+  color: #000000;
+}
+
 .secondary {
   color: #888B97;
 }
@@ -114,9 +122,10 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   /* gap: 283px; */
   /* margin-top: 15px; */
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 .nav-prof {
@@ -2094,4 +2103,13 @@ img {
   padding: 0px;
   gap: 16px;
   margin-top: 54px;
+}
+
+.sgbdrf {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 21px;
 }
