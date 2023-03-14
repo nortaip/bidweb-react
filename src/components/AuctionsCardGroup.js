@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Data from "./Data";
+import Data from "./Api/Data";
 import Card from "./OUC-card";
 import { Divider, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';

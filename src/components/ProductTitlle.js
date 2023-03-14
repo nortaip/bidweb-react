@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "../components/Data"
+import productsData from "./Api/Data"
 import { PhoneFilled } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import TableSalon from './TableSalon';

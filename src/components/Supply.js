@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "../components/Data"
+import productsData from "./Api/Data"
 import { Col, Row, Space } from 'antd';
 import { PhoneFilled, EnvironmentFilled, CrownFilled, FireFilled, CaretUpFilled } from '@ant-design/icons';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "../components/Data"
+import productsData from "./Api/Data"
 import { Link } from "react-router-dom";
 import { Button } from 'antd';
 

@@ -1,10 +1,15 @@
 import { Carousel } from 'antd';
-
+import LogoSalon from '../imgs/LogoSalon.png'
 const Salonheader = () => {
 
     return (
         <>
             <div className='container'>
+                <div className='jbvdsdsghvg'>
+                    <img src={LogoSalon} className='jbvdsd' />
+
+                </div>
+
                 <div className='kbcvbsd'>
                     <div className='hhdSsfaq'>
                         <h3>Hongqi Azərbaycan</h3>
