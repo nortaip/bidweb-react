@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import FooterMain from '../components/FooterMain';
 import SalonBanner from '../components/SalonBanner';
 import Salonheader from '../components/SalonInfo';
-import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
+import SalonCardGroup from '../components/CardsSalon';
 
 const { Header, Footer, Content } = Layout;
 function Salon() {
@@ -14,14 +14,16 @@ function Salon() {
             <Header className='navbarmain'>
                 <Navbar />
             </Header>
-            <Content className='container'>
+            <Content>
                 <SalonBanner />
                 <Salonheader />
-                <AuctionsCardGroup />
+                <div className='space-align-container '>
+                    <SalonCardGroup />
+                </div>
             </Content>
-            {/* <Footer>
+            <Footer>
                 <FooterMain />
-            </Footer> */}
+            </Footer>
         </Layout>
     )
 }

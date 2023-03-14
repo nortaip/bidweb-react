@@ -7,7 +7,7 @@ const contentStyle = {
     lineHeight: '160px',
     textAlign: 'center',
     background: '#364d79',
-    // with: '100%'
+    with: '100%'
 };
 const SalonBanner = () => {
     const onChange = (currentSlide) => {
