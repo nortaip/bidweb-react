@@ -1,23 +1,17 @@
 import { Avatar, Badge, Button, Dropdown } from 'antd';
 import Logo from '../imgs/logod.png'
 import { Link } from 'react-router-dom';
+import Profile from '../pages/Profile';
 const App = () => {
   const items = [
     {
-      label: 'Profile',
+      label: (
+        <a rel="noopener noreferrer" href='./Profile'>
+          Profile
+        </a>
+      ),
       key: '0',
-    },
-    {
-      label: '2nd menu item',
-      key: '1',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: '3rd menu item',
-      key: '3',
-    },
+    }
   ];
   return (
     <div className='navbar'>
@@ -30,13 +24,14 @@ const App = () => {
         <Link to={'/sell'}>
           <Button type="primary">se Item</Button>
         </Link>
-        <Dropdown
+        <Link to={'/Profile'} className="logo"><Dropdown
           menu={{
             items,
           }}
           trigger={['click']}
         >
           <Badge dot>
+
             <Avatar
               style={{
                 color: '#f56a00',
@@ -46,7 +41,7 @@ const App = () => {
               U
             </Avatar>
           </Badge>
-        </Dropdown>
+        </Dropdown></Link>
       </div>
     </div>
   );
