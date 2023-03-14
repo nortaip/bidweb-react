@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Avatar, Badge, Button, Dropdown, Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { Avatar, Badge, Button, } from 'antd';
 import Logo from '../imgs/logod.png'
 import { Link } from 'react-router-dom';
 // import Profile from '../pages/Profile';
@@ -30,22 +29,22 @@ const App = () => {
         </div>
         <ul className='sgbdrf'>
           <li >
-            <Link href="https://ant.design" className='Medium main-color' rel="noopener noreferrer">
+            <Link to="/" className='Medium main-color' rel="noopener noreferrer">
               Hərraclar
             </Link>
           </li>
           <li >
-            <Link href="https://ant.design" className='Medium main-color' rel="noopener noreferrer">
+            <Link to="/SpareParts" className='Medium main-color' rel="noopener noreferrer">
               Ehtiyat hissələr
             </Link>
           </li>
           <li >
-            <Link href="https://ant.design" className='Medium main-color' rel="noopener noreferrer">
+            <Link to="/reels" className='Medium main-color' rel="noopener noreferrer">
               Kəşf etmək
             </Link>
           </li>
           <li >
-            <Link href="https://ant.design" className='Medium main-color' rel="noopener noreferrer">
+            <Link to="/salons" className='Medium main-color' rel="noopener noreferrer">
               Avtosalonlar
             </Link>
           </li>

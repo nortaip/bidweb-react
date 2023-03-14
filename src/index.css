@@ -489,11 +489,12 @@ p {
 }
 
 .like {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background: url(../src/imgs/icons/Heart.svg) no-repeat center/25px;
   color: #FFFFFF;
 }
+
 
 .like {
   position: absolute;

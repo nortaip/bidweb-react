@@ -5,17 +5,23 @@ import Main from './pages/main';
 import ProductDetails from '../src/pages/Products';
 import Auction from '../src/pages/Auction';
 import Sell from "./pages/Sell";
-import { firestore } from "./config/firebase";
+// import { firestore } from "./config/firebase";
 import Salon from "./pages/Salon";
+import Salons from "./pages/Salons";
 import Profile from "./pages/Profile";
+import SpareParts from "./pages/SpareParts";
+import EhtiyathissələriDetail from "./pages/Ehtiyat";
 class App extends Component {
   render() {
     return (
       <Routes>
-        <Route target="_blank" path="/" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route target="_blank" path="/Sell" element={<Sell />} />
         <Route target="_blank" path="/Profile" element={<Profile />} />
+        <Route target="_blank" path="/SpareParts" element={<SpareParts />} />
+        <Route target="_blank" path="/Ehtiyat-hissələri/:Id" element={<EhtiyathissələriDetail />} />
         <Route target="_blank" path="/products/:productId" element={<ProductDetails />} />
+        <Route target="_blank" path="/Salons" element={<Salons />} />
         <Route target="_blank" path="/Salon/:productId" element={<Salon />} />
         <Route target="_blank" path="/auction-live/:productId" element={<Auction />} />
       </Routes>

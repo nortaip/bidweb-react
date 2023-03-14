@@ -116,7 +116,7 @@ function Filter() {
         <Radio.Button value="c">4x4</Radio.Button>
       </Radio.Group>
     </Space>
-    </>
+  </>
 
   const linkName = readMore ? 'Ümumi axtarış ' : 'Ümumi axtarış'
 
@@ -208,23 +208,26 @@ function Filter() {
                   ))}
                 </div>
                 {/* Price,year */}
-                <Space>
-                  <Input.Group compact>
-                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                <div className='sfasfdsd'
+                  style={{
+                    marginTop: '20px'
+                  }} >
+                  <Input.Group compact >
+                    <InputNumber className='inputfilter' min={1} max={1000000000000000000000000000000000n}
                       size="large"
                       placeholder="Qiymət, Max"
                     />
-                    <InputNumber min={1} max={1000000000000000000000000000000000}
-                      className="site-input-right"
+                    <InputNumber className='inputfilter' min={1} max={1000000000000000000000000000000000n}
                       size="large"
                       placeholder="min"
                     />
                   </Input.Group>
-                  <Input.Group compact >
+                  <Input.Group compact  >
                     <Select
                       placeholder="İldən"
                       size="large"
                       onChange={handleChange}
+                      className='inputfilter'
                       options={[
                         {
                           value: 'jack',
@@ -249,6 +252,7 @@ function Filter() {
                       placeholder="İldən"
                       size="large"
                       onChange={handleChange}
+                      className='inputfilter'
                       options={[
                         {
                           value: 'jack',
@@ -270,44 +274,41 @@ function Filter() {
                       ]}
                     />
                   </Input.Group>
-                  <Input.Group compact>
-                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                  <Input.Group compact >
+                    <InputNumber min={1} max={1000000000000000000000000000000000n}
                       style={{
-                        width: 100,
                         textAlign: 'center',
-                      }}
+                      }} className='inputfilter'
                       size="large"
                       placeholder="Yürüş,Km dən"
                     />
-                    <InputNumber min={1} max={1000000000000000000000000000000000}
-                      className="site-input-right"
+                    <InputNumber min={1} max={1000000000000000000000000000000000n}
                       style={{
-                        width: 100,
                         textAlign: 'center',
                       }}
+                      className='inputfilter'
                       size="large"
                       placeholder="Km rə"
                     />
                   </Input.Group>
-
-                </Space>
+                </div>
                 {/* Km,VIP,New */}
                 <Space>
                   <Input.Group compact>
-                    <InputNumber min={1} max={1000000000000000000000000000000000}
+                    <InputNumber min={1} max={1000000000000000000000000000000000n}
                       style={{
-                        width: 100,
                         textAlign: 'center',
                       }}
+                      className='inputfilter'
                       size="large"
                       placeholder="Həcmi, l"
                     />
-                    <InputNumber min={1} max={1000000000000000000000000000000000}
-                      className="site-input-right"
+                    <InputNumber min={1} max={1000000000000000000000000000000000n}
                       style={{
-                        width: 100,
                         textAlign: 'center',
                       }}
+                      className='inputfilter'
+
                       size="large"
                       placeholder="Həcmədək"
                     />
@@ -316,9 +317,10 @@ function Filter() {
                     <Select
                       placeholder="Ötürücü"
                       style={{
-                        width: "100%",
                         textAlign: 'center',
                       }}
+                      className='inputfilter'
+
                       size="large"
                       onChange={handleChange}
                       options={[
@@ -345,9 +347,7 @@ function Filter() {
                   <Select
                     placeholder="Surətlər qutusu"
                     mode="multiple"
-                    style={{
-                      width: 120,
-                    }}
+                    className='inputfilter'
                     size="large"
                     onChange={handleChange}
                     options={[
@@ -373,9 +373,7 @@ function Filter() {
                   <Select
                     placeholder="Yanacaq"
                     mode="multiple"
-                    style={{
-                      width: 150,
-                    }}
+                    className='inputfilter'
                     size="large"
                     onChange={handleChange}
                     options={[
