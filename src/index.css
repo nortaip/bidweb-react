@@ -1950,3 +1950,148 @@ img {
   color: rgb(192, 192, 192);
   cursor: pointer;
 }
+
+.kbcvbsd {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.jbvdsd {
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+  width: 100px;
+}
+
+.jbvdsdsghvg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+}
+
+.sfassvdd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 3px;
+}
+
+
+.jkhjasd {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  color: #838799;
+}
+
+.fsvghd {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 157px;
+  position: relative;
+  margin-top: -54px;
+}
+
+.ndhsbdf {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  padding: 24px;
+  gap: 10px;
+  background: #FFFFFF;
+  /* max-width: 350px; */
+  width: 100%;
+  /* jawel */
+  box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.ndhsbdf:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ireli {
+  border: 1px solid #15803D;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.VIP {
+  border: 1px solid #F97316;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.Pro {
+  border: 1px solid #0066FF;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.kbcvbsd-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  width: fit-content;
+  /* max-width: 390px; */
+  width: 100%;
+}
+
+/* .sllda {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  max-width: 263px;
+
+  color: #838799;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  margin: 0;
+  background: white;
+} */
+
+.sdssfhg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+  margin-top: 54px;
+}
