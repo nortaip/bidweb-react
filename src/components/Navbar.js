@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Avatar, Badge, Button, } from 'antd';
+import { Avatar, Badge, Button, Typography } from 'antd';
+const { Paragraph, Text } = Typography;
+
 import Logo from '../imgs/logod.png'
 import { Link } from 'react-router-dom';
 // import Profile from '../pages/Profile';
@@ -38,14 +40,19 @@ const App = () => {
               Ehtiyat hissələr
             </Link>
           </li>
-          <li >
-            <Link to="/reels" className='Medium main-color' rel="noopener noreferrer">
-              Kəşf etmək
+          <li  >
+            <Link x className='Medium main-color' rel="noopener noreferrer">
+              <Text disabled>
+                Kəşf etmək
+              </Text >
             </Link>
           </li>
           <li >
-            <Link to="/salons" className='Medium main-color' rel="noopener noreferrer">
-              Avtosalonlar
+            <Link className='Medium main-color' rel="noopener noreferrer">
+              <Text disabled>
+                Avtosalonlar
+              </Text >
+
             </Link>
           </li>
         </ul>
