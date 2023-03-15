@@ -1,19 +1,75 @@
 import { useState } from 'react';
-import { Avatar, Badge, Button, Typography } from 'antd';
+import { Avatar, Badge, Button, Typography, Dropdown } from 'antd';
 const { Paragraph, Text } = Typography;
 
 import Logo from '../imgs/logod.png'
 import { Link } from 'react-router-dom';
-// import Profile from '../pages/Profile';
+import Profile from '../pages/Profile';
 const App = () => {
   const items = [
     {
       label: (
-        <a rel="noopener noreferrer" >
+        <Link to={'/Profile'} rel="noopener noreferrer" >
           Profile
-        </a>
+        </Link>
       ),
       key: '0',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo">
+          Elanlarım
+        </Link>
+      ),
+      key: '1',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo">
+          Hesab məlumatları
+        </Link>
+      ),
+      key: '2',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo">
+          Change pasword
+        </Link>
+      ),
+      key: '3',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo">
+          Notication
+        </Link>
+      ),
+      key: '4',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo">
+          Like
+        </Link>
+      ),
+      key: '5',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo">
+          Izlediyin Salonlar
+        </Link>
+      ),
+      key: '6',
+    },
+    {
+      label: (
+        <Link to={'/Profile'} className="logo" style={{ color:"#ED3F3F" }}>
+          Çıxış
+        </Link>
+      ),
+      key: '7',
     }
   ];
   const [current, setCurrent] = useState('mail');
@@ -52,7 +108,6 @@ const App = () => {
               <Text disabled>
                 Avtosalonlar
               </Text >
-
             </Link>
           </li>
         </ul>
@@ -60,13 +115,12 @@ const App = () => {
           <Link to={'/sell'}>
             <Button type="primary">Yeni elan</Button>
           </Link>
-          <Link to={'/Profile'} className="logo">
-            {/* <Dropdown
+          <Dropdown
             menu={{
               items,
             }}
             trigger={['click']}
-          > */}
+          >
             <Badge dot>
               <Avatar
                 style={{
@@ -77,8 +131,7 @@ const App = () => {
                 U
               </Avatar>
             </Badge>
-            {/* </Dropdown> */}
-          </Link>
+          </Dropdown>
         </div>
       </div>
     </nav >

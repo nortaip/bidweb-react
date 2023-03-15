@@ -1,6 +1,6 @@
 import React from "react";
 import logoxl from '../../imgs/logoxl.png';
-import { Col, Row,Form } from 'antd';
+import { Col, Row, FloatButton } from 'antd';
 
 function FooterMain() {
     return (
@@ -44,7 +44,7 @@ function FooterMain() {
                             </Col>
                             <Col span={6}>
                                 <h6 className="text-uppercase font-weight-bold mb-4">CONTACT INFO</h6>
-              
+
                             </Col>
                         </Row>
                         <hr className="hr" />
@@ -60,6 +60,7 @@ function FooterMain() {
                         </div>
                     </Col>
                 </Row>
+                <FloatButton.BackTop />
             </div>
         </>
     );

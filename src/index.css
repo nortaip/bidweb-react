@@ -6,7 +6,9 @@ body {
   font-family: "Lexend";
   background-color: #F6F7FA !important;
 }
-
+::-webkit-scrollbar {
+  width: 5px;
+}
 * {
   margin: 0;
   padding: 0;
