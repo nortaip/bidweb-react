@@ -1,9 +1,9 @@
 import React from "react";
-import ProductTitle from './ProductTitlle';
-import TableProduct from './TableProduct'
-import JoinProductLevel from "./JoinProductLevel";
-import Descriptions from "./Description";
-import Supply from "./Supply";
+import ProductTitle from '../Titles/ProductTitlle';
+import TableProduct from '../Tables/TableProduct'
+import JoinProductLevel from "../JoinProductLevel";
+import Descriptions from "../Description";
+import Supply from "../Supply";
 function ProductInfo() {
 
     return (

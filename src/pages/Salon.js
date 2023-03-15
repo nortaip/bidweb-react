@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
 import { Layout } from 'antd';
-import FooterMain from '../components/FooterMain';
+import FooterMain from '../components/Footers/FooterMain';
 import SalonBanner from '../components/SalonBanner';
-import Salonheader from '../components/SalonInfo';
-import SalonCardGroup from '../components/CardsSalon';
+import Salonheader from '../components/infos/SalonInfo';
+import SalonCardGroup from '../components/Cards/CardSalon';
 
 const { Header, Footer, Content } = Layout;
 function Salon() {

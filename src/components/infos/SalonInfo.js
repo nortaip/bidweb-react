@@ -1,9 +1,9 @@
 import { Carousel } from 'antd';
-import LogoSalon from '../imgs/LogoSalon.png'
-import phone from '../imgs/icons/phone.svg'
-import location from '../imgs/icons/location.svg'
-import watch from '../imgs/icons/watch.svg'
-import eye from '../imgs/icons/eye.svg'
+import LogoSalon from '../../imgs/LogoSalon.png'
+import phone from '../../imgs/icons/phone.svg'
+import location from '../../imgs/icons/location.svg'
+import watch from '../../imgs/icons/watch.svg'
+import eye from '../../imgs/icons/eye.svg'
 
 
 const Salonheader = () => {

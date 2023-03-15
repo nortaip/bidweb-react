@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "./Api/Ehtiyat"
+import productsData from "../Api/Ehtiyat"
 import { message, Popconfirm, Divider, Typography } from 'antd';
 import { RWebShare } from "react-web-share";
 const { Paragraph, Text } = Typography;

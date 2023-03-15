@@ -1,11 +1,11 @@
 import '../App.css';
 import React from "react";
 import Navbar from '../components/Navbar.js';
-import Banner from '../components/Banner.js';
-import AuctionsCardGroup from '../components/AuctionsCardGroup.js';
+import Banner from '../components/Banners/Banner.js';
+import AuctionsCardGroup from '../components/CardsGroup/AuctionsCardGroup';
 import { Layout } from 'antd';
-import FooterMain from '../components/FooterMain';
-import Filter from '../components/Filters';
+import FooterMain from '../components/Footers/FooterMain';
+import Filter from '../components/Filters/Filters';
 const { Header, Footer, Content } = Layout;
 
 function App() {

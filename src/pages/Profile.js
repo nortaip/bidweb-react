@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
 import { Layout } from 'antd';
-import FooterMain from '../components/FooterMain';
-import ProfileMain from '../components/profile';
+import FooterMain from '../components/Footers/FooterMain';
+import ProfileMain from '../components/User/profile';
 
 
 const { Header, Footer, Content } = Layout;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Data from "./Api/Data";
-import Card from "./OUC-card";
+import Card from "../components/Cards/OUC-card";
 import { Divider } from 'antd';
 
 const App = () => {

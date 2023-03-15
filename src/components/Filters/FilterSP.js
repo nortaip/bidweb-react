@@ -1,4 +1,4 @@
-import '../App.css';
+import '../../App.css';
 import React, { useState } from 'react';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Collapse } from 'antd';

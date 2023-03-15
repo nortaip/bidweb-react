@@ -2,9 +2,9 @@ import { FileOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons'
 import { Layout, Menu, theme, Col, Row, Button, Modal } from 'antd';
 import React, { useState } from 'react';
 import Navbar from "../components/Navbar";
-import ProducrImgLive from '../components/Productimglive';
-import ProductInfo from '../components/ProductInfo';
-import AuctionInfo from '../components/AuctionInfo';
+import ProducrImgLive from '../components/ImgFile/Productimglive';
+import ProductInfo from '../components/infos/ProductInfo';
+import AuctionInfo from '../components/infos/AuctionInfo';
 import LiveChat from '../components/LiveChat';
 import { useNavigate } from "react-router-dom";
 

@@ -1,6 +1,6 @@
 import { Carousel } from 'antd';
-import img from '../imgs/Banner.jpg';
-import img2 from '../imgs/Banner2.jpg';
+import img from '../../imgs/Banner.jpg';
+import img2 from '../../imgs/Banner2.jpg';
 
 const contentStyle = {
     height: '160px',

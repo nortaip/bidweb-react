@@ -1,11 +1,11 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
 import { Col, Row, Space, Layout } from 'antd';
-import Table from '../components/TableProduct';
-import ProductTitle from '../components/ProductTitlle';
-import ProducrImg from '../components/ProductImg';
+import Table from '../components/Tables/TableProduct';
+import ProductTitle from '../components/Titles/ProductTitlle';
+import ProducrImg from '../components/ImgFile/ProductImg';
 import Similar from '../components/ProductSimilar';
-import FooterMain from '../components/FooterMain';
+import FooterMain from '../components/Footers/FooterMain';
 
 const { Header, Footer, Content } = Layout;
 function ProductDetail() {

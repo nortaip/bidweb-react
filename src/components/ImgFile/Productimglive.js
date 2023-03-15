@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "./Api/Data"
-import Imagess from '../imgs/Products/10018_oVojqO0HUQ_oTMc70bUeYw.jpg';
+import productsData from "../Api/Data"
+import Imagess from '../../imgs/Products/10018_oVojqO0HUQ_oTMc70bUeYw.jpg';
 import { Image } from 'antd';
 
 function ProducrImgLive() {

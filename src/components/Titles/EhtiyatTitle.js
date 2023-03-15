@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "./Api/Data"
+import productsData from "../Api/Ehtiyat"
 import { PhoneFilled } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
-import TableSalon from './TableSalon';
-import Phone from '../imgs/icons/PhoneRounded.svg';
+import TableSalon from '../Tables/TableSalon';
+import Phone from '../../imgs/icons/PhoneRounded.svg';
 
-function ProductTitle() {
+function EhtiyatTitle() {
     const [visible, setVisible] = useState(false);
-    const { productId } = useParams()
-    const P = productsData.find(prod => prod.id === productId)
+    const { Id } = useParams()
+    const P = productsData.find(prod => prod.id === Id)
     const text = <span>Modelin qiymətləndirilməsi</span>;
     return (
         <>
@@ -83,4 +83,4 @@ function ProductTitle() {
     )
 }
 
-export default ProductTitle
+export default EhtiyatTitle

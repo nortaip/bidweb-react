@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Data from "./Api/Ehtiyat";
-import Card from "./Ehtiyat-Card";
-import { Divider, Skeleton } from 'antd';
+import Data from "../Api/Salon";
+import Card from "./CardSalon";
+import { Divider, Button, Empty } from 'antd';
+import { Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
-const EhtiyatCards = () => {
+const SalonCardGroup = () => {
     const [item, setItem] = useState(Data);
-    // const [loading, setLoading] = useState(false);
-    // const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
     const loadMoreData = () => {
         if (loading) {
             return;
@@ -16,7 +17,7 @@ const EhtiyatCards = () => {
             .then((res) => res.json())
             .then((body) => {
                 setData([...Data, ...body.results]);
-                setLoading(false);
+                setLoading(true);
             })
             .catch(() => {
                 setLoading(false);
@@ -31,15 +32,23 @@ const EhtiyatCards = () => {
             <InfiniteScroll
                 dataLength={Data.length}
                 next={loadMoreData}
-                hasMore={Data.length < 5}
+                hasMore={Data.length < 1}
                 loader={
-                    <Skeleton
-                        avatar
-                        paragraph={{
-                            rows: 1,
+                    <Empty
+                        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+                        imageStyle={{
+                            height: 100,
                         }}
-                        active
-                    />
+                        description={
+                            <span>
+                                Hazırda elanınız yoxdur
+                            </span>
+                        }
+                    >
+                        <Link to={'/sell'}>
+                            <Button type="primary">İndi paylaşın</Button>
+                        </Link>
+                    </Empty>
                 }
                 endMessage={<Divider plain>Daha çox elan görmək ücün Paylaş</Divider>}
                 scrollableTarget="scrollableDiv"
@@ -56,4 +65,4 @@ const EhtiyatCards = () => {
     );
 };
 
-export default EhtiyatCards;
+export default SalonCardGroup;

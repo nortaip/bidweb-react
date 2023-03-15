@@ -1,9 +1,9 @@
 import { Carousel, Space } from 'antd';
-import img from '../imgs/Profile-original.jpg';
-import LogoSalon from '../imgs/Image.jpg'
-import Up from '../imgs/icons/up.svg'
-import vip from '../imgs/icons/VIP.svg'
-import pro from '../imgs/icons/Increase-Brightness.svg'
+import img from '../../imgs/Profile-original.jpg';
+import LogoSalon from '../../imgs/Image.jpg'
+import Up from '../../imgs/icons/up.svg'
+import vip from '../../imgs/icons/VIP.svg'
+import pro from '../../imgs/icons/Increase-Brightness.svg'
 
 const contentStyle = {
     height: '160px',

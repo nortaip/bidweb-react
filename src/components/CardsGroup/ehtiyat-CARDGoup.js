@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Data from "./Api/Salon";
-import Card from "./CardSalon";
-import { Divider, Button, Empty } from 'antd';
-import { Link } from 'react-router-dom';
+import Data from "../Api/Ehtiyat";
+import Card from "../Cards/Ehtiyat-Card";
+import { Divider, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
-const SalonCardGroup = () => {
+const EhtiyatCards = () => {
     const [item, setItem] = useState(Data);
-    const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
+    // const [loading, setLoading] = useState(false);
+    // const [data, setData] = useState([]);
     const loadMoreData = () => {
         if (loading) {
             return;
@@ -17,7 +16,7 @@ const SalonCardGroup = () => {
             .then((res) => res.json())
             .then((body) => {
                 setData([...Data, ...body.results]);
-                setLoading(true);
+                setLoading(false);
             })
             .catch(() => {
                 setLoading(false);
@@ -32,23 +31,15 @@ const SalonCardGroup = () => {
             <InfiniteScroll
                 dataLength={Data.length}
                 next={loadMoreData}
-                hasMore={Data.length < 1}
+                hasMore={Data.length < 5}
                 loader={
-                    <Empty
-                        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-                        imageStyle={{
-                            height: 100,
+                    <Skeleton
+                        avatar
+                        paragraph={{
+                            rows: 1,
                         }}
-                        description={
-                            <span>
-                                Hazırda elanınız yoxdur
-                            </span>
-                        }
-                    >
-                        <Link to={'/sell'}>
-                            <Button type="primary">İndi paylaşın</Button>
-                        </Link>
-                    </Empty>
+                        active
+                    />
                 }
                 endMessage={<Divider plain>Daha çox elan görmək ücün Paylaş</Divider>}
                 scrollableTarget="scrollableDiv"
@@ -65,4 +56,4 @@ const SalonCardGroup = () => {
     );
 };
 
-export default SalonCardGroup;
+export default EhtiyatCards;

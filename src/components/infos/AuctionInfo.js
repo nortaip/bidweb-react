@@ -1,6 +1,6 @@
 import React from "react";
-import AuctionLive from "./Bid";
-import ActivityAuction from "./ActibityAuction";
+import AuctionLive from "../Bid";
+import ActivityAuction from "../ActibityAuction";
 
 function AuctionInfo() {
 

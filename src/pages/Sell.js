@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from '../components/Navbar.js';
 import { Layout } from 'antd';
-import FooterMain from '../components/FooterMain';
+import FooterMain from '../components/Footers/FooterMain';
 import SellItemForm from "../components/SellItemForm.js";
 const { Header, Footer, Content } = Layout;
 

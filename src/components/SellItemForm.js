@@ -1,7 +1,7 @@
 import React from 'react';
 import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
-import { Form, Tooltip, InputNumber, Radio, Select, Input, Button, Checkbox, Col, Rate, Row, Slider, Upload, Space, } from 'antd';
-import ImgUpload from './ImgUpload';
+import { Form, Tooltip, InputNumber, Radio, Select, Input,  Checkbox, Col,  Row, Space, } from 'antd';
+import ImgUpload from '../components/ImgFile/ImgUpload';
 const { Option } = Select;
 
 const formItemLayout = {

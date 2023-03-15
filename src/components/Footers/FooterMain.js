@@ -1,5 +1,5 @@
 import React from "react";
-import logoxl from '../imgs/logoxl.png';
+import logoxl from '../../imgs/logoxl.png';
 import { Col, Row,Form } from 'antd';
 
 function FooterMain() {

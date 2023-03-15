@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "./Api/Data"
-import Description from '../components/Description';
+import productsData from "../Api/Data"
+import Description from '../Description';
 import { message, Popconfirm } from 'antd';
 import { RWebShare } from "react-web-share";
 
