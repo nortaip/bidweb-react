@@ -78,3 +78,52 @@
     order: 0;
     flex-grow: 0;
 }
+
+
+
+.like-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    position: relative;
+}
+
+.like-button:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    bottom: -2px;
+    right: -2px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+}
+
+.like-button:after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+}
+
+.like-button:hover:before,
+.like-button:hover:after {
+    border-color: #999;
+}
+
+.like-button:hover {
+    border-color: #999;
+}
+
+.like-button span {
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -4,11 +4,46 @@ import productsData from "../Api/Data"
 import Description from '../Description';
 import { message, Popconfirm } from 'antd';
 import { RWebShare } from "react-web-share";
+function LikeButtons({ id }) {
+    const [isLiked, setIsLiked] = useState(false);
+
+    const toggleLike = () => {
+        setIsLiked(!isLiked);
+    };
+
+    return (
+        <div className="">
+            <svg viewBox="0 0 24 24" width="24" height="24" onClick={toggleLike}>
+                <path
+                    fill={isLiked ? 'red' : 'none'}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    d="M12 21.35l-1.84-1.67C5.4 14.76 2 11.55 2 7.77 2 4.42 4.42 2 7.77 2c2.34 0 4.54 1.23 5.23 3.23C13.69 3.23 16 5.42 16 8.23c0 2.69-2.31 5-5.25 8.45z"
+                />
+                <span>{isLiked ? 'Liked' : 'Like'}</span>
+            </svg>
+        </div>
+    );
+}
 
 function TableProduct() {
     const [visible, setVisible] = useState(false);
     const { productId } = useParams()
     const P = productsData.find(prod => prod.id === productId)
+
+    const [isLiked, setIsLiked] = useState(false);
+    const [buttons, setButtons] = useState([
+        { id: 1, isLiked: false },
+        { id: 2, isLiked: false },
+        { id: 3, isLiked: false },
+    ]);
+    const toggleLike = (id) => {
+        setButtons((prevButtons) =>
+            prevButtons.map((button) =>
+                button.id === id ? { ...button, isLiked: !button.isLiked } : button
+            )
+        );
+    };
 
     const confirm = (e) => {
         console.log(e);
@@ -30,7 +65,8 @@ function TableProduct() {
                     </div>
                     <div className='f-hrfeed-right'>
                         <div className='f-iconafs'>
-                            <div className="like-icon"></div>
+                            <LikeButtons />
+                            {/* <div className="like-icon"></div> */}
                             <RWebShare
                                 data={{
                                     text: "Web Share - GfG",

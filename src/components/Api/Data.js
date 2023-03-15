@@ -28,7 +28,7 @@ import Mer639 from '../../imgs/Products/Mer63935_6CWgsn86oQskAIfJ-DN6sA.jpg';
 const Data = [
   {
     id: "4760081600037",
-    Salonid: "4760081600037sa",
+    Salonid: "Ture",
     Phone: "43535883",
     title: "M3 ",
     category: "Bmw",

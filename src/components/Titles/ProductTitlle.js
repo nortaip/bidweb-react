@@ -6,8 +6,16 @@ import { Button, Tooltip } from 'antd';
 import TableSalon from '../Tables/TableSalon';
 import Phone from '../../imgs/icons/PhoneRounded.svg';
 
+function MySalon(props) {
+    if (props.isVisible) {
+        return <div><TableSalon /></div>;
+    } else {
+        return <div></div>;
+    }
+}
+
 function ProductTitle() {
-    const [visible, setVisible] = useState(false);
+    // const [visible, setVisible] = useState(false);
     const { productId } = useParams()
     const P = productsData.find(prod => prod.id === productId)
     const text = <span>Modelin qiymətləndirilməsi</span>;
@@ -58,7 +66,7 @@ function ProductTitle() {
                         <span className="e1113_11616">Satıcıya elanı Bidex.az saytında tapdığınızı bildirin</span>
                     </div>
                 </div>
-                <TableSalon />
+                <MySalon isVisible={P.Salonid} />
                 <div className="e1113_11617">
                     <div className="Hash">
                         <h4 className="SemiBold">#Nəsimi</h4>
