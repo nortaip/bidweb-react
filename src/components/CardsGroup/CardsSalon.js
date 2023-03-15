@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Data from "../Api/Salon";
-import Card from "./CardSalon";
+import Card from "../Cards/CardSalon";
 import { Divider, Button, Empty } from 'antd';
 import { Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';

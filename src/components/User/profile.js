@@ -32,7 +32,7 @@ const ProfileMain = () => {
                 </div>
 
                 <div className='container sdssfhg'>
-                    <div className='kbcvbhsd-left'>
+                    {/* <div className='kbcvbhsd-left'>
                         <div className='ndhsbdf ireli'>
                             <img src={Up} alt='icon' />
                             <div className='asdfgc'>
@@ -54,7 +54,7 @@ const ProfileMain = () => {
                                 <h5 className='sllda'>Sizin elan saytın ana səhifəsində xüsusi ayrılmış blokda görünəcək və xidmətin aktivlik müddətinin sonunadək orada qalacaq.</h5>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className='kbcvbsd-left'>
                         <div className='ndhsbdf '>
                             <div className='asdfgc'>

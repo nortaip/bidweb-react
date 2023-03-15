@@ -7,7 +7,7 @@ import TableSalon from '../Tables/TableSalon';
 import Phone from '../../imgs/icons/PhoneRounded.svg';
 
 function EhtiyatTitle() {
-    const [visible, setVisible] = useState(false);
+    // const [visible, setVisible] = useState(false);
     const { Id } = useParams()
     const P = productsData.find(prod => prod.id === Id)
     const text = <span>Modelin qiymətləndirilməsi</span>;
@@ -58,7 +58,7 @@ function EhtiyatTitle() {
                         <span className="e1113_11616">Satıcıya elanı Bidex.az saytında tapdığınızı bildirin</span>
                     </div>
                 </div>
-                <TableSalon />
+                {/* <TableSalon /> */}
                 <div className="e1113_11617">
                     <div className="Hash">
                         <h4 className="SemiBold">#Nəsimi</h4>

@@ -18,7 +18,7 @@ function Salon() {
                 <SalonBanner />
                 <Salonheader />
                 <div className='space-align-container '>
-                    <SalonCardGroup />
+                    {/* <SalonCardGroup /> */}
                 </div>
             </Content>
             <Footer>

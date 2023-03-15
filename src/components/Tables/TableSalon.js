@@ -5,7 +5,7 @@ import productsData from "../Api/Data"
 import { Button } from 'antd';
 
 function TableSalon() {
-    const [visible, setVisible] = useState(false);
+    // const [visible, setVisible] = useState(false);
     const { productId } = useParams()
     const P = productsData.find(prod => prod.id === productId)
     const text = <span>Modelin qiymətləndirilməsi</span>;
@@ -41,7 +41,7 @@ function TableSalon() {
                         <div className="e1113_11606">
                             <h4 className="e1113_11605">Best</h4>
                         </div>
-                        <Link target="_blank" to={`/Salon/$511`}>
+                        <Link target="_blank" to={`/Salon/${P.Salonid}`}>
                             <Button className='btn-phonesa' type="primary">Salona kec</Button>
                         </Link>
                     </div>

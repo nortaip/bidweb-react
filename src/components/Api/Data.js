@@ -28,6 +28,7 @@ import Mer639 from '../../imgs/Products/Mer63935_6CWgsn86oQskAIfJ-DN6sA.jpg';
 const Data = [
   {
     id: "4760081600037",
+    Salonid: "4760081600037sa",
     Phone: "43535883",
     title: "M3 ",
     category: "Bmw",
@@ -494,7 +495,7 @@ const Data = [
     },
     desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
- //ss//
+  //ss//
   {
     id: "13",
     Phone: "43535883",
@@ -518,7 +519,7 @@ const Data = [
     activity: "Active",
     people: "5 People",
     Button: "1",
-    imgM:sfhdgs47d,
+    imgM: sfhdgs47d,
     img: {
       Simg: Mer921,
       Img: mer767,
