@@ -1,9 +1,9 @@
 import { Carousel, Space } from 'antd';
 import img from '../../imgs/Profile-original.jpg';
-import LogoSalon from '../../imgs/Image.jpg'
 import Up from '../../imgs/icons/up.svg'
 import vip from '../../imgs/icons/VIP.svg'
 import pro from '../../imgs/icons/Increase-Brightness.svg'
+import Data from "../Api/User"
 
 const contentStyle = {
     height: '160px',
@@ -14,6 +14,7 @@ const contentStyle = {
     with: '100%'
 };
 const ProfileMain = () => {
+    const P = Data.find(prod => prod.id)
     const onChange = (currentSlide) => {
         console.log(currentSlide);
     };
@@ -24,15 +25,14 @@ const ProfileMain = () => {
             </Carousel>
             <div className='container'>
                 <div className='fsvghd'>
-                    <img src={LogoSalon} className='jbvdsd' />
+                    <img src={P.imgM} className='jbvdsd' />
                     <div className='hhdSsfaq'>
-                        <h3>Hongqi Azərbaycan</h3>
-                        <h5>"Hongqi" brendinin Azərbaycanda rəsmi distribütoru "Cahan Motors" şirkətidir.</h5>
+                        <h3>{P.Name}</h3>
                     </div>
                 </div>
 
                 <div className='container sdssfhg'>
-                    {/* <div className='kbcvbhsd-left'>
+                    <div className='kbcvbhsd-left'>
                         <div className='ndhsbdf ireli'>
                             <img src={Up} alt='icon' />
                             <div className='asdfgc'>
@@ -54,7 +54,7 @@ const ProfileMain = () => {
                                 <h5 className='sllda'>Sizin elan saytın ana səhifəsində xüsusi ayrılmış blokda görünəcək və xidmətin aktivlik müddətinin sonunadək orada qalacaq.</h5>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                     <div className='kbcvbsd-left'>
                         <div className='ndhsbdf '>
                             <div className='asdfgc'>

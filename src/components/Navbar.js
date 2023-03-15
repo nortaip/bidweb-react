@@ -1,20 +1,41 @@
-import { useState } from 'react';
-import { Avatar, Badge, Button, Typography, Dropdown } from 'antd';
-const { Paragraph, Text } = Typography;
+import React from 'react';
 
+import { UserOutlined } from '@ant-design/icons'
+import { Avatar, Badge, Button, Typography, Dropdown } from 'antd';
+const { Text } = Typography;
+import Data from "./Api/User"
 import Logo from '../imgs/logod.png'
 import { Link } from 'react-router-dom';
-import Profile from '../pages/Profile';
+
 const App = () => {
+  const P = Data.find(prod => prod.id)
   const items = [
     {
       label: (
         <Link to={'/Profile'} rel="noopener noreferrer" >
-          Profile
+          <span className='User-pp'>
+            <Avatar style={{
+              color: '#f56a00',
+              backgroundColor: '#fde3cf',
+            }}
+              src={P.imgM} icon={<UserOutlined />} />
+            <div className='user-name SemiBold f16'>{P.Name}</div>
+          </span>
         </Link>
       ),
-      key: '0',
+      key: '15',
     },
+    {
+      type: 'divider',
+    },
+    // {
+    //   label: (
+    //     <Link to={'/Profile'} rel="noopener noreferrer" >
+    //       Profile
+    //     </Link>
+    //   ),
+    //   key: '0',
+    // },
     {
       label: (
         <Link to={'/Profile'} className="logo">
@@ -65,18 +86,13 @@ const App = () => {
     },
     {
       label: (
-        <Link to={'/Profile'} className="logo" style={{ color:"#ED3F3F" }}>
+        <Link to={'/Profile'} className="logo" style={{ color: "#ED3F3F" }}>
           Çıxış
         </Link>
       ),
       key: '7',
     }
   ];
-  const [current, setCurrent] = useState('mail');
-  const onClick = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
   return (
     <nav>
       <div className='navbar'>
@@ -126,10 +142,10 @@ const App = () => {
                 style={{
                   color: '#f56a00',
                   backgroundColor: '#fde3cf',
+                  width: 40,
+                  height: 40
                 }}
-              >
-                U
-              </Avatar>
+                src={P.imgM} />
             </Badge>
           </Dropdown>
         </div>

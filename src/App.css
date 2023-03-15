@@ -58,3 +58,23 @@
     align-self: stretch;
     flex-grow: 0;
 }
+
+.User-pp {
+    /* width: 40px;
+    height: 40px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+.PPssAs {
+    width: 40px;
+    height: 40px;
+    border-radius: 9000px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
