@@ -1,9 +1,12 @@
 import '../../App.css';
+import up from "../../imgs/icons/upfilter.svg"
+import Down from "../../imgs/icons/down.svg"
+import X from "../../imgs/icons/X.svg"
 import React, { useState } from 'react';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Collapse } from 'antd';
 
-function Filter() {
+function Filter({ setItem, menuItems }) {
   const [readMore, setReadMore] = useState(false);
 
 
@@ -117,8 +120,15 @@ function Filter() {
       </Radio.Group>
     </Space>
   </>
+  const linkName = readMore ?
+    <Button type="text" className='sgdhsdf'>
+      <h5 className='secondary Medium'>Ümumi axtarış</h5>
+      <img src={up} alt='icon' />
+    </Button> : <Button type="text" className='sgdhsdf'>
+      <h5 className='secondary Medium'>Ümumi axtarış</h5>
+      <img src={Down} alt='icon' />
+    </Button>;
 
-  const linkName = readMore ? 'Ümumi axtarış ' : 'Ümumi axtarış'
 
   return (
     <div className="container filter">
@@ -176,9 +186,9 @@ function Filter() {
                     size="large"
                   />
                 </div>
-                <div>
+                <div className='jdhsfgnb'>
                   {fields.map((field) => (
-                    <div className='space' >
+                    <div className='space jdhsfgnb' >
                       <AutoComplete
                         options={options}
                         className='asss'
@@ -405,16 +415,19 @@ function Filter() {
                 </Space>
                 {/* Buttons */}
                 {readMore && extraContent}
-                <Space>
+                <Space className='filterbtn'>
                   <div className="read-more-link" onClick={() => { setReadMore(!readMore) }}>
                     <h4>{linkName}</h4>
                   </div>
-                  <Button htmlType="button" onClick={onReset}>
-                    Reset
-                  </Button>
-                  <Button htmlType="submit" type="primary">
-                    Axtar
-                  </Button>
+                  <div className='asgfsdtgmjhg'>
+                    <Button type="text" className='sgdhsdf' onClick={onReset}>
+                      <img src={X} alt='icon' />
+                      <h5 className='secondary Medium'>Reset</h5>
+                    </Button>
+                    <Button htmlType="submit" type="primary" className='btnfilter'>
+                      Axtar
+                    </Button>
+                  </div>
                 </Space>
               </div>
             )}

@@ -242,7 +242,7 @@ a {
 .products-i__top img {
   display: flex;
   border-radius: 10px;
-  /* width: 100%; */
+  width: 100%;
   height: 193px;
   flex-wrap: wrap;
   align-content: center;
@@ -2202,4 +2202,38 @@ img {
   flex: none;
   order: 0;
   flex-grow: 0;
+}
+
+.filterbtn {
+  margin-top: 25px;
+  justify-content: flex-end !important;
+  width: 100%;
+}
+
+.sgdhsdf {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+}
+
+.btnfilter {
+  width: 266px;
+}
+
+.asgfsdtgmjhg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+
+.jdhsfgnb {
+  margin-top: 15px;
 }

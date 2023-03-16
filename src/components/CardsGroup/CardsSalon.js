@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 const SalonCardGroup = () => {
     const [item, setItem] = useState(Data);
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
+    const [Data, setData] = useState([]);
     const loadMoreData = () => {
         if (loading) {
             return;

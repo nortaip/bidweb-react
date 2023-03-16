@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Data from "../Api/Data";
 import Card from "../Cards/OUC-card";
 import { Divider, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
+
 const App = () => {
   const [item, setItem] = useState(Data);
-  // const [loading, setLoading] = useState(false);
-  // const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const loadMoreData = () => {
     if (loading) {
       return;
@@ -25,7 +25,7 @@ const App = () => {
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
   };
-  
+
   return (
     <>
       <InfiniteScroll

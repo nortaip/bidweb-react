@@ -1,4 +1,7 @@
 import '../../App.css';
+import up from "../../imgs/icons/upfilter.svg"
+import Down from "../../imgs/icons/down.svg"
+import X from "../../imgs/icons/X.svg"
 import React, { useState } from 'react';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Collapse } from 'antd';
@@ -400,16 +403,19 @@ function FilterSP() {
                                 </Space>
                                 {/* Buttons */}
                                 {/* {readMore && extraContent} */}
-                                <Space>
+                                <Space className='filterbtn'>
                                     {/* <div className="read-more-link" onClick={() => { setReadMore(!readMore) }}>
                                         <h4>{linkName}</h4>
                                     </div> */}
-                                    <Button htmlType="button" onClick={onReset}>
-                                        Reset
-                                    </Button>
-                                    <Button htmlType="submit" type="primary">
-                                        Axtar
-                                    </Button>
+                                    <div className='asgfsdtgmjhg'>
+                                        <Button type="text" className='sgdhsdf' onClick={onReset}>
+                                            <img src={X} alt='icon' />
+                                            <h5 className='secondary Medium'>Reset</h5>
+                                        </Button>
+                                        <Button htmlType="submit" type="primary" className='btnfilter'>
+                                            Axtar
+                                        </Button>
+                                    </div>
                                 </Space>
                             </div>
                         )}
