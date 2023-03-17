@@ -1,6 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tag, Watermark } from 'antd';
+import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
+import VIPIcon from "../../imgs/icons/VIP.svg";
+import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
+import ProIcon from "../../imgs/icons/Pro.svg";
+
+function LikeButton({ id }) {
+    const [isLiked, setIsLiked] = useState(false);
+
+    const toggleLike = () => {
+        setIsLiked(!isLiked);
+    };
+
+    return (
+        <div className="like">
+            <svg viewBox="0 0 24 24" width="24" height="24" onClick={toggleLike}>
+                <path
+                    fill={isLiked ? 'red' : 'none'}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    d="M12 21.35l-1.84-1.67C5.4 14.76 2 11.55 2 7.77 2 4.42 4.42 2 7.77 2c2.34 0 4.54 1.23 5.23 3.23C13.69 3.23 16 5.42 16 8.23c0 2.69-2.31 5-5.25 8.45z"
+                />
+                <span>{isLiked ? 'Liked' : 'Like'}</span>
+            </svg>
+        </div>
+    );
+}
+
+function Activity(props) {
+    if (props.isVisible) {
+        return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
+    } else {
+        return <div></div>;
+    }
+}
+function Verified(props) {
+    if (props.isVisible) {
+        return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
+    } else {
+        return <div></div>;
+    }
+}
+function VIP(props) {
+    if (props.isVisible) {
+        return <div><img src={VIPIcon} alt="icon" className="iconCard" /></div>;
+    } else {
+        return <div></div>;
+    }
+}
+function Auction(props) {
+    if (props.isVisible) {
+        return <div><img src={AuctionIcon} alt="icon" className="iconCard" /></div>;
+    } else {
+        return <div></div>;
+    }
+}
+function Pro(props) {
+    if (props.isVisible) {
+        return <div><img src={ProIcon} alt="icon" className="iconCard" /></div>;
+    } else {
+        return <div></div>;
+    }
+}
+
 
 const Cards = ({ item }) => {
     return (
@@ -8,23 +71,29 @@ const Cards = ({ item }) => {
             {item.map((Val) => {
                 return (
                     <div className="products-i " key={Val.id}>
-                        <Link target="_blank" to={`/Ehtiyat-hissələri/${Val.id}`}>
-                            <div className="products-i__top">
-                                <Watermark content="Bid.az">
-                                    <img loading="lazy" src={Val.imgM} alt={Val.title} />
-                                </Watermark>
-                                {/* <div className="products-i__label-container ">
-                                    <Tag className="products-i__label products-i__label_active">{Val.activity}</Tag>
-                                </div> */}
-                                <div className="like"></div>
 
+                        <div className="products-i__top">
+                            <Link target="_blank" to={`/Ehtiyat-hissələri/${Val.id}`}>
+                                <Watermark content="Bid.az">
+                                    <img className="imga" loading="lazy" src={Val.imgM} alt={Val.title} />
+                                </Watermark>
+                            </Link>
+                            <div className="products-i__label-container ">
+                                {/* <Activity isVisible={Val.Activity} /> */}
+                                <Verified isVisible={Val.Verified} />
+                                <VIP isVisible={Val.VIP} />
+                                {/* <Auction isVisible={Val.Auction} /> */}
+                                <Pro isVisible={Val.PRO} />
                             </div>
+                            <LikeButton />
+                        </div>
+                        <Link target="_blank" to={`/Ehtiyat-hissələri/${Val.id}`}>
                             <div className="products-i__bottom">
                                 <div className="title">
                                     <div className="products-i__name Title">{Val.title}</div>
                                     <div className="products-i__attributes  Desc">{Val.category}</div>
                                 </div>
-                                {/* <div className="products-i_info ">
+                                <div className="products-i_info ">
                                     <div className="ico">
                                         <span className="Gear-icon"></span>
                                         <h6 className="Card-icon">{Val.mekanik}</h6>
@@ -37,7 +106,7 @@ const Cards = ({ item }) => {
                                         <span className="people-icon ico"></span>
                                         <h6 className="Card-icon">{Val.people}</h6>
                                     </div>
-                                </div> */}
+                                </div>
                                 <div className="products-i__price ">
                                     <div className="product-price">{Val.price} <span>AZN</span>
                                     </div>
