@@ -239,7 +239,7 @@ a {
   overflow: hidden;
 }
 
-.products-i__top img {
+.products-i__top .imga {
   display: flex;
   border-radius: 10px;
   width: 100%;
@@ -281,6 +281,16 @@ a {
   position: absolute;
   left: 10px;
   top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 2px;
+  gap: 4px;
+  background: rgba(27, 28, 33, 0.50);
+  border-radius: 3px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
 .products-i__label_active {

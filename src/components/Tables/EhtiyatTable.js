@@ -6,7 +6,7 @@ import { RWebShare } from "react-web-share";
 const { Paragraph, Text } = Typography;
 
 function TableEhtiyat() {
-    const [visible, setVisible] = useState(false);
+    // const [visible, setVisible] = useState(false);
     const { Id } = useParams()
     const P = productsData.find(prod => prod.id === Id)
 

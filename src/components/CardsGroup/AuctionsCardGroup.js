@@ -46,7 +46,7 @@ const App = () => {
       >
         <div className="products">
           <Divider orientation="left" orientationMargin="50">
-            Auctions
+            {/* Auctions */}
           </Divider>
           <Card item={item} onChange={onChange} />
         </div>

@@ -102,17 +102,13 @@ function Filter({ setItem, menuItems }) {
     </Space>
     {/* In addition to */}
     <Space >
-
-      <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Xarici maşınlar</Checkbox>
-      <Checkbox onChange={onkbox} size="large" className='checkbox-filter'>Barter mümkündür</Checkbox>
-
-
+      <Checkbox onChange={onkbox} size="large" className='checkbox-filter Medium secondary'>Xarici maşınlar</Checkbox>
+      <Checkbox onChange={onkbox} size="large" className='checkbox-filter Medium secondary'>Barter mümkündür</Checkbox>
       <Radio.Group size="large" buttonStyle="solid">
         <Radio.Button value="a">Benzin</Radio.Button>
         <Radio.Button value="b">Dizel</Radio.Button>
         <Radio.Button value="c">Electrik</Radio.Button>
       </Radio.Group>
-
       <Radio.Group size="large" buttonStyle="solid">
         <Radio.Button value="a">Ön</Radio.Button>
         <Radio.Button value="b">Arxa</Radio.Button>
@@ -122,10 +118,10 @@ function Filter({ setItem, menuItems }) {
   </>
   const linkName = readMore ?
     <Button type="text" className='sgdhsdf'>
-      <h5 className='secondary Medium'>Ümumi axtarış</h5>
+      <h4 className='secondary Medium'>Ümumi axtarış</h4>
       <img src={up} alt='icon' />
     </Button> : <Button type="text" className='sgdhsdf'>
-      <h5 className='secondary Medium'>Ümumi axtarış</h5>
+      <h4 className='secondary Medium'>Ümumi axtarış</h4>
       <img src={Down} alt='icon' />
     </Button>;
 
@@ -410,8 +406,8 @@ function Filter({ setItem, menuItems }) {
                     ]}
 
                   />
-                  <Checkbox onChange={onkbox} className='checkbox-filter'>ViP Elanlar</Checkbox>
-                  <Checkbox onChange={onkbox} className='checkbox-filter'>Yeni elanlar</Checkbox>
+                  <Checkbox onChange={onkbox} className='checkbox-filter Medium secondary'>ViP Elanlar</Checkbox>
+                  <Checkbox onChange={onkbox} className='checkbox-filter Medium secondary'>Yeni elanlar</Checkbox>
                 </Space>
                 {/* Buttons */}
                 {readMore && extraContent}
@@ -422,7 +418,7 @@ function Filter({ setItem, menuItems }) {
                   <div className='asgfsdtgmjhg'>
                     <Button type="text" className='sgdhsdf' onClick={onReset}>
                       <img src={X} alt='icon' />
-                      <h5 className='secondary Medium'>Reset</h5>
+                      <h4 className='secondary Medium'>Reset</h4>
                     </Button>
                     <Button htmlType="submit" type="primary" className='btnfilter'>
                       Axtar

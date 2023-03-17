@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tag, Watermark } from 'antd';
+import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
+import VIPIcon from "../../imgs/icons/VIP.svg";
+import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
+import ProIcon from "../../imgs/icons/Pro.svg";
 
 function LikeButton({ id }) {
   const [isLiked, setIsLiked] = useState(false);
@@ -24,20 +28,44 @@ function LikeButton({ id }) {
   );
 }
 
+function Activity(props) {
+  if (props.isVisible) {
+    return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
+  } else {
+    return <div></div>;
+  }
+}
+function Verified(props) {
+  if (props.isVisible) {
+    return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
+  } else {
+    return <div></div>;
+  }
+}
+function VIP(props) {
+  if (props.isVisible) {
+    return <div><img src={VIPIcon} alt="icon" className="iconCard" /></div>;
+  } else {
+    return <div></div>;
+  }
+}
+function Auction(props) {
+  if (props.isVisible) {
+    return <div><img src={AuctionIcon} alt="icon" className="iconCard" /></div>;
+  } else {
+    return <div></div>;
+  }
+}
+function Pro(props) {
+  if (props.isVisible) {
+    return <div><img src={ProIcon} alt="icon" className="iconCard" /></div>;
+  } else {
+    return <div></div>;
+  }
+}
+
+
 const Cards = ({ item }) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [buttons, setButtons] = useState([
-    { id: 1, isLiked: false },
-    { id: 2, isLiked: false },
-    { id: 3, isLiked: false },
-  ]);
-  const toggleLike = (id) => {
-    setButtons((prevButtons) =>
-      prevButtons.map((button) =>
-        button.id === id ? { ...button, isLiked: !button.isLiked } : button
-      )
-    );
-  };
   return (
     <>
       {item.map((Val) => {
@@ -47,11 +75,15 @@ const Cards = ({ item }) => {
             <div className="products-i__top">
               <Link target="_blank" to={`/products/${Val.id}`}>
                 <Watermark content="Bid.az">
-                  <img loading="lazy" src={Val.imgM} alt={Val.title} />
+                  <img className="imga" loading="lazy" src={Val.imgM} alt={Val.title} />
                 </Watermark>
               </Link>
               <div className="products-i__label-container ">
-                <Tag className="products-i__label products-i__label_active">{Val.activity}</Tag>
+                <Activity isVisible={Val.Activity} />
+                <Verified isVisible={Val.Verified} />
+                <VIP isVisible={Val.VIP} />
+                <Auction isVisible={Val.Auction = "1"} folse />
+                <Pro isVisible={Val.PRO} />
               </div>
               <LikeButton />
             </div>
