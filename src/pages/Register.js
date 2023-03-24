@@ -1,4 +1,4 @@
-import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import '../App.css';
 import React from "react";
 import Navbar from '../components/Navbar.js';
@@ -21,11 +21,20 @@ const Login = () => {
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
     }
+    // const onFinish = (event) => {
+    //     event.preventDefault();
+
+    //     axios.post('http://localhost/tu/api/user/save', inputs).then(function(response){
+    //         console.log(response.data);
+    //         navigate('/');
+    //     });
+
+    // }
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
         axios.post('http://localhost/tu/api/user/save', values).then(function (response) {
             console.log(response.data);
-            navigate('/');
+            // navigate('/');
         });
     };
     return (
@@ -46,6 +55,7 @@ const Login = () => {
                                 onFinish={onFinish}
                             >
                                 <Form.Item
+                                    // name="names"
                                     name={"names"}
                                     rules={[
                                         {
@@ -71,16 +81,17 @@ const Login = () => {
                                         },
                                     ]}
                                 >
-                                    <Input
+                                    <Input.Password
                                         size="large"
-                                        prefix={<MailOutlined className="site-form-item-icon" />}
-                                        placeholder="Email"
+                                        prefix={<LockOutlined className="site-form-item-icon" />}
+                                        type="password"
+                                        placeholder="Password"
                                         name="email"
                                         onChange={handleChange}
                                     />
                                 </Form.Item>
                                 <Form.Item
-                                    name="mobile"
+                                   name="mobile"
                                     rules={[
                                         {
                                             required: true,

@@ -9,6 +9,7 @@ import Salon from "./pages/Salon";
 import Salons from "./pages/Salons";
 import Profile from "./pages/Profile";
 import SpareParts from "./pages/SpareParts";
+import Register from "./pages/Register";
 import EhtiyathissələriDetail from "./pages/Ehtiyat";
 import Login from "./pages/Login";
 class App extends Component {
@@ -17,6 +18,8 @@ class App extends Component {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route target="_blank" path="/Sell" element={<Sell />} />
         <Route target="_blank" path="/Sell" element={<Sell />} />
         <Route target="_blank" path="/Profile" element={<Profile />} />
         <Route target="_blank" path="/SpareParts" element={<SpareParts />} />
