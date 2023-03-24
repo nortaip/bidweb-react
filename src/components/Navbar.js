@@ -86,7 +86,7 @@ const App = () => {
     },
     {
       label: (
-        <Link to={'/Profile'} className="logo" style={{ color: "#ED3F3F" }}>
+        <Link to={'/Login'} className="logo" style={{ color: "#ED3F3F" }}>
           Çıxış
         </Link>
       ),
