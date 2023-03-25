@@ -22,10 +22,10 @@ const Login = () => {
         setInputs(values => ({ ...values, [name]: value }));
     }
     const onFinish = (values) => {
-        console.log('Received values of form: ', values);
+        // console.log('Received values of form: ', values);
         axios.post('http://localhost/tu/api/user/save', values).then(function (response) {
             console.log(response.data);
-            navigate('/');
+            // navigate('/');
         });
     };
     return (
