@@ -320,7 +320,7 @@ function Filter() {
                                 </Col>
                             </Row>
                             {/* Vəziyyəti */}
-                            {/* <Row>
+                            <Row>
                                 <h3 className='Bold'>Vəziyyəti</h3>
                                 <Space >
                                     <Col span={12}>
@@ -396,9 +396,9 @@ function Filter() {
                                         </Checkbox>
                                     </Col>
                                 </Space>
-                            </Row> */}
+                            </Row>
                             {/* Təchizatı */}
-                            {/* <Row>
+                            <Row>
                                 <h3 className='Bold'>Təchizatı</h3>
                                 <Col span={24}>
                                     <Space>
@@ -556,13 +556,13 @@ function Filter() {
                                         </Space>
                                     </Space>
                                 </Col>
-                            </Row> */}
+                            </Row>
 
                             {/* İmg add*/}
-                            {/* <ImgUpload /> */}
+                            <ImgUpload />
 
                             {/* Vip premium Chat */}
-                            {/* <Row>
+                            <Row>
                                 <h3 className='Bold'>Əlavə seçimlər</h3>
                                 <Col span={24}>
                                     <Space>
@@ -615,7 +615,7 @@ function Filter() {
                                         </Checkbox>
                                     </Space>
                                 </Col>
-                            </Row> */}
+                            </Row>
 
                             {/* Buttons */}
                             <div className=' asfgcvxd'>
