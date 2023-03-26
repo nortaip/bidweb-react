@@ -747,6 +747,21 @@ const Data = [
     },
     desc: "Avtomobil Almaniyadan yeni gəlib və Azərbaycanda sürülməyib. Bezkraska avtomobildir. Heç bir problemi yoxdur. İstənilen yerdə yoxlada bilərsiz. Avtomobil zavod black editiondir.",
   },
+  {
+    "Marka": "gsdfvg",
+    "Model": "sfgsdf",
+    "Nesil": "sfdgvsdfv",
+    "Mhhec": 1234,
+    "mhguc": 435,
+    "VIN": 245,
+    "year": 134,
+    "Yanacaq": "Dizel",
+    "Suret": "Mexaniki",
+    "color": "Yaş Asfalt",
+    "March": 222,
+    "Gear": "Tam",
+    "elave": "FGFEDG"
+  }
 
 ];
 
