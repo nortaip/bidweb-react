@@ -94,7 +94,6 @@ function SellingItem() {
                                         size="large"
                                         name="Marka"
                                         onChange={handleChange}
-                                        options={options}
                                     />
                                 </Form.Item>
                             </Col>
