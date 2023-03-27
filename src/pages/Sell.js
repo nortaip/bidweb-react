@@ -14,8 +14,8 @@ function Sell() {
                 <Header className='navbarmain'>
                     <Navbar />
                 </Header>
-                <Content>
-                    <div className="container">
+                <Content className='container'>
+                    {/* <div className="container"> */}
                         <h1>Bir Mehsul sat</h1>
                         <Tabs
                             defaultActiveKey="1"
@@ -38,7 +38,7 @@ function Sell() {
                                 },
                             ]}
                         />
-                    </div>
+                    {/* </div> */}
                 </Content>
                 <Footer>
                     <FooterMain />

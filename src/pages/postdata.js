@@ -46,7 +46,7 @@ const Login = () => {
                                 onFinish={onFinish}
                             >
                                 <Form.Item
-                                    name={"names"}
+                                    name={"brand_name"}
                                     rules={[
                                         {
                                             required: true,
@@ -58,7 +58,7 @@ const Login = () => {
                                         size="large"
                                         prefix={<UserOutlined className="site-form-item-icon" />}
                                         placeholder="Phone"
-                                        name="names"
+                                        name="brand_name"
                                         onChange={handleChange}
                                     />
                                 </Form.Item>
