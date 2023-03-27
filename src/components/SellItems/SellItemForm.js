@@ -1,13 +1,22 @@
 import '../../App.css';
-import React, { useState } from 'react';
 import { Form, Select, Upload, Button, Space, Input, Checkbox, Radio, InputNumber, Col, Row, Modal, message, Alert, } from 'antd';
 import ImgCrop from 'antd-img-crop'
 import ImageUpload from '../ImgFile/ImgUpload';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const { Option } = Select;
 
 function SellingItem() {
     const [inputs, setInputs] = useState([]);
 
+    const [brands, setBrands] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost/tu/api/brand_name.php')
+            .then(response => response.json())
+            .then(data => setBrands(data));
+    }, []);
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -89,12 +98,15 @@ function SellingItem() {
                                     ]}
                                 >
                                     <Select
-                                        placeholder="Marka"
-                                        mode="multiple"
-                                        size="large"
                                         name="Marka"
-                                        onChange={handleChange}
-                                    />
+                                        size='large'
+                                    >
+                                        {brands.map(brand => (
+                                            <Option key={brand.id} value={brand.name}>
+                                                {brand.brand_name}
+                                            </Option>
+                                        ))}
+                                    </Select>
                                 </Form.Item>
                             </Col>
                             <Col span={8}>
