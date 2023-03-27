@@ -1,6 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Modal, Upload, Alert, Space } from 'antd';
 import { useState } from 'react';
+import SellingItem from '../SellItems/SellItemForm';
 const getBase64 = (file) =>
     new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -15,7 +16,9 @@ const ImgUpload = () => {
     const [fileList, setFileList] = useState([
 
     ]);
+
     const handleCancel = () => setPreviewOpen(false);
+
     const handlePreview = async (file) => {
         if (!file.url && !file.preview) {
             file.preview = await getBase64(file.originFileObj);
@@ -25,6 +28,7 @@ const ImgUpload = () => {
         setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
     };
     const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
+
     const uploadButton = (
         <div>
             <PlusOutlined />
@@ -46,13 +50,15 @@ const ImgUpload = () => {
                 <h2>Foto qalereya</h2>
                 <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                 <Upload
-                    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                    action="http://localhost/tu/api/sell.php"
                     listType="picture-card"
                     fileList={fileList}
                     onPreview={handlePreview}
                     onChange={handleChange}
+                    name='Image'
+                    maxCount={25}
                 >
-                    {fileList.length >= 20 ? null : uploadButton}
+                    {fileList.length >= 25 ? null : uploadButton}
                 </Upload>
                 <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
                     <img

@@ -1,24 +1,43 @@
 import '../../App.css';
 import React, { useState } from 'react';
-import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Col, Row, Popover } from 'antd';
-import ImgUpload from '../ImgFile/ImgUpload';
+import { Form, Select, Upload, Button, Space, Input, Checkbox, Radio, InputNumber, Col, Row, Modal, Alert, } from 'antd';
+import ImgCrop from 'antd-img-crop';
+import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
-function Filter() {
+function SellingItem() {
     const [inputs, setInputs] = useState([]);
-    const [options, setOptions] = useState([]);
-    // const onSelect = (data) => {
-    //     console.log('onSelect', data);
-    // };
 
-
+    const [fileList, setFileList] = useState([
+        {
+            uid: '-1',
+            name: 'image.png',
+            status: 'done',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        },
+    ]);
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
+    };
+    const onPreview = async (file) => {
+        let src = file.url;
+        if (!src) {
+            src = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file.originFileObj);
+                reader.onload = () => resolve(reader.result);
+            });
+        }
+        const image = new Image();
+        image.src = src;
+        const imgWindow = window.open(src);
+        imgWindow?.document.write(image.outerHTML);
+    };
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        const checked = event.target.checked;
-        setInputs(values => ({ ...values, [name]: value, checked }));
-      }
-      
+        setInputs(values => ({ ...values, [name]: value }));
+    }
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
@@ -37,6 +56,7 @@ function Filter() {
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
+
     return (
         <div className="container ">
             <Form
@@ -59,7 +79,6 @@ function Filter() {
                                 width: '100%',
                             }}
                         >
-
                             {/* Marka,model,add+ */}
                             <Row gutter={[16, 16]}>
                                 <Col span={8}>
@@ -198,7 +217,7 @@ function Filter() {
                                 <Col span={8}>
                                     <Form.Item
                                         label="İL"
-                                        name='year'
+                                        name='CYear'
                                         rules={[
                                             {
                                                 required: true,
@@ -210,6 +229,7 @@ function Filter() {
                                             style={{
                                                 width: '100%',
                                             }}
+                                            name='CYear'
                                             size="large"
                                             placeholder="Ili"
                                         />
@@ -400,7 +420,7 @@ function Filter() {
                                         ]}
                                         name='elave'
                                     >
-                                        <Input placeholder='Əlavə məlumat' size='large' name='elave' mode="multiple" />
+                                        <Input placeholder='Əlavə məlumat' onChange={handleChange} size='large' name='elave' mode="multiple" />
                                     </Form.Item>
                                 </Col>
                             </Row>
@@ -410,278 +430,123 @@ function Filter() {
                                 <h3 className='Bold'>Vəziyyəti</h3>
                                 <Space >
                                     <Col span={12}>
-                                        <Form.Item
-                                            name='accent'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                onChange={handleChange}
-                                                name='accent'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Vuruğu var
-                                            </Checkbox>
-                                            <p className='psell Medium'>Bir və ya bir necə detalı dəyişdirilib və ya təmir olunub</p>
+                                        <Form.Item name="accent" valuePropName="checked" noStyle>
+                                            <Checkbox>Vuruğu var</Checkbox>
                                         </Form.Item>
+                                        <p className='psell Medium'>Bir və ya bir necə detalı dəyişdirilib və ya təmir olunub</p>
                                     </Col>
                                     <Col span={12}>
-                                        <Form.Item
-                                            name='clored'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                name='clored'
-                                                onChange={handleChange}
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Rənglənib
-                                            </Checkbox>
-                                            <p className='psell Medium'>Bir vı ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb</p>
+                                        <Form.Item name="clored" valuePropName="checked" noStyle>
+                                            <Checkbox>Rənglənib</Checkbox>
                                         </Form.Item>
+                                        <p className='psell Medium'>Bir vı ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb</p>
                                     </Col>
                                     <Col span={12}>
-                                        <Form.Item
-                                            name='Qezalı'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                name='Qezalı'
-                                                onChange={handleChange}
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Qəzalı
-                                            </Checkbox>
-                                            <p className='psell Medium'>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəzyətdədir</p>
+                                        <Form.Item name="Accd" valuePropName="checked" noStyle>
+                                            <Checkbox>Qəzalı</Checkbox>
                                         </Form.Item>
-                                    </Col>
-                                    <Col span={12}>
-                                        <Form.Item
-                                            name='kredit'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                name='kredit'
-                                                onChange={handleChange}
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Kredit
-                                            </Checkbox>
-                                        </Form.Item>
-                                    </Col>
-                                    <Col span={12}>
-                                        <Form.Item
-                                            name='Barter'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                name='Barter'
-                                                onChange={handleChange}
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Barter
-                                            </Checkbox>
-                                        </Form.Item>
+                                        <p className='psell Medium'>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəzyətdədir</p>
                                     </Col>
                                 </Space>
                             </Row>
 
                             {/* Təchizatı */}
-                            <Row gutter={[16, 16]}>
+                            <Row>
                                 <h3 className='Bold'>Təchizatı</h3>
                                 <Col span={24}>
                                     <Space>
-                                        <Form.Item
-                                            name='Alloy'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                name='Alloy'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                                onChange={handleChange}
-                                            >
-                                                Yüngül lehimli disklər
-                                            </Checkbox>
-                                        </Form.Item>
-                                        <Form.Item
-                                            name='CentralLock'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                onChange={handleChange}
-                                                name='CentralLock'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Mərkəzi qapanma
-                                            </Checkbox>
-                                        </Form.Item>
-                                        <Form.Item
-                                            name='Leather'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                onChange={handleChange}
-                                                name='Leather'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Dəri salon
-                                            </Checkbox>
-                                        </Form.Item>
-                                        <Form.Item
-                                            name='Seat_vent'
-                                            style={{
-                                                width: '100%',
-                                            }}>
-                                            <Checkbox
-                                                onChange={handleChange}
-                                                name='Seat_vent'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Oturacaqların ventilyasiyası
-                                            </Checkbox>
-                                        </Form.Item>
-                                        {/* <Space direction='vertical'>
-                                            <Checkbox
-                                                value="A"
-                                                name='ABS'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                ABS
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='Park'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Park radarı
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='Ksenon'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Ksenon lampalar
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='Kamerauc'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                360 kamera
-                                            </Checkbox>
+                                        <Space direction='vertical'>
+                                            <Form.Item name="Alloy" valuePropName="checked" noStyle>
+                                                <Checkbox>Yüngül lehimli disklər</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Centr" valuePropName="checked" noStyle>
+                                                <Checkbox>Mərkəzi qapanma</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Leather" valuePropName="checked" noStyle>
+                                                <Checkbox>Dəri salon</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Seat_vent" valuePropName="checked" noStyle>
+                                                <Checkbox>Oturacaqların ventilyasiyası</Checkbox>
+                                            </Form.Item>
                                         </Space>
                                         <Space direction='vertical'>
-                                            <Checkbox
-                                                value="A"
-                                                name='Lyuk'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Lyuk
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='Kondisioner'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Kondisioner
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='ArxaKamera'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Arxa görüntü kamerası
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='Multi'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Multi rull
-                                            </Checkbox>
+                                            <Form.Item name="ABS" valuePropName="checked" noStyle>
+                                                <Checkbox>ABS</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Park" valuePropName="checked" noStyle>
+                                                <Checkbox>Park radarı</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Ksenon" valuePropName="checked" noStyle>
+                                                <Checkbox>Ksenon lampalar</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Kamerauc" valuePropName="checked" noStyle>
+                                                <Checkbox>360 kamera</Checkbox>
+                                            </Form.Item>
                                         </Space>
                                         <Space direction='vertical'>
-                                            <Checkbox
-                                                value="A"
-                                                name='Yağış-s'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Yağış sensoru
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='kruiz'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Avtonom kruiz kontrol
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='O-İ'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Oturacaqların isidilməsi
-                                            </Checkbox>
-                                            <Checkbox
-                                                value="A"
-                                                name='YanP'
-                                                style={{
-                                                    lineHeight: '32px',
-                                                }}
-                                            >
-                                                Yan pərdələr
-                                            </Checkbox>
-                                        </Space> */}
+                                            <Form.Item name="Lyuk" valuePropName="checked" noStyle>
+                                                <Checkbox>Lyuk</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Kondisioner" valuePropName="checked" noStyle>
+                                                <Checkbox>Kondisioner</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="ArxaKamera" valuePropName="checked" noStyle>
+                                                <Checkbox>Arxa görüntü kamerası</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="Multi" valuePropName="checked" noStyle>
+                                                <Checkbox>Multi rull</Checkbox>
+                                            </Form.Item>
+                                        </Space>
+                                        <Space direction='vertical'>
+                                            <Form.Item name="RainSensor" valuePropName="checked" noStyle>
+                                                <Checkbox>Yağış sensoru </Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="HotSeat" valuePropName="checked" noStyle>
+                                                <Checkbox>Oturacaqların isidilməsi</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="YanP" valuePropName="checked" noStyle>
+                                                <Checkbox>Yan pərdələr</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="MultiE" valuePropName="checked" noStyle>
+                                                <Checkbox>Multi Ektan</Checkbox>
+                                            </Form.Item>
+                                        </Space>
                                     </Space>
                                 </Col>
                             </Row>
+
+                            {/* Vip premium Chat */}
+
+                            {/* İmg add*/}
+                            <Space direction="vertical"
+                                style={{
+                                    width: '100%',
+                                }}>
+                                <h2>Foto qalereya</h2>
+                                <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
+                                <ImgCrop rotationSlider>
+                                    <Upload
+                                        action="http://localhost/tu/api/sell.php"
+                                        listType="picture-card"
+                                        fileList={fileList}
+                                        onChange={onChange}
+                                        onPreview={onPreview}
+                                        name='name'
+                                    >
+                                        {fileList.length < 5 && '+ Upload'}
+                                    </Upload>
+                                </ImgCrop>
+                                {/* <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
+                                    <img
+                                        alt="example"
+                                        style={{
+                                            width: '100%',
+                                        }}
+                                        src={previewImage}
+                                    />
+                                </Modal> */}
+                                <h5>Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur.</h5>
+                            </Space>
                             {/* Buttons */}
                             <div className=' asfgcvxd'>
                                 {/* Bottons*/}
@@ -696,9 +561,9 @@ function Filter() {
                         </Space>
                     )}
                 </Form.List>
-            </Form>
+            </Form >
         </div >
     );
 }
 
-export default Filter;
+export default SellingItem;
