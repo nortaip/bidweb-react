@@ -9,12 +9,7 @@ function SellingItem() {
     const [inputs, setInputs] = useState([]);
 
     const [fileList, setFileList] = useState([
-        {
-            uid: '-1',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
+
     ]);
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);

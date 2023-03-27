@@ -12,6 +12,7 @@ import SpareParts from "./pages/SpareParts";
 import Register from "./pages/Register";
 import EhtiyathissələriDetail from "./pages/Ehtiyat";
 import Login from "./pages/Login";
+import Postdata from "./pages/postdata";
 class App extends Component {
   render() {
     return (
@@ -28,6 +29,7 @@ class App extends Component {
         <Route target="_blank" path="/Salons" element={<Salons />} />
         <Route target="_blank" path="/Salon/:productId" element={<Salon />} />
         <Route target="_blank" path="/auction-live/:productId" element={<Auction />} />
+        <Route target="_blank" path="/postdata" element={<Postdata />} />
       </Routes>
     );
   }
