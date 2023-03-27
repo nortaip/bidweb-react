@@ -100,6 +100,7 @@ function SellingItem() {
                                     <Select
                                         name="Marka"
                                         size='large'
+                                        placeholder="Mersedes"
                                     >
                                         {brands.map(brand => (
                                             <Option key={brand.id} value={brand.name}>
