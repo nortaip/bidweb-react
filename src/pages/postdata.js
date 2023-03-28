@@ -23,7 +23,7 @@ const Login = () => {
     }
     const onFinish = (values) => {
         // console.log('Received values of form: ', values);
-        axios.post('http://localhost/tu/api/postdata.php', values).then(function (response) {
+        axios.post('http://localhost/tu/api/brand_name.php', values).then(function (response) {
             console.log(response.data);
             // navigate('/');
         });
@@ -46,7 +46,7 @@ const Login = () => {
                                 onFinish={onFinish}
                             >
                                 <Form.Item
-                                    name={"brand_name"}
+                                    name={"name"}
                                     rules={[
                                         {
                                             required: true,
@@ -58,7 +58,7 @@ const Login = () => {
                                         size="large"
                                         prefix={<UserOutlined className="site-form-item-icon" />}
                                         placeholder="Phone"
-                                        name="brand_name"
+                                        name="name"
                                         onChange={handleChange}
                                     />
                                 </Form.Item>

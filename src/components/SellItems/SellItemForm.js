@@ -11,29 +11,44 @@ function SellingItem() {
     const [inputs, setInputs] = useState([]);
 
     const [brands, setBrands] = useState([]);
+    const [Year, setYear] = useState([]);
 
-    useEffect(() => {
+    useEffect((brand) => {
         fetch('http://localhost/tu/api/brand_name.php')
             .then(response => response.json())
-            .then(data => setBrands(data));
+            .then(data => {
+                // İlk veri seti burada state'e atanır
+                setBrands(data);
+            });
+
+        // İkinci endpoint'ten veri çekme işlemi
+        fetch('http://localhost/tu/api/yearGet.php')
+            .then(response => response.json())
+            .then(data => {
+                // İkinci veri seti burada state'e atanır
+                setYear(data);
+            });
     }, []);
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
     }
+
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
             axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
                 console.log(response.data);
+                navigate('/Profile');
             });
         }
         catch (errInfo) {
             console.log('Error-:', errInfo);
         }
-
     };
+
     const onReset = () => {
         Form.resetFields();
     };
@@ -65,7 +80,6 @@ function SellingItem() {
         const imgWindow = window.open(src);
         imgWindow?.document.write(image.outerHTML);
     };
-
     return (
         <div className="container ">
             <Form
@@ -234,14 +248,18 @@ function SellingItem() {
                                         },
                                     ]}
                                 >
-                                    <InputNumber
-                                        style={{
-                                            width: '100%',
-                                        }}
+                                    <Select
+                                        label="İL"
                                         name='CYear'
-                                        size="large"
-                                        placeholder="Ili"
-                                    />
+                                        size='large'
+                                        placeholder="İL"
+                                    >
+                                        {Year.map(brand => (
+                                            <Option key={brand.brand_name} value={brand.name}>
+                                                {brand.brand_name}
+                                            </Option>
+                                        ))}
+                                    </Select>
                                 </Form.Item>
                             </Col>
                             <Col span={6}>
@@ -436,31 +454,33 @@ function SellingItem() {
 
                         {/* Vəziyyəti */}
                         <Row>
-                            <h3 className='Bold'>Vəziyyəti</h3>
-                            <Space >
-                                <Col span={12}>
-                                    <Form.Item name="accent" valuePropName="checked" noStyle>
-                                        <Checkbox>Vuruğu var</Checkbox>
-                                    </Form.Item>
-                                    <p className='psell Medium'>Bir və ya bir necə detalı dəyişdirilib və ya təmir olunub</p>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item name="clored" valuePropName="checked" noStyle>
-                                        <Checkbox>Rənglənib</Checkbox>
-                                    </Form.Item>
-                                    <p className='psell Medium'>Bir vı ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb</p>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item name="Accd" valuePropName="checked" noStyle>
-                                        <Checkbox>Qəzalı</Checkbox>
-                                    </Form.Item>
-                                    <p className='psell Medium'>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəzyətdədir</p>
-                                </Col>
+                            <Space direction="vertical">
+                                <h3 className='Bold'>Vəziyyəti</h3>
+                                <Space >
+                                    <Col span={12}>
+                                        <Form.Item name="accent" valuePropName="checked" noStyle>
+                                            <Checkbox>Vuruğu var</Checkbox>
+                                        </Form.Item>
+                                        <p className='psell Medium'>Bir və ya bir necə detalı dəyişdirilib və ya təmir olunub</p>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item name="clored" valuePropName="checked" noStyle>
+                                            <Checkbox>Rənglənib</Checkbox>
+                                        </Form.Item>
+                                        <p className='psell Medium'>Bir vı ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb</p>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item name="Accd" valuePropName="checked" noStyle>
+                                            <Checkbox>Qəzalı</Checkbox>
+                                        </Form.Item>
+                                        <p className='psell Medium'>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəzyətdədir</p>
+                                    </Col>
+                                </Space>
                             </Space>
-                        </Row>
+                        </Row >
 
                         {/* Təchizatı */}
-                        <Row>
+                        <Row  >
                             <h3 className='Bold'>Təchizatı</h3>
                             <Col span={24}>
                                 <Space>
@@ -522,7 +542,7 @@ function SellingItem() {
                                     </Space>
                                 </Space>
                             </Col>
-                        </Row>
+                        </Row >
 
                         {/* Vip premium Chat */}
 
@@ -568,8 +588,9 @@ function SellingItem() {
                             </Button>
                         </div>
 
-                    </Space>
-                )}
+                    </Space >
+                )
+                }
             </Form >
         </div >
     );
