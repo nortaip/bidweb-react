@@ -103,7 +103,7 @@ function SellingItem() {
                                         placeholder="Mersedes"
                                     >
                                         {brands.map(brand => (
-                                            <Option key={brand.id} value={brand.name}>
+                                            <Option key={brand.brand_name} value={brand.name}>
                                                 {brand.brand_name}
                                             </Option>
                                         ))}
