@@ -41,7 +41,7 @@ function SellingItem() {
             console.log('Received values of form: ', values);
             axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
                 console.log(response.data);
-                navigate('/Profile');
+                // navigate('/Profile');
             });
         }
         catch (errInfo) {
@@ -104,6 +104,7 @@ function SellingItem() {
                                 <Form.Item
                                     label="Marka"
                                     name="Marka"
+                                    extra="We must make sure that your are a human."
                                     rules={[
                                         {
                                             required: true,
@@ -545,18 +546,50 @@ function SellingItem() {
                         </Row >
 
                         {/* Vip premium Chat */}
-
+                        <Row>
+                            <Space direction="vertical">
+                                <Alert message="Əgər heç bir təklif göndərilməmişsə, siz auksionunuzu avtomatik olaraq yenidən siyahıya salmağı (Avtomatik reististlər) seçə bilərsiniz." type="info" showIcon />
+                                <h3 className='Bold'>Əlavə seçimlər</h3>
+                                <Space >
+                                    <Col span={24}>
+                                        <Form.Item name="prem" valuePropName="checked" noStyle>
+                                            <Checkbox className='chek h4 Medium'>Xüsusi göstərin (Premium elan)</Checkbox>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={24}>
+                                        <Form.Item name="to_up" valuePropName="checked" noStyle>
+                                            <Checkbox className='chek h4 Medium'>Cəsarətli olun (İrəli çək)</Checkbox>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={24}>
+                                        <Form.Item name="vip" valuePropName="checked" noStyle>
+                                            <Checkbox className='chek h4 Medium'>Vurğulanmalıdır (Vip et)</Checkbox>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={24}>
+                                        <Form.Item name="live_chat" valuePropName="checked" noStyle>
+                                            <Checkbox className='chek h4 Medium'>Çat (Yalnız Hərraclarda aktiv edilə bilər)</Checkbox>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={24}>
+                                        <Form.Item name="Avtoreistis" valuePropName="checked" noStyle>
+                                            <Checkbox className='chek h4 Medium'>Avtomatik reististlər (kayıt məmurları)</Checkbox>
+                                        </Form.Item>
+                                    </Col>
+                                </Space>
+                            </Space>
+                        </Row >
                         {/* İmg add*/}
-                        <ImageUpload />
+                        {/* <ImageUpload /> */}
                         {/* <Space direction="vertical"
                             style={{
                                 width: '100%',
                             }}>
                             <h2>Foto qalereya</h2>
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
-                            <ImgCrop rotationSlider  name='file'>
+                            <ImgCrop rotationSlider name='file_path'>
                                 <Upload
-                                    name='file'
+                                    name='file_path'
                                     action="http://localhost/tu/api/sell.php"
                                     listType="picture-card"
                                     fileList={fileList}
@@ -566,25 +599,15 @@ function SellingItem() {
                                     {fileList.length < 5 && '+ Upload'}
                                 </Upload>
                             </ImgCrop>
-                            <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
-                                    <img
-                                        alt="example"
-                                        style={{
-                                            width: '100%',
-                                        }}
-                                        src={previewImage}
-                                    />
-                                </Modal>
-                            <h5>Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur.</h5>
                         </Space> */}
                         {/* Buttons */}
                         <div className=' asfgcvxd'>
                             {/* Bottons*/}
                             <Button htmlType="button" block onClick={onReset}>
-                                Reset
+                                Sahələri Sıfırla
                             </Button>
                             <Button htmlType="submit" block type="primary">
-                                Axtar
+                                Elanı Paylaş
                             </Button>
                         </div>
 

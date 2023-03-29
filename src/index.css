@@ -60,6 +60,14 @@ a {
   padding-top: 5px;
 }
 
+.h4 {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
 .space-align-block {
   flex: none;
   margin: 8px 4px;
