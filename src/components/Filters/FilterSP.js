@@ -4,7 +4,7 @@ import Down from "../../imgs/icons/down.svg"
 import X from "../../imgs/icons/X.svg"
 import React, { useState } from 'react';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
-import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Collapse } from 'antd';
+import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Col, Row, } from 'antd';
 
 function FilterSP() {
     const [readMore, setReadMore] = useState(false);
@@ -119,13 +119,6 @@ function FilterSP() {
     // const linkName = readMore ? 'Ümumi axtarış ' : 'Ümumi axtarış'
     return (
         <div className="container filter">
-            <div className="tabs">
-                {/* <div className="tabs-content">
-           <div className="tabs-content-1"><h3>Ətraflı axtarış</h3></div>
-           <div className="tabs-content-2"><h3>İşlənmiş maşın</h3></div>
-           <div className="tabs-content-3"><h3>Salonlar</h3></div>
-        </div>  */}
-            </div>
             <div className="main">
                 <Form
                     form={form}
@@ -205,90 +198,94 @@ function FilterSP() {
                                     ))}
                                 </div>
                                 {/* Price,year */}
-                                <div className='sfasfdsd'
-                                    style={{
-                                        marginTop: '20px'
-                                    }} >
-                                    <Input.Group compact >
-                                        <InputNumber className='inputfilter' min={1} max={1000000000000000000000000000000000n}
-                                            size="large"
-                                            placeholder="Qiymət, Max"
-                                        />
-                                        <InputNumber className='inputfilter' min={1} max={1000000000000000000000000000000000n}
-                                            size="large"
-                                            placeholder="min"
-                                        />
-                                    </Input.Group>
-                                    <Input.Group compact  >
-                                        <Select
-                                            placeholder="İldən"
-                                            size="large"
-                                            onChange={handleChange}
-                                            className='inputfilter'
-                                            options={[
-                                                {
-                                                    value: 'jack',
-                                                    label: 'Jack',
-                                                },
-                                                {
-                                                    value: 'lucy',
-                                                    label: 'Lucy',
-                                                },
-                                                {
-                                                    value: 'Yiminghe',
-                                                    label: 'yiminghe',
-                                                },
-                                                {
-                                                    value: 'disabled',
-                                                    label: 'Disabled',
-                                                    disabled: true,
-                                                },
-                                            ]}
-                                        />
-                                        <Select
-                                            placeholder="İldən"
-                                            size="large"
-                                            onChange={handleChange}
-                                            className='inputfilter'
-                                            options={[
-                                                {
-                                                    value: 'jack',
-                                                    label: 'Jack',
-                                                },
-                                                {
-                                                    value: 'lucy',
-                                                    label: 'Lucy',
-                                                },
-                                                {
-                                                    value: 'Yiminghe',
-                                                    label: 'yiminghe',
-                                                },
-                                                {
-                                                    value: 'disabled',
-                                                    label: 'Disabled',
-                                                    disabled: true,
-                                                },
-                                            ]}
-                                        />
-                                    </Input.Group>
-                                    <Input.Group compact >
-                                        <InputNumber min={1} max={1000000000000000000000000000000000n}
-                                            style={{
-                                                textAlign: 'center',
-                                            }} className='inputfilter'
-                                            size="large"
-                                            placeholder="Yürüş,Km dən"
-                                        />
-                                        <InputNumber min={1} max={1000000000000000000000000000000000n}
-                                            style={{
-                                                textAlign: 'center',
-                                            }}
-                                            className='inputfilter'
-                                            size="large"
-                                            placeholder="Km rə"
-                                        />
-                                    </Input.Group>
-                                </div>
+                                <Row gutter={[16, 16]}>
+                                    <Col span={8}>
+                                        <Input.Group compact >
+                                            <InputNumber className='inputfilter' min={1} max={1000000000000000000000000000000000n}
+                                                size="large"
+                                                placeholder="Qiymət, Max"
+                                            />
+                                            <InputNumber className='inputfilter' min={1} max={1000000000000000000000000000000000n}
+                                                size="large"
+                                                placeholder="min"
+                                            />
+                                        </Input.Group>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Input.Group compact>
+                                            <Select
+                                                placeholder="İldən"
+                                                size="large"
+                                                onChange={handleChange}
+                                                className='inputfilter'
+                                                options={[
+                                                    {
+                                                        value: 'jack',
+                                                        label: 'Jack',
+                                                    },
+                                                    {
+                                                        value: 'lucy',
+                                                        label: 'Lucy',
+                                                    },
+                                                    {
+                                                        value: 'Yiminghe',
+                                                        label: 'yiminghe',
+                                                    },
+                                                    {
+                                                        value: 'disabled',
+                                                        label: 'Disabled',
+                                                        disabled: true,
+                                                    },
+                                                ]}
+                                            />
+                                            <Select
+                                                placeholder="İldən"
+                                                size="large"
+                                                onChange={handleChange}
+                                                className='inputfilter'
+                                                options={[
+                                                    {
+                                                        value: 'jack',
+                                                        label: 'Jack',
+                                                    },
+                                                    {
+                                                        value: 'lucy',
+                                                        label: 'Lucy',
+                                                    },
+                                                    {
+                                                        value: 'Yiminghe',
+                                                        label: 'yiminghe',
+                                                    },
+                                                    {
+                                                        value: 'disabled',
+                                                        label: 'Disabled',
+                                                        disabled: true,
+                                                    },
+                                                ]}
+                                            />
+                                        </Input.Group>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Input.Group compact >
+                                            <InputNumber min={1} max={1000000000000000000000000000000000n}
+                                                style={{
+                                                    textAlign: 'center',
+                                                }} className='inputfilter'
+                                                size="large"
+                                                placeholder="Yürüş,Km dən"
+                                            />
+                                            <InputNumber min={1} max={1000000000000000000000000000000000n}
+                                                style={{
+                                                    textAlign: 'center',
+                                                }}
+                                                className='inputfilter'
+                                                size="large"
+                                                placeholder="Km rə"
+                                            />
+                                        </Input.Group>
+                                    </Col>
+                                </Row>
+
                                 {/* Km,VIP,New */}
                                 <Space>
                                     {/* <Input.Group compact>

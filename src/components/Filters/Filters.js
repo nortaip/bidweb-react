@@ -128,13 +128,6 @@ function Filter({ setItem, menuItems }) {
 
   return (
     <div className="container filter">
-      <div className="tabs">
-        {/* <div className="tabs-content">
-           <div className="tabs-content-1"><h3>Ətraflı axtarış</h3></div>
-           <div className="tabs-content-2"><h3>İşlənmiş maşın</h3></div>
-           <div className="tabs-content-3"><h3>Salonlar</h3></div>
-        </div>  */}
-      </div>
       <div className="main">
         <Form
           form={form}

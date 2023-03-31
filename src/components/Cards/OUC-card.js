@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Tag, Watermark } from 'antd';
+import { Tag, Watermark, Select, Button, Empty } from 'antd';
 import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
 import VIPIcon from "../../imgs/icons/VIP.svg";
 import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
 import ProIcon from "../../imgs/icons/Pro.svg";
+import Topsvg from "../../imgs/icons/top.svg";
+import sfhdgdfghesd from '../../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
+const { Option } = Select;
 
 function LikeButton({ id }) {
   const [isLiked, setIsLiked] = useState(false);
@@ -27,7 +30,6 @@ function LikeButton({ id }) {
     </div>
   );
 }
-
 function Activity(props) {
   if (props.isVisible) {
     return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
@@ -42,8 +44,15 @@ function Verified(props) {
     return <div></div>;
   }
 }
-function VIP(props) {
+function Top(props) {
   if (props.isVisible) {
+    return <div><img src={Topsvg} alt="icon" className="iconCard" /></div>;
+  } else {
+    return <div></div>;
+  }
+}
+function VIP(props) {
+  if (props.isVisible === "1") {
     return <div><img src={VIPIcon} alt="icon" className="iconCard" /></div>;
   } else {
     return <div></div>;
@@ -64,55 +73,88 @@ function Pro(props) {
   }
 }
 
-
 const Cards = ({ item }) => {
+
+  const [items, setitem] = useState([]);
+  useEffect((Val) => {
+    fetch('http://localhost/tu/api/sell.php')
+      .then(response => response.json())
+      .then(data => {
+        // İlk veri seti burada state'e atanır
+        setitem(data);
+      });
+  }, []);
+
+  //if not data
+
+  if (items.length === 0) {
+    return <div>
+      <Empty
+        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        imageStyle={{
+          height: 60,
+        }}
+        description={
+          <span>
+            Customize Description
+          </span>
+        }
+      >
+        <Link to="/sell"><Button type="primary">Create Now</Button></Link>
+      </Empty></div>;
+  }
   return (
     <>
-      {item.map((Val) => {
+      {items.map((Val) => {
         return (
           <div className="products-i " key={Val.id}>
-
             <div className="products-i__top">
-              <Link target="_blank" to={`/products/${Val.id}`}>
+              <Link target="_blank" to={`#`}>
                 <Watermark content="Bid.az">
-                  <img className="imga" loading="lazy" src={Val.imgM} alt={Val.title} />
+                  <img
+                    className="imga"
+                    loading="lazy"
+                    src={'http://localhost/tu/api/uploads/' + Val.image}
+                    alt={Val.Marka}
+                  />
                 </Watermark>
               </Link>
               <div className="products-i__label-container ">
-                <Activity isVisible={Val.Activity} />
+                {/* <Activity isVisible={Val.Activity} /> */}
                 <Verified isVisible={Val.Verified} />
-                <VIP isVisible={Val.VIP} />
-                <Auction isVisible={Val.Auction = "1"} folse />
-                <Pro isVisible={Val.PRO} />
+                <VIP isVisible={Val.vip} />
+                <Top isVisible={Val.to_up} />
+                {/* <Auction isVisible={Val.Auction} /> */}
+                <Pro isVisible={Val.prem} />
               </div>
               <LikeButton />
             </div>
-            <Link target="_blank" to={`/products/${Val.id}`}>
+            <Link target="_blank" to={`#`}>
               <div className="products-i__bottom">
                 <div className="title">
-                  <div className="products-i__name Title">{Val.title}</div>
-                  <div className="products-i__attributes  Desc">{Val.category}</div>
+                  <div className="products-i__name Title">{Val.Marka}</div>
+                  <div className="products-i__attributes  Desc">{Val.Model}</div>
                 </div>
                 <div className="products-i_info ">
                   <div className="ico">
                     <span className="Gear-icon"></span>
-                    <h6 className="Card-icon">{Val.mekanik}</h6>
+                    <h6 className="Card-icon">{Val.Yanacaq}</h6>
                   </div>
                   <div className="ico">
                     <span className="Vector-icon ico"></span>
-                    <h6 className="Card-icon">{Val.Benzin}</h6>
+                    <h6 className="Card-icon">{Val.Suret}</h6>
                   </div>
                   <div className="ico">
                     <span className="people-icon ico"></span>
-                    <h6 className="Card-icon">{Val.people}</h6>
+                    <h6 className="Card-icon">{Val.People}</h6>
                   </div>
                 </div>
                 <div className="products-i__price ">
-                  <div className="product-price">{Val.price} <span>AZN</span>
+                  <div className="product-price">{Val.Price} <span>AZN</span>
                   </div>
                 </div>
                 <div className="fofgsdfgsr">
-                  <div className="post-date Medium">{Val.date}</div>
+                  <div className="post-date Medium">{Val.created_at}</div>
                   <div className="post-date Medium">{Val.location}</div>
                 </div>
               </div>
@@ -125,3 +167,4 @@ const Cards = ({ item }) => {
 };
 
 export default Cards;
+// to={`/products/${Val.id}`

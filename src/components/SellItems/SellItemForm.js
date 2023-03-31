@@ -41,7 +41,7 @@ function SellingItem() {
             console.log('Received values of form: ', values);
             axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
                 console.log(response.data);
-                // navigate('/Profile');
+                navigate('/');
             });
         }
         catch (errInfo) {
@@ -263,7 +263,7 @@ function SellingItem() {
                                     </Select>
                                 </Form.Item>
                             </Col>
-                            <Col span={6}>
+                            <Col span={4}>
                                 <Form.Item
                                     label="Yanacaq növü"
                                     name='Yanacaq'
@@ -281,7 +281,7 @@ function SellingItem() {
                                     </Radio.Group>
                                 </Form.Item>
                             </Col>
-                            <Col span={10}>
+                            <Col span={8}>
                                 <Form.Item
                                     label="Sürətlər qutusu"
                                     name="Suret"
@@ -297,6 +297,24 @@ function SellingItem() {
                                         <Radio.Button value="Avtomatik" onChange={handleChange}>Avtomatik</Radio.Button>
                                         <Radio.Button value="Robot" onChange={handleChange}>Robot</Radio.Button>
                                         <Radio.Button value="Dəyişən Sürətlər" onChange={handleChange}>Dəyişən Sürətlər</Radio.Button>
+                                    </Radio.Group>
+                                </Form.Item>
+                            </Col>
+                            <Col span={4}>
+                                <Form.Item
+                                    label="Ötürücü"
+                                    name="Gear"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your username!',
+                                        },
+                                    ]}
+                                >
+                                    <Radio.Group size="large" buttonStyle="solid" >
+                                        <Radio.Button value="Ön" onChange={handleChange}>Ön</Radio.Button>
+                                        <Radio.Button value="Arxa" onChange={handleChange}>Arxa</Radio.Button>
+                                        <Radio.Button value="Tam" onChange={handleChange}>4x4 & Tam</Radio.Button>
                                     </Radio.Group>
                                 </Form.Item>
                             </Col>
@@ -417,8 +435,8 @@ function SellingItem() {
                             </Col>
                             <Col span={8}>
                                 <Form.Item
-                                    label="Ötürücü"
-                                    name="Gear"
+                                    label="Oturacağ sayı"
+                                    name="People"
                                     rules={[
                                         {
                                             required: true,
@@ -427,17 +445,18 @@ function SellingItem() {
                                     ]}
                                 >
                                     <Radio.Group size="large" buttonStyle="solid" >
-                                        <Radio.Button value="Ön" onChange={handleChange}>Ön</Radio.Button>
-                                        <Radio.Button value="Arxa" onChange={handleChange}>Arxa</Radio.Button>
-                                        <Radio.Button value="Tam" onChange={handleChange}>4x4 & Tam</Radio.Button>
+                                        <Radio.Button value="2" onChange={handleChange}>2</Radio.Button>
+                                        <Radio.Button value="5" onChange={handleChange}>5</Radio.Button>
+                                        <Radio.Button value="7" onChange={handleChange}>7</Radio.Button>
+                                        <Radio.Button value="8+" onChange={handleChange}>8+</Radio.Button>
                                     </Radio.Group>
                                 </Form.Item>
                             </Col>
                         </Row>
 
-                        {/* Əlavə məlumat */}
+                        {/* Əlavə məlumat, qiymət */}
                         <Row gutter={[16, 16]}>
-                            <Col span={24}>
+                            <Col span={12}>
                                 <Form.Item
                                     label="Əlavə məlumat"
                                     rules={[
@@ -449,6 +468,27 @@ function SellingItem() {
                                     name='elave'
                                 >
                                     <Input placeholder='Əlavə məlumat' onChange={handleChange} size='large' name='elave' mode="multiple" />
+                                </Form.Item>
+                            </Col>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="Qiymət"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your username!',
+                                        },
+                                    ]}
+                                    name='Price'
+                                >
+                                    <InputNumber
+                                        style={{
+                                            width: '100%',
+                                        }}
+                                        size="large"
+                                        name='Price'
+                                        placeholder="sm3"
+                                    />
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -541,6 +581,12 @@ function SellingItem() {
                                             <Checkbox>Multi Ektan</Checkbox>
                                         </Form.Item>
                                     </Space>
+                                    <Space direction='vertical'>
+                                        <Form.Item name="kruiz" valuePropName="checked" noStyle>
+                                            <Checkbox>Yağış sensoru </Checkbox>
+                                        </Form.Item>
+                                        
+                                    </Space>
                                 </Space>
                             </Col>
                         </Row >
@@ -581,7 +627,7 @@ function SellingItem() {
                         </Row >
                         {/* İmg add*/}
                         {/* <ImageUpload /> */}
-                        {/* <Space direction="vertical"
+                        <Space direction="vertical"
                             style={{
                                 width: '100%',
                             }}>
@@ -589,8 +635,8 @@ function SellingItem() {
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                             <ImgCrop rotationSlider name='file_path'>
                                 <Upload
-                                    name='file_path'
-                                    action="http://localhost/tu/api/sell.php"
+                                    name='image'
+                                    action="http://localhost/tu/api/sellimg.php"
                                     listType="picture-card"
                                     fileList={fileList}
                                     onChange={onChange}
@@ -599,7 +645,7 @@ function SellingItem() {
                                     {fileList.length < 5 && '+ Upload'}
                                 </Upload>
                             </ImgCrop>
-                        </Space> */}
+                        </Space>
                         {/* Buttons */}
                         <div className=' asfgcvxd'>
                             {/* Bottons*/}
