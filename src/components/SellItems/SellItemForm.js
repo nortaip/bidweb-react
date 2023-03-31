@@ -4,6 +4,7 @@ import ImgCrop from 'antd-img-crop'
 import ImageUpload from '../ImgFile/ImgUpload';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
@@ -39,9 +40,9 @@ function SellingItem() {
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
-            axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
+            axios.post('http://localhost/tu/api/sellimg.php', values).then(function (response) {
                 console.log(response.data);
-                navigate('/');
+                // navigate('/');
             });
         }
         catch (errInfo) {
@@ -59,7 +60,7 @@ function SellingItem() {
     const [fileList, setFileList] = useState([
 
     ]);
-
+    const navigate = useNavigate();
     const onChange = ({ file, fileList: newFileList }) => {
         if (file.status !== 'uploading') {
             console.log(file, fileList);
@@ -585,7 +586,7 @@ function SellingItem() {
                                         <Form.Item name="kruiz" valuePropName="checked" noStyle>
                                             <Checkbox>Yağış sensoru </Checkbox>
                                         </Form.Item>
-                                        
+
                                     </Space>
                                 </Space>
                             </Col>
@@ -635,7 +636,7 @@ function SellingItem() {
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                             <ImgCrop rotationSlider name='file_path'>
                                 <Upload
-                                    name='image'
+                                    name='myfile'
                                     action="http://localhost/tu/api/sellimg.php"
                                     listType="picture-card"
                                     fileList={fileList}
