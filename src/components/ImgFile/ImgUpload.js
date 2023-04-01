@@ -1,48 +1,109 @@
 import React, { useState } from 'react';
-import { Upload, message } from 'antd';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { Upload, message, Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
-const UploadImage = () => {
-  const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
+const ImageUploader = () => {
+  const [fileList, setFileList] = useState([]);
 
-  const handleChange = async (info) => {
-    if (info.file.status === 'uploading') {
-      setLoading(true);
-      return;
-    }
-    if (info.file.status === 'done') {
-      setLoading(false);
-      const response = await axios.post('/upload.php', info.file);
-      setImageUrl(response.data.imageUrl);
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === 'error') {
-      setLoading(false);
-      message.error(`${info.file.name} file upload failed.`);
+  const handleImageUpload = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+      const response = await axios.post('http://localhost/tu/api/uploadimg.php', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      message.success(`${file.name} yüklendi`);
+      const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
+      setFileList(newFileList);
+    } catch (error) {
+      message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
     }
   };
 
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
+  const handleImageRemove = async (file) => {
+    try {
+      await axios.post('http://localhost/tu/api/delete.php', { uid: file.uid });
+      message.success(`${file.name} silindi`);
+      const newFileList = fileList.filter(f => f.uid !== file.uid);
+      setFileList(newFileList);
+    } catch (error) {
+      message.error(`Dosya silinirken hata oluştu: ${error.message}`);
+    }
+  };
+
+  const handlePreview = async (file) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreviewImage(file.url || file.preview);
+    setPreviewOpen(true);
+    setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
+  };
+
+  const handleImageChange = ({ fileList: newFileList }) => {
+    setFileList(newFileList);
+  };
+
+  const handleImageBeforeUpload = (file) => {
+    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+    if (!isJpgOrPng) {
+      message.error('Sadece JPG/PNG dosyaları yüklenebilir');
+      return false;
+    }
+    const isLt2M = file.size / 1024 / 1024 < 2;
+    if (!isLt2M) {
+      message.error('Dosya boyutu 2MB\'dan küçük olmalıdır');
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const formData = new FormData();
+      fileList.forEach(file => {
+        formData.append('files[]', file.originFileObj);
+      });
+      await axios.post('http://localhost/tu/api/uploadimgs.php', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      message.success('Resimler gönderildi');
+      setFileList([]);
+    } catch (error) {
+      message.error(`Resim gönderilirken hata oluştu: ${error.message}`);
+    }
+  };
+
+  const renderUploadButton = () => {
+    return (
+      <div>
+        <PlusOutlined />
+        <div style={{ marginTop: 8 }}>Resim yükle</div>
+      </div>
+    );
+  };
 
   return (
     <Upload
       name="file"
+      // action="http://localhost/tu/api/uploadimg.php"
+      headers={{ 'Access-Control-Allow-Origin': '*' }}
       listType="picture-card"
-      className="avatar-uploader"
-      showUploadList={true}
-      action="http://localhost/tu/api/upload.php"
-      beforeUpload={() => false}
-      onChange={handleChange}
+      fileList={fileList}
+      beforeUpload={handleImageBeforeUpload}
+      onPreview={handlePreview}
+      onChange={handleImageChange}
+      onRemove={handleImageRemove}
+      customRequest={({ file }) => handleImageUpload(file)}
     >
-      {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+      {fileList.length >= 25 ? null : renderUploadButton()}
     </Upload>
   );
 };
 
-export default UploadImage;
+export default ImageUploader;
