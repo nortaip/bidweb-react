@@ -36,6 +36,22 @@ function SellingItem() {
         setInputs(values => ({ ...values, [name]: value }));
     }
 
+    const onclick = async (values) => {
+        const formData = new FormData();
+        formData.append("Marka", values.Marka);
+        formData.append("description", values.description);
+        fileList.forEach((file) => {
+            formData.append("resimler[]", file.originFileObj);
+        });
+        try {
+            const response = await axios.post("http://localhost/tu/api/sell.php", formData);
+            console.log(response.data);
+            // navigate('/');
+        } catch (error) {
+            console.log('Error:', error);
+        }
+    };
+
     const onFinish = (values) => {
         // console.log('Received values of form: ', values);
         axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
@@ -69,8 +85,27 @@ function SellingItem() {
         const imgWindow = window.open(src);
         imgWindow?.document.write(image.outerHTML);
     };
+
     const onChange = ({ fileList: newFileList }) => {
         setFileList(newFileList);
+    };
+
+    const uploadProps = {
+        name: 'resimler[]',
+        action: 'http://localhost/tu/api/sell.php',
+        listType: 'picture-card',
+        fileList,
+        onChange,
+        beforeUpload: (file) => {
+            if (fileList.length < 4) { // Sadece 4 dosya seçimine izin ver
+                // Aynı klasör adı kullanarak dosyayı fileList array'ine ekle
+                setFileList([...fileList, { ...file, uid: file.uid, name: file.name, status: 'done', url: URL.createObjectURL(file) }]);
+            }
+            return false; // Dosyayı yükleme
+        },
+        onPreview: (file) => {
+            window.open(file.url, '_blank');
+        },
     };
 
     return (
@@ -111,7 +146,7 @@ function SellingItem() {
                                         placeholder="Mersedes"
                                     >
                                         {brands.map(brand => (
-                                            <Option key={brand.brand_name} value={brand.name}>
+                                            <Option key={brand.id} value={brand.name}>
                                                 {brand.brand_name}
                                             </Option>
                                         ))}
@@ -249,7 +284,7 @@ function SellingItem() {
                                         placeholder="İL"
                                     >
                                         {Year.map(brand => (
-                                            <Option key={brand.brand_name} value={brand.name}>
+                                            <Option key={brand.id} value={brand.name}>
                                                 {brand.brand_name}
                                             </Option>
                                         ))}
@@ -267,7 +302,7 @@ function SellingItem() {
                                         },
                                     ]}
                                 >
-                                    <Radio.Group size="large" buttonStyle="solid" >
+                                    <Radio.Group size="large"key={2} buttonStyle="solid" >
                                         <Radio.Button value="Benzin" onChange={handleChange}>Benzin</Radio.Button>
                                         <Radio.Button value="Dizel" onChange={handleChange}>Dizel</Radio.Button>
                                         <Radio.Button value="Electrik" onChange={handleChange}>Electrik</Radio.Button>
@@ -285,7 +320,7 @@ function SellingItem() {
                                         },
                                     ]}
                                 >
-                                    <Radio.Group size="large" buttonStyle="solid" >
+                                    <Radio.Group size="large" key={1} buttonStyle="solid" >
                                         <Radio.Button value="Mexaniki" onChange={handleChange}>Mexaniki</Radio.Button>
                                         <Radio.Button value="Avtomatik" onChange={handleChange}>Avtomatik</Radio.Button>
                                         <Radio.Button value="Robot" onChange={handleChange}>Robot</Radio.Button>
@@ -304,7 +339,7 @@ function SellingItem() {
                                         },
                                     ]}
                                 >
-                                    <Radio.Group size="large" buttonStyle="solid" >
+                                    <Radio.Group size="large" key={51} buttonStyle="solid" >
                                         <Radio.Button value="Ön" onChange={handleChange}>Ön</Radio.Button>
                                         <Radio.Button value="Arxa" onChange={handleChange}>Arxa</Radio.Button>
                                         <Radio.Button value="Tam" onChange={handleChange}>4x4 & Tam</Radio.Button>
@@ -627,17 +662,9 @@ function SellingItem() {
                             <h2>Foto qalereya</h2>
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                             {/* <ImgCrop rotationSlider name='file_path'> */}
-                            <Upload
-                                name='resimler[]'
-                                action="http://localhost/tu/api/sellimg.php"
-                                listType="picture-card"
-                                fileList={fileList}
-                                onChange={onChange}
-                                onPreview={onPreview}
-                            >
-                                {fileList.length < 5 && '+ Upload'}
+                            <Upload {...uploadProps}>
+                                {fileList.length < 25 && '+ Upload'}
                             </Upload>
-
                             {/* </ImgCrop> */}
                         </Space>
                         {/* Buttons */}
@@ -646,7 +673,7 @@ function SellingItem() {
                             <Button htmlType="button" block onClick={onReset}>
                                 Sahələri Sıfırla
                             </Button>
-                            <Button htmlType="submit" block type="primary">
+                            <Button htmlType="submit" onClick={onclick} block type="primary">
                                 Elanı Paylaş
                             </Button>
                         </div>
