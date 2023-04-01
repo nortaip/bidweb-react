@@ -10,11 +10,29 @@ const ImageUploader = () => {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const response = await axios.post('http://localhost/tu/api/uploadimg.php', formData, {
+      const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
+
+      // Create random folder name
+      const folderName = Math.random().toString(36).substring(7);
+      const folderPath = path.join(__dirname, 'uploads', folderName);
+
+      // Create folder if it doesn't exist
+      if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath);
+      }
+
+      // Resize and save image to folder
+      const image = sharp(file.path);
+      await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
+
+      // Save folder name to database
+      await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
+
+      // Update file list
       message.success(`${file.name} yüklendi`);
       const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
       setFileList(newFileList);
@@ -67,7 +85,7 @@ const ImageUploader = () => {
       fileList.forEach(file => {
         formData.append('files[]', file.originFileObj);
       });
-      await axios.post('http://localhost/tu/api/uploadimgs.php', formData, {
+      await axios.post('http://localhost/tu/api/sell.php', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -89,20 +107,23 @@ const ImageUploader = () => {
   };
 
   return (
-    <Upload
-      name="file"
-      // action="http://localhost/tu/api/uploadimg.php"
-      headers={{ 'Access-Control-Allow-Origin': '*' }}
-      listType="picture-card"
-      fileList={fileList}
-      beforeUpload={handleImageBeforeUpload}
-      onPreview={handlePreview}
-      onChange={handleImageChange}
-      onRemove={handleImageRemove}
-      customRequest={({ file }) => handleImageUpload(file)}
-    >
-      {fileList.length >= 25 ? null : renderUploadButton()}
-    </Upload>
+    <>
+      <Upload
+        name="file"
+        action="http://localhost/tu/api/sell.php"
+        headers={{ 'Access-Control-Allow-Origin': '*' }}
+        listType="picture-card"
+        fileList={fileList}
+        beforeUpload={handleImageBeforeUpload}
+        onPreview={handlePreview}
+        onChange={handleImageChange}
+        onRemove={handleImageRemove}
+        customRequest={({ file }) => handleImageUpload(file)}
+      >
+        {fileList.length >= 25 ? null : renderUploadButton()}
+      </Upload>
+      <Button onClick={handleSubmit}>ммм</Button>
+    </>
   );
 };
 

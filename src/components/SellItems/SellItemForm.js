@@ -4,6 +4,7 @@ import { Form, Select, Upload, Button, Space, Input, Checkbox, Radio, InputNumbe
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ImageUploader from '../ImgFile/ImgUpload';
 
 const { Option } = Select;
 
@@ -35,7 +36,40 @@ function SellingItem() {
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
     }
-
+    const handleImageUpload = async (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        try {
+          const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+    
+          // Create random folder name
+          const folderName = Math.random().toString(36).substring(7);
+          const folderPath = path.join(__dirname, 'uploads', folderName);
+    
+          // Create folder if it doesn't exist
+          if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath);
+          }
+    
+          // Resize and save image to folder
+          const image = sharp(file.path);
+          await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
+    
+          // Save folder name to database
+          await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
+    
+          // Update file list
+          message.success(`${file.name} yüklendi`);
+          const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
+          setFileList(newFileList);
+        } catch (error) {
+          message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
+        }
+      };
     const onclick = async (values) => {
         const formData = new FormData();
         formData.append("Marka", values.Marka);
@@ -52,13 +86,19 @@ function SellingItem() {
         }
     };
 
-    const onFinish = (values) => {
-        // console.log('Received values of form: ', values);
-        axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
-            console.log(response.data);
-            // navigate('/');
-        });
-    };
+    const onFinish = async (values, fileList) => {
+        const formData = new FormData();
+        if (fileList && fileList.length) {
+            fileList.forEach(file => {
+              formData.append('files[]', file);
+            });
+            axios.post('http://localhost/tu/api/sell.php', formData).then(response => {
+              console.log(response.data);
+            });
+          } else {
+            console.error('File list is undefined or empty.');
+          }          
+      };
 
     const onReset = () => {
         Form.resetFields();
@@ -91,10 +131,11 @@ function SellingItem() {
     };
 
     const uploadProps = {
-        name: 'resimler[]',
+        name: 'files[]',
         action: 'http://localhost/tu/api/sell.php',
         listType: 'picture-card',
         fileList,
+        handleImageUpload,
         onChange,
         beforeUpload: (file) => {
             if (fileList.length < 4) { // Sadece 4 dosya seçimine izin ver
@@ -302,7 +343,7 @@ function SellingItem() {
                                         },
                                     ]}
                                 >
-                                    <Radio.Group size="large"key={2} buttonStyle="solid" >
+                                    <Radio.Group size="large" key={2} buttonStyle="solid" >
                                         <Radio.Button value="Benzin" onChange={handleChange}>Benzin</Radio.Button>
                                         <Radio.Button value="Dizel" onChange={handleChange}>Dizel</Radio.Button>
                                         <Radio.Button value="Electrik" onChange={handleChange}>Electrik</Radio.Button>
@@ -661,11 +702,10 @@ function SellingItem() {
                             }}>
                             <h2>Foto qalereya</h2>
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
-                            {/* <ImgCrop rotationSlider name='file_path'> */}
+                            {/* <ImageUploader/> */}
                             <Upload {...uploadProps}>
                                 {fileList.length < 25 && '+ Upload'}
                             </Upload>
-                            {/* </ImgCrop> */}
                         </Space>
                         {/* Buttons */}
                         <div className=' asfgcvxd'>
