@@ -77,7 +77,7 @@ const Cards = ({ item }) => {
 
   const [items, setitem] = useState([]);
   useEffect((Val) => {
-    fetch('http://localhost/tu/api/sell.php')
+    fetch('http://localhost/tu/api/sellimg.php')
       .then(response => response.json())
       .then(data => {
         // İlk veri seti burada state'e atanır
@@ -114,7 +114,7 @@ const Cards = ({ item }) => {
                   <img
                     className="imga"
                     loading="lazy"
-                    src={'http://localhost/tu/api/uploads/' + Val.image}
+                    src={'http://localhost/tu/api/uploads/' + Val.folder_name}
                     alt={Val.Marka}
                   />
                 </Watermark>

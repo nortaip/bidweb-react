@@ -1,7 +1,6 @@
 import '../../App.css';
 import { Form, Select, Upload, Button, Space, Input, Checkbox, Radio, InputNumber, Col, Row, Modal, message, Alert, } from 'antd';
-import ImgCrop from 'antd-img-crop'
-import ImageUpload from '../ImgFile/ImgUpload';
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +13,7 @@ function SellingItem() {
     const [brands, setBrands] = useState([]);
     const [Year, setYear] = useState([]);
 
-    useEffect((brand) => {
+    useEffect((brands) => {
         fetch('http://localhost/tu/api/brand_name.php')
             .then(response => response.json())
             .then(data => {
@@ -38,16 +37,11 @@ function SellingItem() {
     }
 
     const onFinish = (values) => {
-        try {
-            console.log('Received values of form: ', values);
-            axios.post('http://localhost/tu/api/sellimg.php', values).then(function (response) {
-                console.log(response.data);
-                // navigate('/');
-            });
-        }
-        catch (errInfo) {
-            console.log('Error-:', errInfo);
-        }
+        // console.log('Received values of form: ', values);
+        axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
+            console.log(response.data);
+            // navigate('/');
+        });
     };
 
     const onReset = () => {
@@ -56,17 +50,11 @@ function SellingItem() {
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
-
     const [fileList, setFileList] = useState([
 
     ]);
     const navigate = useNavigate();
-    const onChange = ({ file, fileList: newFileList }) => {
-        if (file.status !== 'uploading') {
-            console.log(file, fileList);
-        }
-        setFileList(newFileList);
-    };
+
     const onPreview = async (file) => {
         let src = file.url;
         if (!src) {
@@ -81,6 +69,10 @@ function SellingItem() {
         const imgWindow = window.open(src);
         imgWindow?.document.write(image.outerHTML);
     };
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
+    };
+
     return (
         <div className="container ">
             <Form
@@ -89,7 +81,7 @@ function SellingItem() {
                 initialValues={{
                     remember: true,
                 }}
-                name="normal_login"
+                encType="multipart/form-data"
                 layout="vertical"
                 onFinishFailed={onFinishFailed}
             >
@@ -634,18 +626,19 @@ function SellingItem() {
                             }}>
                             <h2>Foto qalereya</h2>
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
-                            <ImgCrop rotationSlider name='file_path'>
-                                <Upload
-                                    name='myfile'
-                                    action="http://localhost/tu/api/sellimg.php"
-                                    listType="picture-card"
-                                    fileList={fileList}
-                                    onChange={onChange}
-                                    onPreview={onPreview}
-                                >
-                                    {fileList.length < 5 && '+ Upload'}
-                                </Upload>
-                            </ImgCrop>
+                            {/* <ImgCrop rotationSlider name='file_path'> */}
+                            <Upload
+                                name='resimler[]'
+                                action="http://localhost/tu/api/sellimg.php"
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={onChange}
+                                onPreview={onPreview}
+                            >
+                                {fileList.length < 5 && '+ Upload'}
+                            </Upload>
+
+                            {/* </ImgCrop> */}
                         </Space>
                         {/* Buttons */}
                         <div className=' asfgcvxd'>
