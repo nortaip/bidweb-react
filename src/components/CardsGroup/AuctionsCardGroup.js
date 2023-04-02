@@ -1,79 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import Card from "../Cards/OUC-card";
-import Data from "../Api/Data";
 import { Divider, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const App = () => {
-  const [item, setItem] = useState(Data);
-
-  // useEffect(() => {
-  //   fetch('http://localhost/tu/api/sell.php')
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // İlk veri seti burada state'e atanır
-  //       setItems(data);
-  //     });
-  // }, []);
-
-  // const sortItems = (items) => {
-  //   const sortedItems = items.sort((a, b) => {
-  //     if (a.to_up === 1) return -1;
-  //     if (b.to_up === 1) return 1;
-  //     return 0;
-  //   });
-  //   return sortedItems;
-  // };
-
-  // const onChange = (pagination, filters, sorter, extra) => {
-  //   console.log('params', pagination, filters, sorter, extra);
-  // };
-
-  const loadMoreData = () => {
-    if (loading) {
-      return;
-    }
-    setLoading(true);
-    fetch(Data)
-      .then((res) => res.json())
-      .then((body) => {
-        setData([...Data, ...body.results]);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
+  const [items, setItems] = useState([]);
+  
+  useEffect(() => {
+    fetch('http://localhost/tu/api/sell.php')
+      .then(response => response.json())
+      .then(data => {
+        // İlk veri seti burada state'e atanır
+        setItems(data);
       });
+  }, []);
+
+  const sortItems = (items) => {
+    const sortedItems = items.sort((a, b) => {
+      if (a.to_up === 1) return -1;
+      if (b.to_up === 1) return 1;
+      return 0;
+    });
+    return sortedItems;
   };
+
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
   };
 
   return (
     <>
-      <InfiniteScroll
-        dataLength={Data.length}
-        next={loadMoreData}
-        hasMore={Data.length < 5}
-        loader={
-          <Skeleton
-            avatar
-            paragraph={{
-              rows: 1,
-            }}
-            active
-          />
-        }
-        endMessage={<Divider plain>Daha çox elan görmək ücün Paylaş</Divider>}
-        scrollableTarget="scrollableDiv"
-      >
-        <div className="products">
-          <Divider orientation="left" orientationMargin="50">
-            {/* Auctions */}
-          </Divider>
-          <Card item={item} onChange={onChange} />        {/* <Card item={sortItems(items)} onChange={onChange} /> */}
-        </div>
-      </InfiniteScroll>
-
+      <div className="products">
+        <Divider orientation="left" orientationMargin="50">
+          {/* Auctions */}
+        </Divider>
+        <Card item={sortItems(items)} onChange={onChange} />
+      </div>
     </>
   );
 };
