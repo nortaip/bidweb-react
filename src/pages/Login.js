@@ -1,33 +1,32 @@
-import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
-import '../App.css';
-import React from "react";
-import Navbar from '../components/Navbar.js';
-import { Layout, Space } from 'antd';
-import FooterMain from '../components/Footers/FooterMain';
-const { Header, Footer, Content } = Layout;
-import { Button, Checkbox, Form, Input } from 'antd';
-import Logins from "../imgs/Frame 25480.png"
-import { useState } from "react";
-import axios from "axios";
+import React, { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { Layout, Space, Button, Checkbox, Form, Input } from 'antd';
+import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
+import Navbar from '../components/Navbar.js';
+import FooterMain from '../components/Footers/FooterMain';
+import AuthContext from '../components/AuthContext';
+import Logins from "../imgs/Frame 25480.png"
+import axios from "axios";
+import '../App.css';
 
+const { Header, Footer, Content } = Layout;
 const Login = () => {
     const navigate = useNavigate();
-
     const [inputs, setInputs] = useState([]);
-
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
     }
     const onFinish = (values) => {
-        // console.log('Received values of form: ', values);
+        console.log('Received values of form: ', values);
         axios.post('http://localhost/tu/api/user/save', values).then(function (response) {
             console.log(response.data);
-            // navigate('/');
+            navigate('/');
         });
     };
+    const { isAuthenticated, userId } = useContext(AuthContext);
+
     return (
         <Layout>
             <Header className='navbarmain'>
@@ -37,6 +36,7 @@ const Login = () => {
                 <div className='space-align-container sgafsdg'>
                     <Space>
                         <div className='loginda'>
+                            <p>Hello, user {userId}</p>
                             <Form
                                 name="normal_login"
                                 className="login-form container"
@@ -114,7 +114,7 @@ const Login = () => {
                                 Or <a href="">register now!</a>
                             </Form>
                         </div>
-                        {/* <img src={Logins} alt='login' className='imglosf' /> */}
+                        <img src={Logins} alt='login' className='imglosf' />
                     </Space>
                 </div>
             </Content>
