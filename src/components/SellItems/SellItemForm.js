@@ -10,9 +10,70 @@ const { Option } = Select;
 
 function SellingItem() {
     const [inputs, setInputs] = useState([]);
-
     const [brands, setBrands] = useState([]);
     const [Year, setYear] = useState([]);
+    useEffect((brand) => {
+        fetch('http://localhost/tu/api/brand_name.php')
+            .then(response => response.json())
+            .then(data => {
+                // İlk veri seti burada state'e atanır
+                setBrands(data);
+            });
+        // İkinci endpoint'ten veri çekme işlemi
+        fetch('http://localhost/tu/api/yearGet.php')
+            .then(response => response.json())
+            .then(data => {
+                // İkinci veri seti burada state'e atanır
+                setYear(data);
+            });
+    }, []);
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({ ...values, [name]: value }));
+    }
+    const onFinish = (values) => {
+        try {
+            console.log('Received values of form: ', values);
+            axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
+                console.log(response.data);
+                // navigate('/');
+            });
+        }
+        catch (errInfo) {
+            console.log('Error-:', errInfo);
+        }
+    };
+    const onReset = () => {
+        Form.resetFields();
+    };
+    const onFinishFailed = () => {
+        message.error('Submit failed!');
+    };
+    const [fileList, setFileList] = useState([
+
+    ]);
+    const navigate = useNavigate();
+    const onChange = ({ file, fileList: newFileList }) => {
+        if (file.status !== 'uploading') {
+            console.log(file, fileList);
+        }
+        setFileList(newFileList);
+    };
+    const onPreview = async (file) => {
+        let src = file.url;
+        if (!src) {
+            src = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file.originFileObj);
+                reader.onload = () => resolve(reader.result);
+            });
+        }
+        const image = new Image();
+        image.src = src;
+        const imgWindow = window.open(src);
+        imgWindow?.document.write(image.outerHTML);
+    };
 
     useEffect((brands) => {
         fetch('http://localhost/tu/api/brand_name.php')
@@ -31,45 +92,40 @@ function SellingItem() {
             });
     }, []);
 
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({ ...values, [name]: value }));
-    }
     const handleImageUpload = async (file) => {
         const formData = new FormData();
         formData.append('file', file);
         try {
-          const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
+            const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            // Create random folder name
+            const folderName = Math.random().toString(36).substring(7);
+            const folderPath = path.join(__dirname, 'uploads', folderName);
+
+            // Create folder if it doesn't exist
+            if (!fs.existsSync(folderPath)) {
+                fs.mkdirSync(folderPath);
             }
-          });
-    
-          // Create random folder name
-          const folderName = Math.random().toString(36).substring(7);
-          const folderPath = path.join(__dirname, 'uploads', folderName);
-    
-          // Create folder if it doesn't exist
-          if (!fs.existsSync(folderPath)) {
-            fs.mkdirSync(folderPath);
-          }
-    
-          // Resize and save image to folder
-          const image = sharp(file.path);
-          await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
-    
-          // Save folder name to database
-          await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
-    
-          // Update file list
-          message.success(`${file.name} yüklendi`);
-          const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
-          setFileList(newFileList);
+
+            // Resize and save image to folder
+            const image = sharp(file.path);
+            await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
+
+            // Save folder name to database
+            await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
+
+            // Update file list
+            message.success(`${file.name} yüklendi`);
+            const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
+            setFileList(newFileList);
         } catch (error) {
-          message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
+            message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
         }
-      };
+    };
     const onclick = async (values) => {
         const formData = new FormData();
         formData.append("Marka", values.Marka);
@@ -86,52 +142,8 @@ function SellingItem() {
         }
     };
 
-    const onFinish = async (values, fileList) => {
-        const formData = new FormData();
-        if (fileList && fileList.length) {
-            fileList.forEach(file => {
-              formData.append('files[]', file);
-            });
-            axios.post('http://localhost/tu/api/sell.php', formData).then(response => {
-              console.log(response.data);
-            });
-          } else {
-            console.error('File list is undefined or empty.');
-          }          
-      };
-
-    const onReset = () => {
-        Form.resetFields();
-    };
-    const onFinishFailed = () => {
-        message.error('Submit failed!');
-    };
-    const [fileList, setFileList] = useState([
-
-    ]);
-    const navigate = useNavigate();
-
-    const onPreview = async (file) => {
-        let src = file.url;
-        if (!src) {
-            src = await new Promise((resolve) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file.originFileObj);
-                reader.onload = () => resolve(reader.result);
-            });
-        }
-        const image = new Image();
-        image.src = src;
-        const imgWindow = window.open(src);
-        imgWindow?.document.write(image.outerHTML);
-    };
-
-    const onChange = ({ fileList: newFileList }) => {
-        setFileList(newFileList);
-    };
-
     const uploadProps = {
-        name: 'files[]',
+        name: 'file[]',
         action: 'http://localhost/tu/api/sell.php',
         listType: 'picture-card',
         fileList,
@@ -703,9 +715,11 @@ function SellingItem() {
                             <h2>Foto qalereya</h2>
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                             {/* <ImageUploader/> */}
-                            <Upload {...uploadProps}>
-                                {fileList.length < 25 && '+ Upload'}
-                            </Upload>
+                            <Form.Item name='file[]'>
+                                <Upload {...uploadProps}>
+                                    {fileList.length < 25 && '+ Upload'}
+                                </Upload>
+                            </Form.Item>
                         </Space>
                         {/* Buttons */}
                         <div className=' asfgcvxd'>
@@ -713,7 +727,7 @@ function SellingItem() {
                             <Button htmlType="button" block onClick={onReset}>
                                 Sahələri Sıfırla
                             </Button>
-                            <Button htmlType="submit" onClick={onclick} block type="primary">
+                            <Button htmlType="submit" block type="primary">
                                 Elanı Paylaş
                             </Button>
                         </div>
