@@ -54,7 +54,7 @@ function FooterMain() {
                                     Copyright © {new Date().getFullYear()} {" "}
                                     Let's save the world and make
                                     money. | by
-                                    <a href="" target="_blank" className="">Bid.az</a>
+                                    <a href="" target="_blank" className="">Nemo.az</a>
                                 </div>
                             </div>
                         </div>

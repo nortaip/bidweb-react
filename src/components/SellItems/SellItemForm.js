@@ -143,7 +143,7 @@ function SellingItem() {
     };
 
     const uploadProps = {
-        name: 'file[]',
+        // name: 'filert',
         action: 'http://localhost/tu/api/sell.php',
         listType: 'picture-card',
         fileList,
@@ -715,7 +715,7 @@ function SellingItem() {
                             <h2>Foto qalereya</h2>
                             <Alert message="22-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                             {/* <ImageUploader/> */}
-                            <Form.Item name='file[]'>
+                            <Form.Item name='files'>
                                 <Upload {...uploadProps}>
                                     {fileList.length < 25 && '+ Upload'}
                                 </Upload>

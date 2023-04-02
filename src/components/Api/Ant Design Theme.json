@@ -1,0 +1,13 @@
+{
+  "token": {
+    "fontSize": 14,
+    "borderRadius": 6,
+    "wireframe": true,
+    "colorPrimary": "#0066ff",
+    "colorWarning": "#f6a501",
+    "colorInfo": "#4794ff",
+    "colorTextBase": "#1b1c21",
+    "sizeStep": 5,
+    "sizeUnit": 6
+  }
+}

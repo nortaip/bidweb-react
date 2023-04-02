@@ -110,11 +110,18 @@ const Cards = ({ item }) => {
           <div className="products-i " key={Val.id}>
             <div className="products-i__top">
               <Link target="_blank" to={`#`}>
-                <Watermark content="Bid.az">
+                <Watermark
+                  content="Nemo.az"
+                  fontSize={10}
+                  fontWeight={900}
+                  height={30}
+                  width={30}
+                >
                   <img
                     className="imga"
                     loading="lazy"
-                    src={'http://localhost/tu/api/uploads/' + Val.folder_name}
+                    src={sfhdgdfghesd}
+                    // src={'http://localhost/tu/api/uploads/' + Val.folder_name}
                     alt={Val.Marka}
                   />
                 </Watermark>

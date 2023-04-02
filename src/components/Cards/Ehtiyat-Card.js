@@ -74,7 +74,7 @@ const Cards = ({ item }) => {
 
                         <div className="products-i__top">
                             <Link target="_blank" to={`/Ehtiyat-hissələri/${Val.id}`}>
-                                <Watermark content="Bid.az">
+                                <Watermark content="Nemo.az">
                                     <img className="imga" loading="lazy" src={Val.imgM} alt={Val.title} />
                                 </Watermark>
                             </Link>

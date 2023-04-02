@@ -7,25 +7,41 @@ import { Layout } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
 import Filter from '../components/Filters/Filters';
 const { Header, Footer, Content } = Layout;
-
+import { ConfigProvider } from 'antd';
+import data from "../components/Api/Ant Design Theme.json"
+const defaultData = {
+    borderRadius: 6,
+    colorPrimary: '#1677ff',
+  };
 function App() {
-
+  const [data] = React.useState(defaultData);
+  
   return (
     <>
       <Layout>
-        <Header className='navbarmain'>
-          <Navbar />
-        </Header>
-        <Content>
-          <Banner />
-          <Filter />
-          <div className='space-align-container '>
-            <AuctionsCardGroup />
-          </div>
-        </Content>
-        <Footer>
-          <FooterMain />
-        </Footer>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: data.colorPrimary,
+              borderRadius: data.borderRadius,
+            },
+          }}
+        >
+          <Header className='navbarmain'>
+            <Navbar />
+          </Header>
+          <Content>
+            <Banner />
+            <Filter />
+            <div className='space-align-container '>
+              <AuctionsCardGroup />
+            </div>
+          </Content>
+          <Footer>
+            <FooterMain />
+          </Footer>
+        </ConfigProvider>
+
       </Layout>
     </>
   );

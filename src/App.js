@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import EhtiyathissələriDetail from "./pages/Ehtiyat";
 import Login from "./pages/Login";
 import Postdata from "./pages/postdata";
+
 class App extends Component {
   render() {
     return (
