@@ -4,7 +4,8 @@ import { SmileOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ImageUploader from '../ImgFile/ImgUpload';
+import kredit from "../../imgs/icons/kredit.svg"
+import barter from "../../imgs/icons/barter.svg"
 
 const { Option } = Select;
 
@@ -671,7 +672,7 @@ function SellingItem() {
                             {/* Təchizatı */}
                             <Row>
                                 <h3 className='Bold'>Təchizatı</h3>
-                                <Col span={24} style={{ marginTop: 12 }}>
+                                <Col span={24} style={{ marginTop: 12, width: 10 }}>
                                     <Space>
                                         <Space direction='vertical'>
                                             <Form.Item name="Alloy" valuePropName="checked" noStyle>
@@ -730,10 +731,15 @@ function SellingItem() {
                                             </Form.Item>
                                         </Space>
                                         <Space direction='vertical'>
-                                            <Form.Item name="kruiz" valuePropName="checked" noStyle>
-                                                <Checkbox>Yağış sensoru </Checkbox>
+                                            <Form.Item name="K_ruiz" valuePropName="checked" noStyle>
+                                                <Checkbox>kruiz</Checkbox>
                                             </Form.Item>
-
+                                            <Form.Item name="B_arter" valuePropName="checked" noStyle>
+                                                <Checkbox>Barters</Checkbox>
+                                            </Form.Item>
+                                            <Form.Item name="K_redit" valuePropName="checked" noStyle>
+                                                <Checkbox>Kredit</Checkbox>
+                                            </Form.Item>
                                         </Space>
                                     </Space>
                                 </Col>
@@ -749,12 +755,12 @@ function SellingItem() {
                                 <Alert message="25-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                                 {/* <ImageUploader/> */}
                                 <Form.Item
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: 'Xaiş edirik Rəsimləri secin',
-                                        },
-                                    ]}
+                                    // rules={[
+                                    //     {
+                                    //         required: true,
+                                    //         message: 'Xaiş edirik Rəsimləri secin',
+                                    //     },
+                                    // ]}
                                     name='files'
                                     extra="Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur."
                                 >

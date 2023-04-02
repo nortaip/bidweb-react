@@ -7,6 +7,8 @@ import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
 import ProIcon from "../../imgs/icons/Pro.svg";
 import Topsvg from "../../imgs/icons/top.svg";
 import sfhdgdfghesd from '../../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
+import kredit from "../../imgs/icons/kredit.svg"
+import barter from "../../imgs/icons/barter.svg"
 const { Option } = Select;
 
 function LikeButton({ id }) {
@@ -41,21 +43,21 @@ function Verified(props) {
   if (props.isVisible) {
     return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
   } else {
-    return <div></div>;
+    return;
   }
 }
 function Top(props) {
   if (props.isVisible) {
     return <div><img src={Topsvg} alt="icon" className="iconCard" /></div>;
   } else {
-    return <div></div>;
+    return;
   }
 }
 function VIP(props) {
   if (props.isVisible === "1") {
     return <div><img src={VIPIcon} alt="icon" className="iconCard" /></div>;
   } else {
-    return <div></div>;
+    return;
   }
 }
 function Auction(props) {
@@ -69,7 +71,21 @@ function Pro(props) {
   if (props.isVisible) {
     return <div><img src={ProIcon} alt="icon" className="iconCard" /></div>;
   } else {
-    return <div></div>;
+    return;
+  }
+}
+function Barter(props) {
+  if (props.isVisible) {
+    return <div><img src={barter} alt="icon" className="iconCard" /></div>;
+  } else {
+    return;
+  }
+}
+function Kredit(props) {
+  if (props.isVisible) {
+    return <div><img src={kredit} alt="icon" className="iconCard" /></div>;
+  } else {
+    return;
   }
 }
 
@@ -137,6 +153,10 @@ const Cards = ({ item }) => {
                   <Top isVisible={Val.to_up} />
                   {/* <Auction isVisible={Val.Auction} /> */}
                   <Pro isVisible={Val.prem} />
+                </div>
+                <div className="products-barter-kredit-container ">
+                  <Barter isVisible={Val.barter} />
+                  <Kredit isVisible={Val.barter} />
                 </div>
                 <LikeButton />
               </div>
