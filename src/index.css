@@ -48,11 +48,10 @@ a {
   line-height: 20px;
   color: #141519;
 }
-.css-dev-only-do-not-override-sk7ap8 {
-  font-weight: 600;
+.ant-form-item-label {
+  font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  color: #141519;
 }
 
 .ant-checkbox-wrapper>span {
