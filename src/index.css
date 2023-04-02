@@ -42,6 +42,41 @@ a {
   text-decoration: none !important;
 }
 
+.ant-form-item-required {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #141519;
+}
+.css-dev-only-do-not-override-sk7ap8 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #141519;
+}
+
+.ant-checkbox-wrapper>span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1A1826;
+}
+
+.ant-form-item-extra {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #838799;
+}
+
+.ant-upload-hint {
+  font-family: 'Lexend';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  color: #1B1C21;
+}
+
 .ant-space-itemhdf {
   display: flex;
   flex-direction: row;
@@ -114,7 +149,7 @@ a {
   font-size: 16px;
   line-height: 25px;
   /* identical to box height */
-  color: #000000;
+  color: #1B1C21;
 }
 
 .secondary {
@@ -2186,7 +2221,7 @@ img {
   align-items: flex-start;
   padding: 0px;
   gap: 12px;
-
+  margin-top: 32px;
   flex: none;
   order: 0;
   flex-grow: 0;
