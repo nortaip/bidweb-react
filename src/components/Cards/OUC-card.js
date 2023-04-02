@@ -75,37 +75,37 @@ function Pro(props) {
 
 const Cards = ({ item }) => {
 
-  const [items, setitem] = useState([]);
-  useEffect((Val) => {
-    fetch('http://localhost/tu/api/sellimg.php')
-      .then(response => response.json())
-      .then(data => {
-        // İlk veri seti burada state'e atanır
-        setitem(data);
-      });
-  }, []);
+  // const [items, setitem] = useState([]);
+  // useEffect((Val) => {
+  //   fetch('http://localhost/tu/api/sellimg.php')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       // İlk veri seti burada state'e atanır
+  //       setitem(data);
+  //     });
+  // }, []);
 
   //if not data
 
-  if (items.length === 0) {
-    return <div>
-      <Empty
-        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-        imageStyle={{
-          height: 60,
-        }}
-        description={
-          <span>
-            Customize Description
-          </span>
-        }
-      >
-        <Link to="/sell"><Button type="primary">Create Now</Button></Link>
-      </Empty></div>;
-  }
+  // if (items.length === 0) {
+  //   return <div>
+  //     <Empty
+  //       image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+  //       imageStyle={{
+  //         height: 60,
+  //       }}
+  //       description={
+  //         <span>
+  //           Customize Description
+  //         </span>
+  //       }
+  //     >
+  //       <Link to="/sell"><Button type="primary">Create Now</Button></Link>
+  //     </Empty></div>;
+  // }
   return (
     <>
-      {items.map((Val) => {
+      {item.map((Val) => {
         return (
           <div className="products-i " key={Val.id}>
             <div className="products-i__top">
@@ -114,7 +114,7 @@ const Cards = ({ item }) => {
                   <img
                     className="imga"
                     loading="lazy"
-                    src={'http://localhost/tu/api/uploads/' + Val.folder_name}
+                    src={sfhdgdfghesd}
                     alt={Val.Marka}
                   />
                 </Watermark>
