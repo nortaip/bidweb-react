@@ -6,6 +6,7 @@ import ProductTitle from '../components/Titles/ProductTitlle';
 import ProducrImg from '../components/ImgFile/ProductImg';
 import Similar from '../components/ProductSimilar';
 import FooterMain from '../components/Footers/FooterMain';
+import Hashtags from '../components/Hashtags';
 
 const { Header, Footer, Content } = Layout;
 function ProductDetail() {
@@ -16,17 +17,15 @@ function ProductDetail() {
                 <Navbar />
             </Header>
             <Content className='container'>
-                {/* <Space direction="vertical" size="middle" align="center" className='section container' style={{ display: 'flex' }}> */}
-                <ProducrImg />
-
-                <div className='fless '>
-                    <Table />
-                    <ProductTitle />
-                    {/* <JoinProduct />  
-                             <Supply />  */}
-                </div>
-                <Similar />
-                {/* </Space> */}
+                <Space direction="vertical" size='large'>
+                    <ProducrImg />
+                    <div className='fless '>
+                        <Table />
+                        <ProductTitle />
+                        <Hashtags />
+                    </div>
+                    <Similar />
+                </Space>
             </Content>
             <Footer>
                 <FooterMain />

@@ -129,7 +129,7 @@ const Cards = ({ item }) => {
           return (
             <div className="products-i " key={Val.id}>
               <div className="products-i__top">
-                <Link target="_blank" to={`#`}>
+                <Link target="_blank" to={`/products/${Val.id}`}>
                   <Watermark
                     content="Nemo.az"
                     fontSize={10}
@@ -160,7 +160,7 @@ const Cards = ({ item }) => {
                 </div>
                 <LikeButton />
               </div>
-              <Link target="_blank" to={`#`}>
+              <Link target="_blank" to={`/products/${Val.id}`}>
                 <div className="products-i__bottom">
                   <div className="title">
                     <div className="products-i__name Title">{Val.Marka}</div>

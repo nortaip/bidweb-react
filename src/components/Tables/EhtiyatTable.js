@@ -156,7 +156,6 @@ function TableEhtiyat() {
                         </Text >
                     </div>
                 </div>
-
             </div >
         </>
     )

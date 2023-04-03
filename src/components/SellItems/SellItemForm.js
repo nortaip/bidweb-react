@@ -731,13 +731,13 @@ function SellingItem() {
                                             </Form.Item>
                                         </Space>
                                         <Space direction='vertical'>
-                                            <Form.Item name="K_ruiz" valuePropName="checked" noStyle>
+                                            <Form.Item name="Kruiz" valuePropName="checked" noStyle>
                                                 <Checkbox>kruiz</Checkbox>
                                             </Form.Item>
-                                            <Form.Item name="B_arter" valuePropName="checked" noStyle>
+                                            <Form.Item name="Barter" valuePropName="checked" noStyle>
                                                 <Checkbox>Barters</Checkbox>
                                             </Form.Item>
-                                            <Form.Item name="K_redit" valuePropName="checked" noStyle>
+                                            <Form.Item name="Kredit" valuePropName="checked" noStyle>
                                                 <Checkbox>Kredit</Checkbox>
                                             </Form.Item>
                                         </Space>

@@ -1,23 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
 import productsData from "../Api/Data"
 import { PhoneFilled } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import TableSalon from '../Tables/TableSalon';
 import Phone from '../../imgs/icons/PhoneRounded.svg';
+import axios from 'axios';
+import Hashtags from '../Hashtags';
 
-function MySalon(props) {
+function ToUP(props) {
     if (props.isVisible) {
-        return <div><TableSalon /></div>;
+        return <div className="e1113_11602">
+            <h4 className="e1113_11605">Irəli cək</h4>
+        </div>;
     } else {
-        return <div></div>;
+        return;
+    }
+}
+function VİP(props) {
+    if (props.isVisible) {
+        return <div className="e1113_11606">
+            <h4 className="e1113_11605">VİP</h4>
+        </div>;
+    } else {
+        return;
+    }
+}
+function Prem(props) {
+    if (props.isVisible) {
+        return <div className="e1113_1160643">
+            <h4 >Premium</h4>
+        </div>;
+    } else {
+        return;
     }
 }
 
 function ProductTitle() {
     // const [visible, setVisible] = useState(false);
-    const { productId } = useParams()
-    const P = productsData.find(prod => prod.id === productId)
+    const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+    const { productId } = useParams();
+
+    useEffect(() => {
+        const apiUrl = `http://localhost/tu/api/sellimg.php?id=${productId}`;
+        axios.get(apiUrl)
+            .then(response => {
+                setData(response.data);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error(error);
+                setIsLoading(false);
+            });
+    }, [productId]);
+
     const text = <span>Modelin qiymətləndirilməsi</span>;
     return (
         <>
@@ -26,12 +63,12 @@ function ProductTitle() {
                     <div className="e1113_11587">
                         <div className="e1126_12355">
                             <h4 className="e1113_11588 secondary">Qiymət</h4>
-                            <h3 className="e1113_11589 Bold ">{P.price} ₼</h3>
+                            <h3 className="e1113_11589 Bold ">{data.Price} ₼</h3>
                         </div>
                         <div className="Condition">
                             <h4 className="Regular">Condition</h4>
                             <div className='condin'>
-                                <h3 className="SemiBold">{P.Condition}</h3>
+                                <h3 className="SemiBold">{data.id}</h3>
                                 <Tooltip placement="right" title={text} >
                                     <span className='Help_Icon'></span>
                                 </Tooltip>
@@ -54,37 +91,21 @@ function ProductTitle() {
                         </div>
                     </div>
                     <div className="e1113_11617">
-                        <div className="e1113_11602">
-                            <h4 className="e1113_11605">Popular</h4>
-                        </div>
-                        <div className="e1113_11606">
-                            <h4 className="e1113_11605">Best Deals</h4>
-                        </div>
+                        <ToUP isVisible={data.to_up} />
+                        <VİP isVisible={data.vip} />
+                        <Prem isVisible={data.prem} />
                     </div>
                     <div className="e1113_11610">
-                        <Button className='btn-phone' type="primary" icon={<img src={Phone} alt='icon' />}>{P.Phone}</Button>
+                        <Button className='btn-phone' type="primary" icon={<img src={Phone} alt='icon' />}>{data.Price}</Button>
                         <span className="e1113_11616">Satıcıya elanı Bidex.az saytında tapdığınızı bildirin</span>
                     </div>
                 </div>
-                <MySalon isVisible={P.Salonid} />
-                <div className="e1113_11617">
-                    <div className="Hash">
-                        <h4 className="SemiBold">#Nəsimi</h4>
-                    </div>
-                    <div className="Hash">
-                        <h4 className="SemiBold">#E3</h4>
-                    </div>
-                    <div className="Hash">
-                        <h4 className="SemiBold">#Bmw</h4>
-                    </div>
-                    <div className="Hash">
-                        <h4 className="SemiBold">#Nəsimi</h4>
-                    </div>
-                </div>
+                {/* <MySalon isVisible={data.to_up} /> */}
                 <div className="e1113_11627">
                     <h4 className="e1113_11628 secondary">Baxışların sayı: 1220</h4>
-                    <h4 className="e1113_11629 secondary">Yeniləndi: 30 Yanvar 2023</h4>
+                    <h4 className="e1113_11629 secondary">Yeniləndi: {data.created_at}</h4>
                 </div>
+                {/* <Hashtags /> */}
             </div>
 
         </>
