@@ -85,7 +85,7 @@ function CardList() {
         }
     }
     return (
-        <>
+        <div className="top-32">
             <Divider orientation="left" orientationMargin="0">
                 Popular Car For you
             </Divider>
@@ -153,7 +153,7 @@ function CardList() {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 

@@ -4,6 +4,7 @@ import Description from '../Description';
 import { message, Popconfirm } from 'antd';
 import { RWebShare } from "react-web-share";
 import axios from 'axios';
+import Hashtags from '../Hashtags';
 
 function LikeButtons({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -196,6 +197,7 @@ function TableProduct() {
                             </div>
                         </div>
                         <Description />
+                        <Hashtags/>
                     </div>
                 </div >
             )}

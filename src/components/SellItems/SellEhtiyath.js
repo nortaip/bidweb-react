@@ -35,7 +35,7 @@ function SellingItem() {
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
-            axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
+            axios.post('http://localhost/tu/api/sellEhtiyat.php', values).then(function (response) {
                 console.log(response.data);
                 // navigate('/');
             });
@@ -144,7 +144,7 @@ function SellingItem() {
 
     const uploadProps = {
         // name: 'filert',
-        action: 'http://localhost/tu/api/sell.php',
+        action: 'http://localhost/tu/api/sellEhtiyat.php',
         listType: 'picture-card',
         fileList,
         handleImageUpload,
@@ -314,32 +314,6 @@ function SellingItem() {
                                     </Col>
                                     <Col span={8}>
                                         <Form.Item
-                                            label="Yanacaq növü"
-                                            name='Yanacaq'
-                                        >
-                                            <Select
-                                                name='Yanacaq'
-                                                size="large"
-                                                placeholder="Benzin"
-                                                options={[
-                                                    {
-                                                        value: 'Benzin',
-                                                        label: 'Benzin',
-                                                    },
-                                                    {
-                                                        value: 'Dizel',
-                                                        label: 'Dizel',
-                                                    },
-                                                    {
-                                                        value: 'Electrik',
-                                                        label: 'Electrik',
-                                                    }
-                                                ]}
-                                            />
-                                        </Form.Item>
-                                    </Col>
-                                    <Col span={8}>
-                                        <Form.Item
                                             label="Sürətlər qutusu"
                                             name="Suret"
 
@@ -369,7 +343,32 @@ function SellingItem() {
                                             />
                                         </Form.Item>
                                     </Col>
-
+                                    <Col span={8}>
+                                        <Form.Item
+                                            label="Yanacaq növü"
+                                            name='Yanacaq'
+                                        >
+                                            <Select
+                                                name='Yanacaq'
+                                                size="large"
+                                                placeholder="Benzin"
+                                                options={[
+                                                    {
+                                                        value: 'Benzin',
+                                                        label: 'Benzin',
+                                                    },
+                                                    {
+                                                        value: 'Dizel',
+                                                        label: 'Dizel',
+                                                    },
+                                                    {
+                                                        value: 'Electrik',
+                                                        label: 'Electrik',
+                                                    }
+                                                ]}
+                                            />
+                                        </Form.Item>
+                                    </Col>
                                 </Row>
 
                                 {/* Rəng ,Yürüş */}
@@ -472,68 +471,11 @@ function SellingItem() {
                                             />
                                         </Form.Item>
                                     </Col>
-                                    <Col span={8}>
-                                        <Form.Item
-                                            label="Oturacağ sayı"
-                                            name="People"
-                                        >
-                                            <Select
-                                                name="People"
-                                                size="large"
-                                                placeholder="7 Nəfər"
-                                                options={[
-                                                    {
-                                                        value: '2',
-                                                        label: '2',
-                                                    },
-                                                    {
-                                                        value: '5',
-                                                        label: '5',
-                                                    },
-                                                    {
-                                                        value: '7',
-                                                        label: '7',
-                                                    },
-                                                    {
-                                                        value: '8',
-                                                        label: '8+',
-                                                    },
-
-                                                ]}
-
-                                            />
-                                        </Form.Item>
-                                    </Col>
                                 </Row>
 
                                 {/* Əlavə məlumat, qiymət ,Ötürücü */}
                                 <Row gutter={[16, 16]}>
-                                    <Col span={8}>
-                                        <Form.Item
-                                            label="Ötürücü"
-                                            name="Gear"
-                                        >
-                                            <Select
-                                                name="Gear"
-                                                size="large"
-                                                placeholder="Arxa"
-                                                options={[
-                                                    {
-                                                        value: 'Ön',
-                                                        label: 'Ön',
-                                                    },
-                                                    {
-                                                        value: 'Arxa',
-                                                        label: 'Arxa',
-                                                    },
-                                                    {
-                                                        value: '4x4 & Tam',
-                                                        label: '4x4 & Tam',
-                                                    }
-                                                ]}
-                                            />
-                                        </Form.Item>
-                                    </Col>
+
                                     <Col span={8}>
                                         <Form.Item
                                             label="Qiymət"
@@ -566,7 +508,6 @@ function SellingItem() {
                                     </Col>
                                 </Row>
                             </div>
-
                             {/* İmg add*/}
                             <Space direction="vertical"
                                 size='middle'
@@ -577,12 +518,6 @@ function SellingItem() {
                                 <Alert message="25-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                                 {/* <ImageUploader/> */}
                                 <Form.Item
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: 'Xaiş edirik Rəsimləri secin',
-                                        },
-                                    ]}
                                     name='files'
                                     extra="Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur."
                                 >
@@ -617,13 +552,13 @@ function SellingItem() {
                                             </Form.Item>
                                         </Col>
                                         <Col span={24}>
-                                            <Form.Item name="live_chat" valuePropName="checked" noStyle>
-                                                <Checkbox className='chek h4 Medium'>Çat (Yalnız Hərraclarda aktiv edilə bilər)</Checkbox>
+                                            <Form.Item name="Kredit" valuePropName="checked" noStyle>
+                                                <Checkbox className='chek h4 Medium'>Kredit</Checkbox>
                                             </Form.Item>
                                         </Col>
                                         <Col span={24}>
-                                            <Form.Item name="Avtoreistis" valuePropName="checked" noStyle>
-                                                <Checkbox className='chek h4 Medium'>Avtomatik reististlər (kayıt məmurları)</Checkbox>
+                                            <Form.Item name="Barter" valuePropName="checked" noStyle>
+                                                <Checkbox className='chek h4 Medium'>Barter</Checkbox>
                                             </Form.Item>
                                         </Col>
                                     </Space>

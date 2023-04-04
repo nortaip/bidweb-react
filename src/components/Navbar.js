@@ -103,7 +103,7 @@ const App = () => {
         </div>
         <ul className='sgbdrf'>
           <li >
-            <Link to="/" className='Medium main-color' rel="noopener noreferrer">
+            <Link to="/Elanlar" className='Medium main-color' rel="noopener noreferrer">
               Hərraclar
             </Link>
           </li>

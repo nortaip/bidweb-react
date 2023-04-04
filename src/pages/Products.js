@@ -7,6 +7,7 @@ import ProducrImg from '../components/ImgFile/ProductImg';
 import Similar from '../components/ProductSimilar';
 import FooterMain from '../components/Footers/FooterMain';
 import Hashtags from '../components/Hashtags';
+import EhtiyatSimilar from '../components/EhtiyatSimilar';
 
 const { Header, Footer, Content } = Layout;
 function ProductDetail() {
@@ -16,15 +17,16 @@ function ProductDetail() {
             <Header className='navbarmain'>
                 <Navbar />
             </Header>
-            <Content className='container'>
+            <Content className='container top-32'>
                 <Space direction="vertical" size='large'>
                     <ProducrImg />
                     <div className='fless '>
                         <Table />
                         <ProductTitle />
-                        <Hashtags />
+                        {/* <Hashtags /> */}
                     </div>
                     <Similar />
+                    <EhtiyatSimilar/>
                 </Space>
             </Content>
             <Footer>

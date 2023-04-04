@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Tag, Watermark, Skeleton , Button, Empty, Divider, Tooltip } from 'antd';
-import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
-import VIPIcon from "../../imgs/icons/VIP.svg";
-import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
-import ProIcon from "../../imgs/icons/Pro.svg";
-import Topsvg from "../../imgs/icons/top.svg";
-import sfhdgdfghesd from '../../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
-import kredit from "../../imgs/icons/kredit.svg"
-import barter from "../../imgs/icons/barter.svg"
+import { Tag, Watermark, Skeleton, Button, Empty, Divider, Tooltip } from 'antd';
+import VerifiedIcon from "../imgs/icons/Increase-Brightness.svg";
+import VIPIcon from "../imgs/icons/VIP.svg";
+import ProIcon from "../imgs/icons/Pro.svg";
+import Topsvg from "../imgs/icons/top.svg";
+import sfhdgdfghesd from '../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
+import kredit from "../imgs/icons/kredit.svg"
+import barter from "../imgs/icons/barter.svg"
 
 function LikeButton({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -82,25 +81,25 @@ const Cards = ({ item }) => {
 
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState([]);
-    
+
     useEffect(() => {
-      fetch('http://localhost/tu/api/sellEhtiyat.php')
-        .then(response => response.json())
-        .then(data => {
-          setItems(data);
-          setLoading(false); // Change loading state to false once data is received
-        })
-        .catch(error => console.log(error));
+        fetch('http://localhost/tu/api/similarEhtiyat.php')
+            .then(response => response.json())
+            .then(data => {
+                setItems(data);
+                setLoading(false); // Change loading state to false once data is received
+            })
+            .catch(error => console.log(error));
     }, []);
-    
+
     if (loading) {
-      return (
-        <div className="products">
-          {[...Array(8)].map((_, index) => (
-            <Skeleton key={index} active />
-          ))}
-        </div>
-      );
+        return (
+            <div className="products">
+                {[...Array(8)].map((_, index) => (
+                    <Skeleton key={index} active />
+                ))}
+            </div>
+        );
     }
 
     //if not data
@@ -123,7 +122,7 @@ const Cards = ({ item }) => {
     }
     return (
         <>
-            <div className="products">
+            <div className="card-list top-32">
                 <Divider orientation="left" orientationMargin="50">
                     Auctions
                 </Divider>
