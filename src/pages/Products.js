@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
-import { Col, Row, Space, Layout } from 'antd';
+import { Space, Layout } from 'antd';
 import Table from '../components/Tables/TableProduct';
 import ProductTitle from '../components/Titles/ProductTitlle';
 import ProducrImg from '../components/ImgFile/ProductImg';
@@ -26,7 +26,7 @@ function ProductDetail() {
                         {/* <Hashtags /> */}
                     </div>
                     <Similar />
-                    <EhtiyatSimilar/>
+                    <EhtiyatSimilar />
                 </Space>
             </Content>
             <Footer>

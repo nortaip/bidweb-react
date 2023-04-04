@@ -112,6 +112,11 @@ const App = () => {
               Ehtiyat hissələr
             </Link>
           </li>
+          <li >
+            <Link to="#" className='Medium main-color' rel="noopener noreferrer">
+              Blog
+            </Link>
+          </li>
           <li  >
             <Link x className='Medium main-color' rel="noopener noreferrer">
               <Text disabled>
