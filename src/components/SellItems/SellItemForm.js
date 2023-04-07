@@ -144,23 +144,24 @@ function SellingItem() {
     };
 
     const uploadProps = {
-        // name: 'filert',
-        action: 'http://localhost/tu/api/sell.php',
+        name: 'file',
+        action: 'http://localhost:5000/uploads', // burada endpoint'i düzeltin
         listType: 'picture-card',
         fileList,
         handleImageUpload,
         onChange,
         beforeUpload: (file) => {
-            if (fileList.length < 4) { // Sadece 4 dosya seçimine izin ver
-                // Aynı klasör adı kullanarak dosyayı fileList array'ine ekle
-                setFileList([...fileList, { ...file, uid: file.uid, name: file.name, status: 'done', url: URL.createObjectURL(file) }]);
-            }
-            return false; // Dosyayı yükleme
+          if (fileList.length < 4) {
+            setFileList([...fileList, { ...file, uid: file.uid, name: file.name, status: 'done', url: URL.createObjectURL(file) }]);
+          }
+          return false;
         },
         onPreview: (file) => {
-            window.open(file.url, '_blank');
+          window.open(file.url, '_blank');
         },
-    };
+      };
+      
+    
 
     return (
         <div className="container ">
