@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
 import SalonBanner from '../components/SalonBanner';
 import Salonheader from '../components/infos/SalonInfo';
-import SalonCardGroup from '../components/Cards/CardSalon';
+import SalonCardGroup from '../components/mains/CardSalon';
 
 const { Header, Footer, Content } = Layout;
 function Salon() {

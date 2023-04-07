@@ -9,6 +9,7 @@ import Topsvg from "../../imgs/icons/top.svg";
 import sfhdgdfghesd from '../../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+const { Option } = Select;
 
 function LikeButton({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -31,6 +32,14 @@ function LikeButton({ id }) {
         </div>
     );
 }
+function Activity(props) {
+    if (props.isVisible) {
+        return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
+    } else {
+        return <div></div>;
+    }
+}
+
 function Verified(props) {
     if (props.isVisible) {
         return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
@@ -47,7 +56,7 @@ function Top(props) {
 }
 function VIP(props) {
     if (props.isVisible === "1") {
-        return <div><Tooltip placement="top" color="#76C81C" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
+        return <div><Tooltip placement="top" color="#F97316" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
     } else {
         return;
     }
@@ -73,12 +82,15 @@ function Kredit(props) {
         return;
     }
 }
+
+
 const Bter = <span>Barter</span>;
 const Premium = <span>Premium</span>;
 const Toup = <span>Irəli cək</span>;
 const Presc = <span>Kredit</span>;
 const VIPE = <span>VIP</span>;
-const EhtiyatMainCards = ({ item }) => {
+
+const MainNormal = ({ item }) => {
 
     const [items, setitem] = useState([]);
     useEffect((Val) => {
@@ -112,7 +124,7 @@ const EhtiyatMainCards = ({ item }) => {
         <>
             <div className="products">
                 <Divider orientation="left" orientationMargin="50">
-                    Vip Ehtiyat hissələri
+                    Vip ehtiyat hisseleri
                 </Divider>
                 {items.map((Val) => {
                     return (
@@ -171,5 +183,5 @@ const EhtiyatMainCards = ({ item }) => {
     );
 };
 
-export default EhtiyatMainCards;
-// to={`/Ehtiyat-hissələri/${Val.id}`
+export default MainNormal;
+// to={`/products/${Val.id}`

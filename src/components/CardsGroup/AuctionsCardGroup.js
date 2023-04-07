@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Tag, Watermark, Select, Button, Empty, Divider, Skeleton } from 'antd';
+import { Tag, Watermark, Select, Button, Empty, Divider, Tooltip } from 'antd';
 import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
 import VIPIcon from "../../imgs/icons/VIP.svg";
 import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
@@ -32,13 +32,6 @@ function LikeButton({ id }) {
     </div>
   );
 }
-function Activity(props) {
-  if (props.isVisible) {
-    return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
-  } else {
-    return <div></div>;
-  }
-}
 function Verified(props) {
   if (props.isVisible) {
     return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
@@ -48,46 +41,46 @@ function Verified(props) {
 }
 function Top(props) {
   if (props.isVisible) {
-    return <div><img src={Topsvg} alt="icon" className="iconCard" /></div>;
+    return <div><Tooltip placement="top" color="#76C81C" title={Toup}><img src={Topsvg} alt="icon" className="iconCard" /></Tooltip></div>;
   } else {
     return;
   }
 }
 function VIP(props) {
   if (props.isVisible === "1") {
-    return <div><img src={VIPIcon} alt="icon" className="iconCard" /></div>;
+    return <div><Tooltip placement="top" color="#76C81C" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
   } else {
     return;
   }
 }
-function Auction(props) {
-  if (props.isVisible) {
-    return <div><img src={AuctionIcon} alt="icon" className="iconCard" /></div>;
-  } else {
-    return <div></div>;
-  }
-}
 function Pro(props) {
   if (props.isVisible) {
-    return <div><img src={ProIcon} alt="icon" className="iconCard" /></div>;
+    return <div><Tooltip placement="top" color="#FCDB5B" title={Premium}><img src={ProIcon} alt="icon" className="iconCard" /></Tooltip></div>;
   } else {
     return;
   }
 }
 function Barter(props) {
   if (props.isVisible) {
-    return <div><img src={barter} alt="icon" className="iconCard" /></div>;
+    return <div><Tooltip placement="top" color="#000" title={Bter}><img src={barter} alt="icon" className="iconCard" /></Tooltip></div>;
   } else {
     return;
   }
 }
 function Kredit(props) {
   if (props.isVisible) {
-    return <div><img src={kredit} alt="icon" className="iconCard" /></div>;
+    return <div><Tooltip placement="top" color="#000" title={Presc}><img src={kredit} alt="icon" className="iconCard" /></Tooltip></div>;
   } else {
     return;
   }
 }
+
+
+const Bter = <span>Barter</span>;
+const Premium = <span>Premium</span>;
+const Toup = <span>Irəli cək</span>;
+const Presc = <span>Kredit</span>;
+const VIPE = <span>VIP</span>;
 
 const Cards = ({ item }) => {
 
@@ -123,7 +116,7 @@ const Cards = ({ item }) => {
     <>
       <div className="products">
         <Divider orientation="left" orientationMargin="50">
-          Auctions
+          Elanlar
         </Divider>
         {items.map((Val) => {
           return (

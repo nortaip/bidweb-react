@@ -1,19 +1,23 @@
 import '../App.css';
-import React from "react";
+import React from 'react';
 import Navbar from '../components/Navbar.js';
 import Banner from '../components/Banners/Banner.js';
 import { Layout } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
 import Filter from '../components/Filters/Filters';
 import { ConfigProvider } from 'antd';
-import MainNormal from '../components/Cards/OUC-card';
-import EhtiyatMainCards from '../components/Cards/Ehtiyat-Card';
+import MainNormal from '../components/mains/OUC-card';
+import EhtiyatMainCards from '../components/mains/Ehtiyat-Card';
+import MainVery from '../components/mains/CardsVery';
+import Cards from '../components/CardsGroup/AuctionsCardGroup';
 
 const { Header, Footer, Content } = Layout;
 const defaultData = {
     borderRadius: 6,
     colorPrimary: '#1677ff',
 };
+
+
 function Index() {
     const [data] = React.useState(defaultData);
 
@@ -35,17 +39,22 @@ function Index() {
                         <Banner />
                         <Filter />
                         <div className='space-align-container '>
+                            <MainVery />
+                        </div>
+                        <div className='space-align-container '>
                             <MainNormal />
                         </div>
                         <div className='space-align-container '>
-                            <EhtiyatMainCards/>
+                            <EhtiyatMainCards />
+                        </div>
+                        <div className='space-align-container '>
+                            <Cards />
                         </div>
                     </Content>
                     <Footer>
                         <FooterMain />
                     </Footer>
                 </ConfigProvider>
-
             </Layout>
         </>
     );

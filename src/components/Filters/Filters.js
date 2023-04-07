@@ -2,9 +2,9 @@ import '../../App.css';
 import up from "../../imgs/icons/upfilter.svg"
 import Down from "../../imgs/icons/down.svg"
 import X from "../../imgs/icons/X.svg"
-import React, { useState } from 'react';
+import React, { useState, useEffect, } from 'react';
 import { PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
-import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, Collapse } from 'antd';
+import { Form, Select, AutoComplete, Button, Space, Input, Checkbox, Radio, InputNumber, FilterForm } from 'antd';
 
 function Filter({ setItem, menuItems }) {
   const [readMore, setReadMore] = useState(false);
@@ -147,6 +147,7 @@ function Filter({ setItem, menuItems }) {
                     onSelect={onSelect}
                     onSearch={(text) => setOptions(getPanelValue(text))}
                     placeholder="Marka"
+                    name="Marka"
                   />
                   <AutoComplete
                     options={options}
@@ -155,6 +156,7 @@ function Filter({ setItem, menuItems }) {
                     onSelect={onSelect}
                     onSearch={(text) => setOptions(getPanelValue(text))}
                     placeholder="Madel"
+                    name="Model"
                   />
                   <AutoComplete
                     options={options}
@@ -163,6 +165,7 @@ function Filter({ setItem, menuItems }) {
                     onSelect={onSelect}
                     onSearch={(text) => setOptions(getPanelValue(text))}
                     placeholder="Nəsil"
+                    name="Nesil"
                   />
                   <Button
                     style={{
@@ -185,6 +188,7 @@ function Filter({ setItem, menuItems }) {
                         onSelect={onSelect}
                         onSearch={(text) => setOptions(getPanelValue(text))}
                         placeholder="Marka"
+                        name="Marka"
                       />
                       <AutoComplete
                         options={options}
@@ -193,6 +197,7 @@ function Filter({ setItem, menuItems }) {
                         onSelect={onSelect}
                         onSearch={(text) => setOptions(getPanelValue(text))}
                         placeholder="Madel"
+                        name="Model"
                       />
                       <AutoComplete
                         options={options}
@@ -201,6 +206,7 @@ function Filter({ setItem, menuItems }) {
                         onSelect={onSelect}
                         onSearch={(text) => setOptions(getPanelValue(text))}
                         placeholder="Nəsil"
+                        name="Nesil"
                       />
                       <MinusCircleOutlined onClick={() => remove(field.name)} />
                     </div>

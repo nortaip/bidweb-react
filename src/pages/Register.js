@@ -1,42 +1,44 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import '../App.css';
-import React from "react";
+import React, { useContext, useState } from 'react';
+import { Layout, Space, Button, Form, Input, Upload, message } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import Navbar from '../components/Navbar.js';
-import { Layout, Space } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
-const { Header, Footer, Content } = Layout;
-import { Button, Checkbox, Form, Input } from 'antd';
 import Logins from "../imgs/Frame 25480.png"
-import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import '../App.css';
+const { Item } = Form;
+const { Header, Footer, Content } = Layout;
+const Ragister = () => {
 
-const Login = () => {
-    const navigate = useNavigate();
-
-    const [inputs, setInputs] = useState([]);
-
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-        setInputs(values => ({ ...values, [name]: value }));
-    }
-    // const onFinish = (event) => {
-    //     event.preventDefault();
-
-    //     axios.post('http://localhost/tu/api/user/save', inputs).then(function(response){
-    //         console.log(response.data);
-    //         navigate('/');
-    //     });
-
-    // }
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-        axios.post('http://localhost/tu/api/user/save', values).then(function (response) {
+    const onFinish = async (values) => {
+        try {
+            const response = await axios.post('http://localhost/tu/api/register.php', values);
             console.log(response.data);
-            // navigate('/');
-        });
+            message.success(JSON.stringify(response.data));
+            navigate('/login');
+        } catch (error) {
+            message.error(JSON.stringify(error.response.data));
+        }
     };
+
+    const validateMessages = {
+        required: '${label} is required',
+        types: {
+            email: '${label} is not a valid email',
+        },
+        string: {
+            min: '${label} must be at least ${min} characters',
+        },
+    };
+
+    const normFile = (e) => {
+        if (Array.isArray(e)) {
+            return e;
+        }
+        return e && e.fileList;
+    };
+
+
     return (
         <Layout>
             <Header className='navbarmain'>
@@ -46,86 +48,46 @@ const Login = () => {
                 <div className='space-align-container sgafsdg'>
                     <Space>
                         <div className='loginda'>
-                            <Form
-                                name="normal_login"
-                                className="login-form container"
-                                initialValues={{
-                                    remember: true,
-                                }}
-                                onFinish={onFinish}
-                            >
-                                <Form.Item
-                                    // name="names"
-                                    name={"names"}
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: 'Please input your Username!',
-                                        },
-                                    ]}
+                            <Form onFinish={onFinish} validateMessages={validateMessages} encType='multipart/form-data' >
+                                <Item
+                                    label="Username"
+                                    name="username"
+                                    rules={[{ required: true }]}
                                 >
-                                    <Input
-                                        size="large"
-                                        prefix={<UserOutlined className="site-form-item-icon" />}
-                                        placeholder="Phone"
-                                        name="names"
-                                        onChange={handleChange}
-                                    />
-                                </Form.Item>
-                                <Form.Item
+                                    <Input name="username" />
+                                </Item>
+                                <Item
+                                    label="Email"
                                     name="email"
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: 'Please input your Password!',
-                                        },
-                                    ]}
+                                    rules={[{ required: true, type: 'email' }]}
                                 >
-                                    <Input.Password
-                                        size="large"
-                                        prefix={<LockOutlined className="site-form-item-icon" />}
-                                        type="password"
-                                        placeholder="Password"
-                                        name="email"
-                                        onChange={handleChange}
-                                    />
-                                </Form.Item>
+                                    <Input name='email' />
+                                </Item>
+                                <Item
+                                    label="Password"
+                                    name="password"
+                                    rules={[{ required: true, min: 6 }]}
+                                >
+                                    <Input.Password />
+                                </Item>
                                 <Form.Item
-                                   name="mobile"
-                                    rules={[
-                                        {
-                                            required: true,
-                                            message: 'Please input your Password!',
-                                        },
-                                    ]}
+                                    label="Profile Picture"
+                                    name="profile_picture"
+                                    valuePropName="fileList"
+                                    getValueFromEvent={normFile}
                                 >
-                                    <Input.Password
-                                        size="large"
-                                        prefix={<LockOutlined className="site-form-item-icon" />}
-                                        type="password"
-                                        placeholder="Password"
-                                        name="mobile"
-                                        onChange={handleChange}
-                                    />
+                                    <Upload name="logo" action="http://localhost/tu/api/uploadProfileimg.php" listType="picture">
+                                        <Button icon={<UploadOutlined />}>Click to upload</Button>
+                                    </Upload>
                                 </Form.Item>
-                                <Form.Item>
-                                    <Form.Item name="remember" valuePropName="checked" noStyle>
-                                        <Checkbox>Remember me</Checkbox>
-                                    </Form.Item>
-
-                                    <a className="login-form-forgot" href="">
-                                        Forgot password
-                                    </a>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Button type="primary" block htmlType="submit" className="login-form-button">
-                                        Save
+                                <Item>
+                                    <Button type="primary" htmlType="submit">
+                                        Register
                                     </Button>
-                                </Form.Item>
-                                Or <a href="">register now!</a>
+                                </Item>
                             </Form>
                         </div>
-                        {/* <img src={Logins} alt='login' className='imglosf' /> */}
+                        <img src={Logins} alt='Ragister' className='imglosf' />
                     </Space>
                 </div>
             </Content>
@@ -136,4 +98,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Ragister;

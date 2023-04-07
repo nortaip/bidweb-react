@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Tag, Watermark, Skeleton , Button, Empty, Divider, Tooltip } from 'antd';
+import { Tag, Watermark, Select, Button, Empty, Divider, Tooltip } from 'antd';
 import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
 import VIPIcon from "../../imgs/icons/VIP.svg";
 import ProIcon from "../../imgs/icons/Pro.svg";
 import Topsvg from "../../imgs/icons/top.svg";
-import sfhdgdfghesd from '../../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
+import sfhdgdfghesd from '../../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+const { Option } = Select;
 
 function LikeButton({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -30,6 +31,14 @@ function LikeButton({ id }) {
         </div>
     );
 }
+function Activity(props) {
+    if (props.isVisible) {
+        return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
+    } else {
+        return <div></div>;
+    }
+}
+
 function Verified(props) {
     if (props.isVisible) {
         return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
@@ -46,7 +55,7 @@ function Top(props) {
 }
 function VIP(props) {
     if (props.isVisible === "1") {
-        return <div><Tooltip placement="top" color="#76C81C" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
+        return <div><Tooltip placement="top" color="#F97316" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
     } else {
         return;
     }
@@ -72,35 +81,25 @@ function Kredit(props) {
         return;
     }
 }
+
+
 const Bter = <span>Barter</span>;
 const Premium = <span>Premium</span>;
 const Toup = <span>Irəli cək</span>;
 const Presc = <span>Kredit</span>;
 const VIPE = <span>VIP</span>;
-const Cards = ({ item }) => {
 
-    const [loading, setLoading] = useState(true);
-    const [items, setItems] = useState([]);
-    
-    useEffect(() => {
-      fetch('http://localhost/tu/api/sellEhtiyat.php')
-        .then(response => response.json())
-        .then(data => {
-          setItems(data);
-          setLoading(false); // Change loading state to false once data is received
-        })
-        .catch(error => console.log(error));
+const MainVery = ({ item }) => {
+
+    const [items, setitem] = useState([]);
+    useEffect((Val) => {
+        fetch('http://localhost/tu/api/MainVery.php')
+            .then(response => response.json())
+            .then(data => {
+                // İlk veri seti burada state'e atanır
+                setitem(data);
+            });
     }, []);
-    
-    if (loading) {
-      return (
-        <div className="products">
-          {[...Array(8)].map((_, index) => (
-            <Skeleton key={index} active />
-          ))}
-        </div>
-      );
-    }
 
     //if not data
 
@@ -124,13 +123,13 @@ const Cards = ({ item }) => {
         <>
             <div className="products">
                 <Divider orientation="left" orientationMargin="50">
-                    Auctions
+                    Doğrulanmış Elanlar
                 </Divider>
                 {items.map((Val) => {
                     return (
                         <div className="products-i " key={Val.id}>
                             <div className="products-i__top">
-                                <Link target="_blank" to={`/Ehtiyat-hissələri/${Val.id}`}>
+                                <Link target="_blank" to={`/products/${Val.id}`}>
                                     <Watermark
                                         content="Nemo.az"
                                         fontSize={10}
@@ -148,9 +147,11 @@ const Cards = ({ item }) => {
                                     </Watermark>
                                 </Link>
                                 <div className="products-i__label-container ">
+                                    {/* <Activity isVisible={Val.Activity} /> */}
                                     <Verified isVisible={Val.Verified} />
                                     <VIP isVisible={Val.vip} />
                                     <Top isVisible={Val.to_up} />
+                                    {/* <Auction isVisible={Val.Auction} /> */}
                                     <Pro isVisible={Val.prem} />
                                 </div>
                                 <div className="products-barter-kredit-container ">
@@ -159,11 +160,25 @@ const Cards = ({ item }) => {
                                 </div>
                                 <LikeButton />
                             </div>
-                            <Link target="_blank" to={`/Ehtiyat-hissələri/${Val.id}`}>
+                            <Link target="_blank" to={`/products/${Val.id}`}>
                                 <div className="products-i__bottom">
                                     <div className="title">
                                         <div className="products-i__name Title">{Val.Marka}</div>
                                         <div className="products-i__attributes  Desc">{Val.Model}</div>
+                                    </div>
+                                    <div className="products-i_info ">
+                                        <div className="ico">
+                                            <span className="Gear-icon"></span>
+                                            <h6 className="Card-icon">{Val.Yanacaq}</h6>
+                                        </div>
+                                        <div className="ico">
+                                            <span className="Vector-icon ico"></span>
+                                            <h6 className="Card-icon">{Val.Suret}</h6>
+                                        </div>
+                                        <div className="ico">
+                                            <span className="people-icon ico"></span>
+                                            <h6 className="Card-icon">{Val.People}</h6>
+                                        </div>
                                     </div>
                                     <div className="products-i__price ">
                                         <div className="product-price">{Val.Price} <span>AZN</span>
@@ -183,4 +198,5 @@ const Cards = ({ item }) => {
     );
 };
 
-export default Cards;
+export default MainVery;
+// to={`/products/${Val.id}`
