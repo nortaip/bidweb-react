@@ -4,6 +4,7 @@ import { SmileOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
 
@@ -13,6 +14,25 @@ function SellingItem() {
     const [inputs, setInputs] = useState([]);
     const [brands, setBrands] = useState([]);
     const [Year, setYear] = useState([]);
+    const [imageUrl, setImageUrl] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const uploadImage = async (file) => {
+        try {
+            const formData = new FormData();
+            formData.append('file', file);
+            const res = await axios.post('http://localhost/tu/api/uploadimg.php', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            setImageUrl(res.data.url);
+        } catch (error) {
+            message.error('Image upload failed');
+        } finally {
+            setLoading(false);
+        }
+    };
     useEffect((brand) => {
         fetch('http://localhost/tu/api/brand_name.php')
             .then(response => response.json())
@@ -32,7 +52,7 @@ function SellingItem() {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
-    }
+    };
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
@@ -55,26 +75,6 @@ function SellingItem() {
 
     ]);
     const navigate = useNavigate();
-    const onChange = ({ file, fileList: newFileList }) => {
-        if (file.status !== 'uploading') {
-            console.log(file, fileList);
-        }
-        setFileList(newFileList);
-    };
-    const onPreview = async (file) => {
-        let src = file.url;
-        if (!src) {
-            src = await new Promise((resolve) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file.originFileObj);
-                reader.onload = () => resolve(reader.result);
-            });
-        }
-        const image = new Image();
-        image.src = src;
-        const imgWindow = window.open(src);
-        imgWindow?.document.write(image.outerHTML);
-    };
 
     useEffect((brands) => {
         fetch('http://localhost/tu/api/brand_name.php')
@@ -93,75 +93,22 @@ function SellingItem() {
             });
     }, []);
 
-    const handleImageUpload = async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-        try {
-            const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            // Create random folder name
-            const folderName = Math.random().toString(36).substring(7);
-            const folderPath = path.join(__dirname, 'uploads', folderName);
-
-            // Create folder if it doesn't exist
-            if (!fs.existsSync(folderPath)) {
-                fs.mkdirSync(folderPath);
-            }
-
-            // Resize and save image to folder
-            const image = sharp(file.path);
-            await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
-
-            // Save folder name to database
-            await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
-
-            // Update file list
-            message.success(`${file.name} yüklendi`);
-            const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
-            setFileList(newFileList);
-        } catch (error) {
-            message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
+    const handleFileChange = (info) => {
+        if (info.file.status === 'uploading') {
+            setLoading(true);
+            return;
         }
-    };
-    const onclick = async (values) => {
-        const formData = new FormData();
-        formData.append("Marka", values.Marka);
-        formData.append("description", values.description);
-        fileList.forEach((file) => {
-            formData.append("resimler[]", file.originFileObj);
-        });
-        try {
-            const response = await axios.post("http://localhost/tu/api/sell.php", formData);
-            console.log(response.data);
-            // navigate('/');
-        } catch (error) {
-            console.log('Error:', error);
+        if (info.file.status === 'done') {
+            uploadImage(info.file.originFileObj);
         }
     };
 
-    const uploadProps = {
-        name: 'file',
-        action: 'http://localhost:5000/uploads', // burada endpoint'i düzeltin
-        listType: 'picture-card',
-        fileList,
-        handleImageUpload,
-        onChange,
-        beforeUpload: (file) => {
-          if (fileList.length < 4) {
-            setFileList([...fileList, { ...file, uid: file.uid, name: file.name, status: 'done', url: URL.createObjectURL(file) }]);
-          }
-          return false;
-        },
-        onPreview: (file) => {
-          window.open(file.url, '_blank');
-        },
-      };
-      
-    
+    const uploadButton = (
+        <div>
+            {loading ? <LoadingOutlined /> : <PlusOutlined />}
+            <div style={{ marginTop: 8 }}>Upload</div>
+        </div>
+    );
 
     return (
         <div className="container ">
@@ -762,11 +709,23 @@ function SellingItem() {
                                     //         message: 'Xaiş edirik Rəsimləri secin',
                                     //     },
                                     // ]}
-                                    name='files'
+                                    name='file'
                                     extra="Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur."
                                 >
-                                    <Upload {...uploadProps}>
-                                        {fileList.length < 25 && '+ Upload'}
+                                    <Upload
+                                        name="file"
+                                        action='http://localhost/tu/api/uploadimg.php'
+                                        listType="picture-card"
+                                        className="avatar-uploader"
+                                        showUploadList={false}
+                                        fileList={fileList}
+                                        onChange={handleFileChange}
+                                    >
+                                        {imageUrl ? (
+                                            <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
+                                        ) : (
+                                            uploadButton
+                                        )}
                                     </Upload>
                                     <p className="ant-upload-hint">1.Minimum – 5 şəkil (ön, arxa, yan, mator və bütöv ön panelin görüntüsü mütləqdir).</p>
                                     <p className="ant-upload-hint">2.Maksimum – 25 şəkil.</p>
