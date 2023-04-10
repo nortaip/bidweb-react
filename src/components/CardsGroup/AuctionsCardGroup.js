@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Tag, Watermark, Select, Button, Empty, Divider, Tooltip } from 'antd';
 import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
 import VIPIcon from "../../imgs/icons/VIP.svg";
-import AuctionIcon from "../../imgs/icons/Sledgehammer.svg";
 import ProIcon from "../../imgs/icons/Pro.svg";
 import Topsvg from "../../imgs/icons/top.svg";
-import sfhdgdfghesd from '../../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+
+
 const { Option } = Select;
 
 function LikeButton({ id }) {
@@ -133,10 +133,11 @@ const Cards = ({ item }) => {
                     <img
                       className="imga"
                       loading="lazy"
-                      src={sfhdgdfghesd}
-                      // src={'http://localhost/tu/api/uploads/' + Val.folder_name}
+                      src={`http://localhost:3000/uploads/${Val.product_folder}/${Val.card_img}`}
                       alt={Val.Marka}
                     />
+
+
                   </Watermark>
                 </Link>
                 <div className="products-i__label-container ">

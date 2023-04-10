@@ -106,19 +106,7 @@ const MainNormal = ({ item }) => {
 
   if (items.length === 0) {
     return <div>
-      <Empty
-        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-        imageStyle={{
-          height: 60,
-        }}
-        description={
-          <span>
-            Customize Description
-          </span>
-        }
-      >
-        <Link to="/sell"><Button type="primary">Create Now</Button></Link>
-      </Empty></div>;
+     </div>;
   }
   return (
     <>
@@ -141,8 +129,7 @@ const MainNormal = ({ item }) => {
                     <img
                       className="imga"
                       loading="lazy"
-                      src={sfhdgdfghesd}
-                      // src={'http://localhost/tu/api/uploads/' + Val.folder_name}
+                      src={`http://localhost:3000/uploads/${Val.product_folder}/${Val.card_img}`}
                       alt={Val.Marka}
                     />
                   </Watermark>

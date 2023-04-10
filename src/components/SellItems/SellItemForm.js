@@ -4,9 +4,9 @@ import { SmileOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+import { UploadOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -14,25 +14,10 @@ function SellingItem() {
     const [inputs, setInputs] = useState([]);
     const [brands, setBrands] = useState([]);
     const [Year, setYear] = useState([]);
-    const [imageUrl, setImageUrl] = useState('');
-    const [loading, setLoading] = useState(false);
 
-    const uploadImage = async (file) => {
-        try {
-            const formData = new FormData();
-            formData.append('file', file);
-            const res = await axios.post('http://localhost/tu/api/uploadimg.php', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            setImageUrl(res.data.url);
-        } catch (error) {
-            message.error('Image upload failed');
-        } finally {
-            setLoading(false);
-        }
-    };
+    const [form] = Form.useForm();
+
+
     useEffect((brand) => {
         fetch('http://localhost/tu/api/brand_name.php')
             .then(response => response.json())
@@ -71,9 +56,7 @@ function SellingItem() {
     const onFinishFailed = () => {
         message.error('Müvafiq sahələr boş qala bilməz!');
     };
-    const [fileList, setFileList] = useState([
 
-    ]);
     const navigate = useNavigate();
 
     useEffect((brands) => {
@@ -92,23 +75,6 @@ function SellingItem() {
                 setYear(data);
             });
     }, []);
-
-    const handleFileChange = (info) => {
-        if (info.file.status === 'uploading') {
-            setLoading(true);
-            return;
-        }
-        if (info.file.status === 'done') {
-            uploadImage(info.file.originFileObj);
-        }
-    };
-
-    const uploadButton = (
-        <div>
-            {loading ? <LoadingOutlined /> : <PlusOutlined />}
-            <div style={{ marginTop: 8 }}>Upload</div>
-        </div>
-    );
 
     return (
         <div className="container ">
@@ -703,30 +669,9 @@ function SellingItem() {
                                 <Alert message="25-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
                                 {/* <ImageUploader/> */}
                                 <Form.Item
-                                    // rules={[
-                                    //     {
-                                    //         required: true,
-                                    //         message: 'Xaiş edirik Rəsimləri secin',
-                                    //     },
-                                    // ]}
                                     name='file'
                                     extra="Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur."
-                                >
-                                    <Upload
-                                        name="file"
-                                        action='http://localhost/tu/api/uploadimg.php'
-                                        listType="picture-card"
-                                        className="avatar-uploader"
-                                        showUploadList={false}
-                                        fileList={fileList}
-                                        onChange={handleFileChange}
-                                    >
-                                        {imageUrl ? (
-                                            <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
-                                        ) : (
-                                            uploadButton
-                                        )}
-                                    </Upload>
+                                >                                    
                                     <p className="ant-upload-hint">1.Minimum – 5 şəkil (ön, arxa, yan, mator və bütöv ön panelin görüntüsü mütləqdir).</p>
                                     <p className="ant-upload-hint">2.Maksimum – 25 şəkil.</p>
                                     <p className="ant-upload-hint">3.Optimal ölçü – 1024x768 piksel.</p>
