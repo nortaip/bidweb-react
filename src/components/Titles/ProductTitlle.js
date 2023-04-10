@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
-import productsData from "../Api/Data"
-import { PhoneFilled } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
-import TableSalon from '../Tables/TableSalon';
 import Phone from '../../imgs/icons/PhoneRounded.svg';
 import axios from 'axios';
-import Hashtags from '../Hashtags';
+import SkeletonM from '../Skeletons/skaletonProduct';
 
 function ToUP(props) {
     if (props.isVisible) {
@@ -57,7 +54,9 @@ function ProductTitle() {
 
     const text = <span>Modelin qiymətləndirilməsi</span>;
     return (
-        <>
+        <>{isLoading ? (
+            <SkeletonM />
+        ) : (
             <div className="gdgf-left">
                 <div className="e1113_11586">
                     <div className="e1113_11587">
@@ -107,7 +106,7 @@ function ProductTitle() {
                 </div>
                 {/* <Hashtags /> */}
             </div>
-
+        )}
         </>
     )
 }

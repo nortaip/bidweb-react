@@ -5,6 +5,7 @@ import { message, Popconfirm } from 'antd';
 import { RWebShare } from "react-web-share";
 import axios from 'axios';
 import Hashtags from '../Hashtags';
+import SkeletonP from '../Skeletons/skaletonProduct';
 
 function LikeButtons({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -68,7 +69,7 @@ function TableProduct() {
     return (
         <>
             {isLoading ? (
-                <div>Loading...</div>
+                <SkeletonP />
             ) : (
                 <div className='fsdasw contaioner'>
                     <div className='f-hrfeed'>
@@ -197,7 +198,7 @@ function TableProduct() {
                             </div>
                         </div>
                         <Description />
-                        <Hashtags/>
+                        <Hashtags />
                     </div>
                 </div >
             )}

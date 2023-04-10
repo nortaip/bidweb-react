@@ -14,12 +14,14 @@ import EhtiyathissələriDetail from "./pages/Ehtiyat";
 import Login from "./pages/Login";
 import Postdata from "./pages/postdata";
 import Index from "./pages/Index";
+import SkeletonM from "./components/Skeletons/skaletonProduct";
 
 class App extends Component {
   render() {
     return (
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/SkeletonM" element={<SkeletonM />} />
         <Route path="/Elanlar" element={<Main />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />

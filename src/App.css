@@ -1,0 +1,32 @@
+.SKL-main_img {
+    width: 780px !important;
+    height: 439px !important;
+}
+
+.SKL-main_img2 {
+    width: 86px !important;
+    height: 439px !important;
+}
+
+.SKLIMG {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+}
+
+.SKL-title {
+    width: 100% !important;
+    height: 62px !important;
+}
+
+.SKL-price {
+    width: 384px !important;
+    height: 500px !important;
+}
+
+.SKL-undertitle {
+    width: 708px !important;
+}
