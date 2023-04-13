@@ -7,7 +7,8 @@ import ProIcon from "../../imgs/icons/Pro.svg";
 import Topsvg from "../../imgs/icons/top.svg";
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
-
+import SkeletonM from '../Skeletons/skaletonProduct';
+import SkeletonC from "../Skeletons/cards";
 
 const { Option } = Select;
 
@@ -47,7 +48,7 @@ function Top(props) {
   }
 }
 function VIP(props) {
-  if (props.isVisible === "1") {
+  if (props.isVisible) {
     return <div><Tooltip placement="top" color="#76C81C" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
   } else {
     return;
@@ -84,13 +85,14 @@ const VIPE = <span>VIP</span>;
 
 const Cards = ({ item }) => {
 
+  const [isLoading, setIsLoading] = useState(true);
   const [items, setitem] = useState([]);
   useEffect((Val) => {
     fetch('http://localhost/tu/api/sellimg.php')
       .then(response => response.json())
       .then(data => {
-        // İlk veri seti burada state'e atanır
         setitem(data);
+        setIsLoading(false);
       });
   }, []);
 
@@ -98,96 +100,83 @@ const Cards = ({ item }) => {
 
   if (items.length === 0) {
     return <div>
-      <Empty
-        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-        imageStyle={{
-          height: 60,
-        }}
-        description={
-          <span>
-            Customize Description
-          </span>
-        }
-      >
-        <Link to="/sell"><Button type="primary">Create Now</Button></Link>
-      </Empty></div>;
+      <SkeletonC /></div>;
   }
   return (
     <>
-      <div className="products">
-        <Divider orientation="left" orientationMargin="50">
-          Elanlar
-        </Divider>
-        {items.map((Val) => {
-          return (
-            <div className="products-i " key={Val.id}>
-              <div className="products-i__top">
+      {isLoading ? (<SkeletonC />) : (
+        <div className="products">
+          <Divider orientation="left" orientationMargin="50">
+            Elanlar
+          </Divider>
+          {items.map((Val) => {
+            return (
+              <div className="products-i " key={Val.id}>
+                <div className="products-i__top">
+                  <Link target="_blank" to={`/products/${Val.id}`}>
+                    <Watermark
+                      content="Nemo.az"
+                      fontSize={10}
+                      fontWeight={900}
+                      height={30}
+                      width={30}
+                    >
+                      <img
+                        className="imga"
+                        loading="lazy"
+                        src={`http://localhost:3000/uploads/${Val.product_folder}/${Val.card_img}`}
+                        alt={Val.Marka}
+                      />
+                    </Watermark>
+                  </Link>
+                  <div className="products-i__label-container ">
+                    {/* <Activity isVisible={Val.Activity} /> */}
+                    <Verified isVisible={Val.Verified} />
+                    <VIP isVisible={Val.vip} />
+                    <Top isVisible={Val.to_up} />
+                    {/* <Auction isVisible={Val.Auction} /> */}
+                    <Pro isVisible={Val.prem} />
+                  </div>
+                  <div className="products-barter-kredit-container ">
+                    <Barter isVisible={Val.barter} />
+                    <Kredit isVisible={Val.barter} />
+                  </div>
+                  <LikeButton />
+                </div>
                 <Link target="_blank" to={`/products/${Val.id}`}>
-                  <Watermark
-                    content="Nemo.az"
-                    fontSize={10}
-                    fontWeight={900}
-                    height={30}
-                    width={30}
-                  >
-                    <img
-                      className="imga"
-                      loading="lazy"
-                      src={`http://localhost:3000/uploads/${Val.product_folder}/${Val.card_img}`}
-                      alt={Val.Marka}
-                    />
-
-
-                  </Watermark>
+                  <div className="products-i__bottom">
+                    <div className="title">
+                      <div className="products-i__name Title">{Val.Marka}</div>
+                      <div className="products-i__attributes  Desc">{Val.Model}</div>
+                    </div>
+                    <div className="products-i_info ">
+                      <div className="ico">
+                        <span className="Gear-icon"></span>
+                        <h6 className="Card-icon">{Val.Yanacaq}</h6>
+                      </div>
+                      <div className="ico">
+                        <span className="Vector-icon ico"></span>
+                        <h6 className="Card-icon">{Val.Suret}</h6>
+                      </div>
+                      <div className="ico">
+                        <span className="people-icon ico"></span>
+                        <h6 className="Card-icon">{Val.People}</h6>
+                      </div>
+                    </div>
+                    <div className="products-i__price ">
+                      <div className="product-price">{Val.Price} <span>AZN</span>
+                      </div>
+                    </div>
+                    <div className="fofgsdfgsr">
+                      <div className="post-date Medium">{Val.created_at}</div>
+                      <div className="post-date Medium">{Val.location}</div>
+                    </div>
+                  </div>
                 </Link>
-                <div className="products-i__label-container ">
-                  {/* <Activity isVisible={Val.Activity} /> */}
-                  <Verified isVisible={Val.Verified} />
-                  <VIP isVisible={Val.vip} />
-                  <Top isVisible={Val.to_up} />
-                  {/* <Auction isVisible={Val.Auction} /> */}
-                  <Pro isVisible={Val.prem} />
-                </div>
-                <div className="products-barter-kredit-container ">
-                  <Barter isVisible={Val.barter} />
-                  <Kredit isVisible={Val.barter} />
-                </div>
-                <LikeButton />
               </div>
-              <Link target="_blank" to={`/products/${Val.id}`}>
-                <div className="products-i__bottom">
-                  <div className="title">
-                    <div className="products-i__name Title">{Val.Marka}</div>
-                    <div className="products-i__attributes  Desc">{Val.Model}</div>
-                  </div>
-                  <div className="products-i_info ">
-                    <div className="ico">
-                      <span className="Gear-icon"></span>
-                      <h6 className="Card-icon">{Val.Yanacaq}</h6>
-                    </div>
-                    <div className="ico">
-                      <span className="Vector-icon ico"></span>
-                      <h6 className="Card-icon">{Val.Suret}</h6>
-                    </div>
-                    <div className="ico">
-                      <span className="people-icon ico"></span>
-                      <h6 className="Card-icon">{Val.People}</h6>
-                    </div>
-                  </div>
-                  <div className="products-i__price ">
-                    <div className="product-price">{Val.Price} <span>AZN</span>
-                    </div>
-                  </div>
-                  <div className="fofgsdfgsr">
-                    <div className="post-date Medium">{Val.created_at}</div>
-                    <div className="post-date Medium">{Val.location}</div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>)}
     </>
   );
 };
