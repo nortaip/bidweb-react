@@ -141,8 +141,7 @@ const Cards = ({ item }) => {
                                         <img
                                             className="imga"
                                             loading="lazy"
-                                            src={sfhdgdfghesd}
-                                            // src={'http://localhost/tu/api/uploads/' + Val.folder_name}
+                                            src={`http://localhost:3000/uploads/${Val.product_folder}/${Val.card_img}`}
                                             alt={Val.Marka}
                                         />
                                     </Watermark>

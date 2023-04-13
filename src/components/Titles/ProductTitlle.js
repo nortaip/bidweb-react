@@ -4,6 +4,7 @@ import { Button, Tooltip } from 'antd';
 import Phone from '../../imgs/icons/PhoneRounded.svg';
 import axios from 'axios';
 import SkeletonM from '../Skeletons/skaletonProduct';
+import TableSalon from '../Tables/TableSalon';
 
 function ToUP(props) {
     if (props.isVisible) {
@@ -28,6 +29,13 @@ function Prem(props) {
         return <div className="e1113_1160643">
             <h4 >Premium</h4>
         </div>;
+    } else {
+        return;
+    }
+}
+function MySalon(props) {
+    if (props.isVisible) {
+        return <TableSalon/> ;
     } else {
         return;
     }
@@ -99,7 +107,7 @@ function ProductTitle() {
                         <span className="e1113_11616">Satıcıya elanı Bidex.az saytında tapdığınızı bildirin</span>
                     </div>
                 </div>
-                {/* <MySalon isVisible={data.to_up} /> */}
+                <MySalon isVisible={data.Salon} />
                 <div className="e1113_11627">
                     <h4 className="e1113_11628 secondary">Baxışların sayı: 1220</h4>
                     <h4 className="e1113_11629 secondary">Yeniləndi: {data.created_at}</h4>

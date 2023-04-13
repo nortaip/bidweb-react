@@ -270,16 +270,16 @@ function SellingItem() {
                                     </Col>
                                     <Col span={8}>
                                         <Form.Item
-                                            label="VIN-kod"
-                                            name="VIN"
+                                            label="OEM-kod"
+                                            name="OEM"
                                         >
-                                            <InputNumber
+                                            <Input
                                                 style={{
                                                     width: '100%',
                                                 }}
-                                                name="VIN-kod"
+                                                name="OEM"
                                                 size="large"
-                                                placeholder="№ 000000***00"
+                                                placeholder="000000***00"
                                             />
                                         </Form.Item>
                                     </Col>
