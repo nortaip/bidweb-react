@@ -104,7 +104,7 @@ function ProductTitle() {
                     </div>
                     <div className="e1113_11610">
                         <Button className='btn-phone' type="primary" icon={<img src={Phone} alt='icon' />}>{data.Price}</Button>
-                        <span className="e1113_11616">Satıcıya elanı Bidex.az saytında tapdığınızı bildirin</span>
+                        <span className="e1113_11616">Satıcıya elanı Xerci.az saytında tapdığınızı bildirin</span>
                     </div>
                 </div>
                 <MySalon isVisible={data.Salon} />

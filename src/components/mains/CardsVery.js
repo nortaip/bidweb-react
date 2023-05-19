@@ -119,7 +119,7 @@ const MainVery = ({ item }) => {
                             <div className="products-i__top">
                                 <Link target="_blank" to={`/products/${Val.id}`}>
                                     <Watermark
-                                        content="Nemo.az"
+                                        content="Xerci.az"
                                         fontSize={10}
                                         fontWeight={900}
                                         height={30}

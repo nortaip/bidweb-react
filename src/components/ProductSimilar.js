@@ -95,7 +95,7 @@ function CardList() {
                         <div className="products-i__top">
                             <Link target="_blank" to={`#`}>
                                 <Watermark
-                                    content="Nemo.az"
+                                    content="Xerci.az"
                                     fontSize={10}
                                     fontWeight={900}
                                     height={30}

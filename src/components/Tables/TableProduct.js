@@ -6,6 +6,7 @@ import { RWebShare } from "react-web-share";
 import axios from 'axios';
 import Hashtags from '../Hashtags';
 import SkeletonP from '../Skeletons/skaletonProduct';
+import SVGCar from '../../imgs/icons/CarSvg.svg';
 
 function LikeButtons({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -48,13 +49,13 @@ function TableProduct() {
             });
     }, [productId]);
 
-    const toggleLike = (id) => {
-        setButtons((prevButtons) =>
-            prevButtons.map((button) =>
-                button.id === id ? { ...button, isLiked: !button.isLiked } : button
-            )
-        );
-    };
+    // const toggleLike = (id) => {
+    //     setButtons((prevButtons) =>
+    //         prevButtons.map((button) =>
+    //             button.id === id ? { ...button, isLiked: !button.isLiked } : button
+    //         )
+    //     );
+    // };
 
     const confirm = (e) => {
         console.log(e);
@@ -199,6 +200,7 @@ function TableProduct() {
                         </div>
                         <Description />
                         <Hashtags />
+                        {/* <img src={SVGCar} alt='svg'/> */}
                     </div>
                 </div >
             )}

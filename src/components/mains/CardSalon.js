@@ -10,7 +10,7 @@ const Cards = ({ item }) => {
                     <div className="products-i " key={Val.id}>
                         <Link target="_blank" to={`/products/${Val.id}`}>
                             <div className="products-i__top">
-                                <Watermark content="Nemo.az">
+                                <Watermark content="Xerci.az">
                                     <img loading="lazy" src={Val.imgM} alt={Val.title} />
                                 </Watermark>
                                 <div className="products-i__label-container ">
