@@ -1,21 +1,24 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Layout, Space, Button, Form, Input, Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import Navbar from '../components/Navbar.js';
 import FooterMain from '../components/Footers/FooterMain';
 import Logins from "../imgs/Frame 25480.png"
 import axios from "axios";
+import { CONN_KEY } from "../Conn";
 import '../App.css';
+
 const { Item } = Form;
 const { Header, Footer, Content } = Layout;
+
 const Ragister = () => {
 
     const onFinish = async (values) => {
         try {
-            const response = await axios.post('http://localhost/tu/api/register.php', values);
+            const response = await axios.post(`${CONN_KEY}register.php`, values);
             console.log(response.data);
             message.success(JSON.stringify(response.data));
-            navigate('/login');
+            // navigate('/login');
         } catch (error) {
             message.error(JSON.stringify(error.response.data));
         }

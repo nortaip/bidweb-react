@@ -9,6 +9,7 @@ import Topsvg from "../../imgs/icons/top.svg";
 import sfhdgdfghesd from '../../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+import { CONN_KEY } from "../../Conn";
 const { Option } = Select;
 
 function LikeButton({ id }) {
@@ -94,7 +95,7 @@ const MainNormal = ({ item }) => {
 
     const [items, setitem] = useState([]);
     useEffect((Val) => {
-        fetch('http://localhost/tu/api/mainEhtiyat.php')
+        fetch(`${CONN_KEY}mainEhtiyat.php`)
             .then(response => response.json())
             .then(data => {
                 // İlk veri seti burada state'e atanır

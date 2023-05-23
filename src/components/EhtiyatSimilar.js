@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Tag, Watermark, Skeleton, Button, Empty, Divider, Tooltip } from 'antd';
+import {  Watermark, Skeleton, Button, Empty, Divider, Tooltip } from 'antd';
 import VerifiedIcon from "../imgs/icons/Increase-Brightness.svg";
 import VIPIcon from "../imgs/icons/VIP.svg";
 import ProIcon from "../imgs/icons/Pro.svg";
@@ -8,6 +8,7 @@ import Topsvg from "../imgs/icons/top.svg";
 import sfhdgdfghesd from '../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
 import kredit from "../imgs/icons/kredit.svg"
 import barter from "../imgs/icons/barter.svg"
+import { CONN_KEY } from "../Conn";
 
 function LikeButton({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -83,7 +84,7 @@ const Cards = ({ item }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost/tu/api/similarEhtiyat.php')
+        fetch(`${CONN_KEY}similarEhtiyat.php`)
             .then(response => response.json())
             .then(data => {
                 setItems(data);

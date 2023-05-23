@@ -4,12 +4,13 @@ import React from "react";
 import Navbar from '../components/Navbar.js';
 import { Layout, Space } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
-const { Header, Footer, Content } = Layout;
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button,  Form, Input } from 'antd';
 import Logins from "../imgs/Frame 25480.png"
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { CONN_KEY } from "../Conn";
+const { Header, Footer, Content } = Layout;
 
 const Login = () => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Login = () => {
     }
     const onFinish = (values) => {
         // console.log('Received values of form: ', values);
-        axios.post('http://localhost/tu/api/brand_name.php', values).then(function (response) {
+        axios.post(`${CONN_KEY}brand_name.php`, values).then(function (response) {
             console.log(response.data);
             // navigate('/');
         });

@@ -9,7 +9,7 @@ import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
 import SkeletonM from '../Skeletons/skaletonProduct';
 import SkeletonC from "../Skeletons/cards";
-
+import { CONN_KEY } from "../../Conn";
 const { Option } = Select;
 
 function LikeButton({ id }) {
@@ -88,7 +88,7 @@ const Cards = ({ item }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setitem] = useState([]);
   useEffect((Val) => {
-    fetch('http://localhost/tu/api/sellimg.php')
+    fetch(`${CONN_KEY}sellimg.php`)
       .then(response => response.json())
       .then(data => {
         setitem(data);

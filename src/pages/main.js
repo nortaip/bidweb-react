@@ -3,19 +3,18 @@ import React from "react";
 import Navbar from '../components/Navbar.js';
 import Banner from '../components/Banners/Banner.js';
 import AuctionsCardGroup from '../components/CardsGroup/AuctionsCardGroup';
-import { Layout } from 'antd';
+import { Layout, ConfigProvider } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
 import Filter from '../components/Filters/Filters';
 const { Header, Footer, Content } = Layout;
-import { ConfigProvider } from 'antd';
-import data from "../components/Api/Ant Design Theme.json"
+// import data from "../components/Api/Ant Design Theme.json"
 const defaultData = {
-    borderRadius: 6,
-    colorPrimary: '#1677ff',
-  };
+  borderRadius: 6,
+  colorPrimary: '#1677ff',
+};
 function App() {
   const [data] = React.useState(defaultData);
-  
+
   return (
     <>
       <Layout>

@@ -6,7 +6,6 @@ import { RWebShare } from "react-web-share";
 import axios from 'axios';
 import Hashtags from '../Hashtags';
 import SkeletonP from '../Skeletons/skaletonProduct';
-import SVGCar from '../../imgs/icons/CarSvg.svg';
 
 function LikeButtons({ id }) {
     const [isLiked, setIsLiked] = useState(false);

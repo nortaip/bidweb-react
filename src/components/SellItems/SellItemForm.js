@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
 import { UploadOutlined } from '@ant-design/icons';
+import { CONN_KEY } from "../../Conn";
 
 const { Option } = Select;
 
@@ -19,14 +20,14 @@ function SellingItem() {
 
 
     useEffect((brand) => {
-        fetch('http://localhost/tu/api/brand_name.php')
+        fetch(`${CONN_KEY}brand_name.php`)
             .then(response => response.json())
             .then(data => {
                 // İlk veri seti burada state'e atanır
                 setBrands(data);
             });
         // İkinci endpoint'ten veri çekme işlemi
-        fetch('http://localhost/tu/api/yearGet.php')
+        fetch(`${CONN_KEY}yearGet.php`)
             .then(response => response.json())
             .then(data => {
                 // İkinci veri seti burada state'e atanır
@@ -41,7 +42,7 @@ function SellingItem() {
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
-            axios.post('http://localhost/tu/api/sell.php', values).then(function (response) {
+            axios.post(`${CONN_KEY}sell.php`, values).then(function (response) {
                 console.log(response.data);
                 // navigate('/');
             });
@@ -60,7 +61,7 @@ function SellingItem() {
     const navigate = useNavigate();
 
     useEffect((brands) => {
-        fetch('http://localhost/tu/api/brand_name.php')
+        fetch(`${CONN_KEY}brand_name.php`)
             .then(response => response.json())
             .then(data => {
                 // İlk veri seti burada state'e atanır
@@ -68,7 +69,7 @@ function SellingItem() {
             });
 
         // İkinci endpoint'ten veri çekme işlemi
-        fetch('http://localhost/tu/api/yearGet.php')
+        fetch(`${CONN_KEY}yearGet.php`)
             .then(response => response.json())
             .then(data => {
                 // İkinci veri seti burada state'e atanır
@@ -671,7 +672,7 @@ function SellingItem() {
                                 <Form.Item
                                     name='file'
                                     extra="Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur."
-                                >                                    
+                                >
                                     <p className="ant-upload-hint">1.Minimum – 5 şəkil (ön, arxa, yan, mator və bütöv ön panelin görüntüsü mütləqdir).</p>
                                     <p className="ant-upload-hint">2.Maksimum – 25 şəkil.</p>
                                     <p className="ant-upload-hint">3.Optimal ölçü – 1024x768 piksel.</p>

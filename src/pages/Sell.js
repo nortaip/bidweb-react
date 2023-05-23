@@ -5,16 +5,16 @@ import Navbar from '../components/Navbar.js';
 import FooterMain from '../components/Footers/FooterMain';
 import SellItemForm from "../components/SellItems/SellItemForm.js";
 import SellEhtiyat from "../components/SellItems/SellEhtiyath.js";
-import PleaceLogin from '../components/PleaceLogin';
+import { useCookies } from 'react-cookie';
 const { Header, Footer, Content } = Layout;
 
 function Sell() {
-    // const { isAuthenticated, userId } = useContext(AuthContext);
+    const [cookies] = useCookies(['username']);
 
-    // if (!isAuthenticated) {
-    //     // Redirect to login page or show a message
-    //     return <PleaceLogin />;
-    // }
+    if (!cookies.username) {
+      window.location.href = '/Login';
+    }
+
     return (
         <>
             <Layout>

@@ -8,6 +8,7 @@ import Topsvg from "../../imgs/icons/top.svg";
 import sfhdgdfghesd from '../../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+import { CONN_KEY } from "../../Conn";
 const { Option } = Select;
 
 function LikeButton({ id }) {
@@ -93,7 +94,7 @@ const MainVery = ({ item }) => {
 
     const [items, setitem] = useState([]);
     useEffect((Val) => {
-        fetch('http://localhost/tu/api/MainVery.php')
+        fetch(`${CONN_KEY}MainVery.php`)
             .then(response => response.json())
             .then(data => {
                 // İlk veri seti burada state'e atanır

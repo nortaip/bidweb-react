@@ -8,12 +8,13 @@ import ProIcon from "../imgs/icons/Pro.svg";
 import Topsvg from "../imgs/icons/top.svg";
 import sfhdgdfghesd from '../imgs/Products/78230_nRlF9XFVq6pOFOUJUgO9-A.jpg';
 import axios from 'axios';
+import { CONN_KEY } from "../Conn";
 
 function CardList() {
     const [brands, setBrands] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost/tu/api/similar.php')
+        axios.get(`${CONN_KEY}similar.php`)
             .then(response => {
                 setBrands(response.data);
             })

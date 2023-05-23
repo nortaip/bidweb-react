@@ -8,6 +8,7 @@ import Topsvg from "../../imgs/icons/top.svg";
 import sfhdgdfghesd from '../../imgs/ehtiyat-Imgs/1665509448117_bulletin.jpeg';
 import kredit from "../../imgs/icons/kredit.svg"
 import barter from "../../imgs/icons/barter.svg"
+import { CONN_KEY } from "../../Conn";
 
 function LikeButton({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -83,7 +84,7 @@ const Cards = ({ item }) => {
     const [items, setItems] = useState([]);
     
     useEffect(() => {
-      fetch('http://localhost/tu/api/sellEhtiyat.php')
+      fetch(`${CONN_KEY}sellEhtiyat.php`)
         .then(response => response.json())
         .then(data => {
           setItems(data);

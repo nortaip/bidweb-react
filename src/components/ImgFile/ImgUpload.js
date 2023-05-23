@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Upload, message, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
+import { CONN_KEY } from "../../Conn";
 
 const ImageUploader = () => {
   const [fileList, setFileList] = useState([]);
@@ -10,7 +11,7 @@ const ImageUploader = () => {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
+      const response = await axios.post(`${CONN_KEY}sell.php`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -30,7 +31,7 @@ const ImageUploader = () => {
       await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
 
       // Save folder name to database
-      await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
+      await axios.post(`${CONN_KEY}sell.php`, { folder: folderName });
 
       // Update file list
       message.success(`${file.name} yüklendi`);
@@ -43,7 +44,7 @@ const ImageUploader = () => {
 
   const handleImageRemove = async (file) => {
     try {
-      await axios.post('http://localhost/tu/api/delete.php', { uid: file.uid });
+      await axios.post(`${CONN_KEY}delete.php`, { uid: file.uid });
       message.success(`${file.name} silindi`);
       const newFileList = fileList.filter(f => f.uid !== file.uid);
       setFileList(newFileList);
@@ -85,7 +86,7 @@ const ImageUploader = () => {
       fileList.forEach(file => {
         formData.append('files[]', file.originFileObj);
       });
-      await axios.post('http://localhost/tu/api/sell.php', formData, {
+      await axios.post(`${CONN_KEY}sell.php`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

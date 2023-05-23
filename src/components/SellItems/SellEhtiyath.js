@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from '../ImgFile/ImgUpload';
+import { CONN_KEY } from "../../Conn";
 
 const { Option } = Select;
 
@@ -13,14 +14,14 @@ function SellingItem() {
     const [brands, setBrands] = useState([]);
     const [Year, setYear] = useState([]);
     useEffect((brand) => {
-        fetch('http://localhost/tu/api/brand_name.php')
+        fetch(`${CONN_KEY}brand_name.php`)
             .then(response => response.json())
             .then(data => {
                 // İlk veri seti burada state'e atanır
                 setBrands(data);
             });
         // İkinci endpoint'ten veri çekme işlemi
-        fetch('http://localhost/tu/api/yearGet.php')
+        fetch(`${CONN_KEY}yearGet.php`)
             .then(response => response.json())
             .then(data => {
                 // İkinci veri seti burada state'e atanır
@@ -35,7 +36,7 @@ function SellingItem() {
     const onFinish = (values) => {
         try {
             console.log('Received values of form: ', values);
-            axios.post('http://localhost/tu/api/sellEhtiyat.php', values).then(function (response) {
+            axios.post(`${CONN_KEY}sellEhtiyat.php`, values).then(function (response) {
                 console.log(response.data);
                 // navigate('/');
             });
@@ -76,7 +77,7 @@ function SellingItem() {
     };
 
     useEffect((brands) => {
-        fetch('http://localhost/tu/api/brand_name.php')
+        fetch(`${CONN_KEY}brand_name.php`)
             .then(response => response.json())
             .then(data => {
                 // İlk veri seti burada state'e atanır
@@ -84,7 +85,7 @@ function SellingItem() {
             });
 
         // İkinci endpoint'ten veri çekme işlemi
-        fetch('http://localhost/tu/api/yearGet.php')
+        fetch(`${CONN_KEY}yearGet.php`)
             .then(response => response.json())
             .then(data => {
                 // İkinci veri seti burada state'e atanır
@@ -92,40 +93,40 @@ function SellingItem() {
             });
     }, []);
 
-    const handleImageUpload = async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-        try {
-            const response = await axios.post('http://localhost/tu/api/sell.php', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+    // const handleImageUpload = async (file) => {
+    //     const formData = new FormData();
+    //     formData.append('file', file);
+    //     try {
+    //         const response = await axios.post(`${CONN_KEY}sell.php`, formData, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data'
+    //             }
+    //         });
 
-            // Create random folder name
-            const folderName = Math.random().toString(36).substring(7);
-            const folderPath = path.join(__dirname, 'uploads', folderName);
+    //         // Create random folder name
+    //         const folderName = Math.random().toString(36).substring(7);
+    //         const folderPath = path.join(__dirname, 'uploads', folderName);
 
-            // Create folder if it doesn't exist
-            if (!fs.existsSync(folderPath)) {
-                fs.mkdirSync(folderPath);
-            }
+    //         // Create folder if it doesn't exist
+    //         if (!fs.existsSync(folderPath)) {
+    //             fs.mkdirSync(folderPath);
+    //         }
 
-            // Resize and save image to folder
-            const image = sharp(file.path);
-            await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
+    //         // Resize and save image to folder
+    //         const image = sharp(file.path);
+    //         await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
 
-            // Save folder name to database
-            await axios.post('http://localhost/tu/api/sell.php', { folder: folderName });
+    //         // Save folder name to database
+    //         await axios.post(`${CONN_KEY}sell.php`, { folder: folderName });
 
-            // Update file list
-            message.success(`${file.name} yüklendi`);
-            const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
-            setFileList(newFileList);
-        } catch (error) {
-            message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
-        }
-    };
+    //         // Update file list
+    //         message.success(`${file.name} yüklendi`);
+    //         const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
+    //         setFileList(newFileList);
+    //     } catch (error) {
+    //         message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
+    //     }
+    // };
     const onclick = async (values) => {
         const formData = new FormData();
         formData.append("Marka", values.Marka);
@@ -134,7 +135,7 @@ function SellingItem() {
             formData.append("resimler[]", file.originFileObj);
         });
         try {
-            const response = await axios.post("http://localhost/tu/api/sell.php", formData);
+            const response = await axios.post(`${CONN_KEY}sell.php`, formData);
             console.log(response.data);
             // navigate('/');
         } catch (error) {
@@ -144,10 +145,10 @@ function SellingItem() {
 
     const uploadProps = {
         // name: 'filert',
-        action: 'http://localhost/tu/api/sellEhtiyat.php',
+        action: `${CONN_KEY}sellEhtiyat.php`,
         listType: 'picture-card',
         fileList,
-        handleImageUpload,
+        // handleImageUpload,
         onChange,
         beforeUpload: (file) => {
             if (fileList.length < 4) { // Sadece 4 dosya seçimine izin ver
