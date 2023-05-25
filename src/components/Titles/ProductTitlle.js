@@ -5,6 +5,7 @@ import Phone from '../../imgs/icons/PhoneRounded.svg';
 import axios from 'axios';
 import SkeletonM from '../Skeletons/skaletonProduct';
 import TableSalon from '../Tables/TableSalon';
+import { CONN_KEY } from "../../Conn";
 
 function ToUP(props) {
     if (props.isVisible) {
@@ -48,7 +49,7 @@ function ProductTitle() {
     const { productId } = useParams();
 
     useEffect(() => {
-        const apiUrl = `http://localhost/tu/api/sellimg.php?id=${productId}`;
+        const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
         axios.get(apiUrl)
             .then(response => {
                 setData(response.data);

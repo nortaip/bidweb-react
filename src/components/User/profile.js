@@ -1,9 +1,12 @@
 import { Carousel, Space } from 'antd';
+import { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
 import img from '../../imgs/Profile-original.jpg';
-import Up from '../../imgs/icons/up.svg'
-import vip from '../../imgs/icons/VIP.svg'
-import pro from '../../imgs/icons/Increase-Brightness.svg'
-import Data from "../Api/User"
+import Up from '../../imgs/icons/up.svg';
+import vip from '../../imgs/icons/VIP.svg';
+import pro from '../../imgs/icons/Increase-Brightness.svg';
+import { CONN_KEY } from "../../Conn";
 
 const contentStyle = {
     height: '160px',
@@ -11,13 +14,32 @@ const contentStyle = {
     lineHeight: '160px',
     textAlign: 'center',
     background: '#364d79',
-    with: '100%'
+    with: '100%',
 };
+
 const ProfileMain = () => {
-    const P = Data.find(prod => prod.id)
-    const onChange = (currentSlide) => {
-        console.log(currentSlide);
+    const [cookies] = useCookies(['user_id']);
+    const [data, setData] = useState({ pp: '', username: '' });
+
+    const fetchProfileData = async () => {
+        try {
+            const user_id = cookies.user_id;
+            const response = await axios.get(`${CONN_KEY}getuserpp.php?user_id=${user_id}`);
+            console.log(response.data); // Log the response data
+            setData({
+                pp: response.data.data.pp,
+                username: response.data.data.username
+            });
+        } catch (error) {
+            console.error(error); // Log any fetch errors
+        }
     };
+
+    useEffect(() => {
+        fetchProfileData();
+    }, []);
+    console.log(data); // Log the data state
+
     return (
         <>
             <Carousel onChange>
@@ -25,14 +47,13 @@ const ProfileMain = () => {
             </Carousel>
             <div className='container'>
                 <div className='fsvghd'>
-                    <img src={P.imgM} className='jbvdsd' />
+                    <img src={data.pp} className='jbvdsd' alt="profile photo" />
                     <div className='hhdSsfaq'>
-                        <h3>{P.Name}</h3>
+                        <h3>{data.username}</h3>
                     </div>
                 </div>
-
                 <div className='container sdssfhg'>
-                    {/* <div className='kbcvbhsd-left'>
+                    <Space className='kbcvbhsd-left'>
                         <div className='ndhsbdf ireli'>
                             <img src={Up} alt='icon' />
                             <div className='asdfgc'>
@@ -54,7 +75,7 @@ const ProfileMain = () => {
                                 <h5 className='sllda'>Sizin elan saytın ana səhifəsində xüsusi ayrılmış blokda görünəcək və xidmətin aktivlik müddətinin sonunadək orada qalacaq.</h5>
                             </div>
                         </div>
-                    </div> */}
+                    </Space>
                     <div className='kbcvbsd-left'>
                         <div className='ndhsbdf '>
                             <div className='asdfgc'>

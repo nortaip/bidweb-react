@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
 import axios from 'axios';
+import { CONN_KEY } from "../Conn";
 
 function Yüngül(props) {
     if (props.isVisible) {
@@ -155,7 +156,7 @@ function Hashtags() {
     const { productId } = useParams();
 
     useEffect(() => {
-        const apiUrl = `http://localhost/tu/api/sellimg.php?id=${productId}`;
+        const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
         axios.get(apiUrl)
             .then(response => {
                 setData(response.data);

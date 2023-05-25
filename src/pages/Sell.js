@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import { Layout, Tabs } from 'antd';
-import AuthContext from '../components/AuthContext';
 import Navbar from '../components/Navbar.js';
 import FooterMain from '../components/Footers/FooterMain';
 import SellItemForm from "../components/SellItems/SellItemForm.js";
@@ -9,11 +8,13 @@ import { useCookies } from 'react-cookie';
 const { Header, Footer, Content } = Layout;
 
 function Sell() {
-    const [cookies] = useCookies(['username']);
+    const [cookies, setCookie] = useCookies(['user_id']);
 
-    if (!cookies.username) {
-      window.location.href = '/Login';
-    }
+    useEffect(() => {
+      if (!cookies.user_id) {
+        window.location.href = '/Login';
+      }
+    }, [cookies.user_id]);
 
     return (
         <>

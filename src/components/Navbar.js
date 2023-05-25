@@ -1,14 +1,72 @@
-import React from 'react';
-
-import { UserOutlined } from '@ant-design/icons'
-import { Avatar, Badge, Button, Typography, Dropdown } from 'antd';
-const { Text } = Typography;
-import Data from "./Api/User"
+import React, { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
+import { CONN_KEY } from "../Conn"
 import Logo from '../imgs/logod.png'
 import { Link } from 'react-router-dom';
+import { UserOutlined } from '@ant-design/icons'
+import { Avatar, Badge, Button, Typography, Dropdown } from 'antd';
+
+const { Text } = Typography;
 
 const App = () => {
-  const P = Data.find(prod => prod.id)
+  const [cookies, setCookies, removeCookies] = useCookies(['user_id']);
+  const [data, setData] = useState({ pp: '', username: '' });
+
+  const fetchProfileData = async () => {
+    try {
+      const user_id = cookies.user_id;
+      if (user_id) {
+        const response = await axios.get(`${CONN_KEY}getuserpp.php?user_id=${user_id}`);
+        console.log(response.data); // Log the response data
+        setData({
+          pp: response.data.data.pp,
+          username: response.data.data.username
+        });
+      }
+    } catch (error) {
+      console.error(error); // Log any fetch errors
+    }
+  };
+
+  useEffect(() => {
+    fetchProfileData();
+  }, []);
+
+  const handleLogout = () => {
+    removeCookies('user_id'); // Remove the 'user_id' cookie
+    // Add any additional logic or redirects after logout if needed
+  };
+
+  const renderUserDropdown = () => {
+    return (
+      <Dropdown
+        menu={{
+          items,
+        }}
+        trigger={['click']}
+      >
+        <Badge dot>
+          <Avatar
+            style={{
+              color: '#f56a00',
+              backgroundColor: '#fde3cf',
+              width: 40,
+              height: 40
+            }}
+            src={data.pp} />
+        </Badge>
+      </Dropdown>
+    );
+  };
+
+  const renderLoginButton = () => {
+    return (
+      <Link to={'/Login'}>
+        <Button type="primary">Giriş et</Button>
+      </Link>
+    );
+  };
   const items = [
     {
       label: (
@@ -18,8 +76,8 @@ const App = () => {
               color: '#f56a00',
               backgroundColor: '#fde3cf',
             }}
-              src={P.imgM} icon={<UserOutlined />} />
-            <div className='user-name SemiBold f16'>{P.Name}</div>
+              src={data.pp} icon={<UserOutlined />} />
+            <div className='user-name SemiBold f16'>{data.username}</div>
           </span>
         </Link>
       ),
@@ -28,14 +86,6 @@ const App = () => {
     {
       type: 'divider',
     },
-    // {
-    //   label: (
-    //     <Link to={'/Profile'} rel="noopener noreferrer" >
-    //       Profile
-    //     </Link>
-    //   ),
-    //   key: '0',
-    // },
     {
       label: (
         <Link to={'/Profile'} className="logo">
@@ -86,13 +136,14 @@ const App = () => {
     },
     {
       label: (
-        <Link to={'/Login'} className="logo" style={{ color: "#ED3F3F" }}>
-          Çıxış
+        <Link className="logo" style={{ color: "#ED3F3F" }} onClick={handleLogout}>
+          Çıkış
         </Link>
       ),
       key: '7',
     }
   ];
+
   return (
     <nav>
       <div className='navbar'>
@@ -136,26 +187,17 @@ const App = () => {
           <Link to={'/sell'}>
             <Button type="primary">Yeni elan</Button>
           </Link>
-          <Dropdown
-            menu={{
-              items,
-            }}
-            trigger={['click']}
-          >
-            <Badge dot>
-              <Avatar
-                style={{
-                  color: '#f56a00',
-                  backgroundColor: '#fde3cf',
-                  width: 40,
-                  height: 40
-                }}
-                src={P.imgM} />
-            </Badge>
-          </Dropdown>
+          {cookies.user_id ? (
+            <>
+              {renderUserDropdown()}
+            </>
+          ) : (
+            renderLoginButton()
+          )}
         </div>
       </div>
     </nav >
   );
 };
+
 export default App;

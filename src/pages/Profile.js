@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import { Layout } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
@@ -7,18 +7,20 @@ import { useCookies } from 'react-cookie';
 
 const { Header, Footer, Content } = Layout;
 function Profile() {
-    const [cookies] = useCookies(['username']);
+    const [cookies, setCookie] = useCookies(['user_id']);
 
-    if (!cookies.username) {
-      window.location.href = '/Login';
-    }
+    useEffect(() => {
+        if (!cookies.user_id) {
+            window.location.href = '/Login';
+        }
+    }, [cookies.user_id]);
     return (
         <Layout>
             <Header className='navbarmain'>
                 <Navbar />
             </Header>
             <Content>
-                <ProfileMain/>
+                <ProfileMain />
                 {/* <Profile /> */}
                 {/* <Salonheader /> */}
                 <div className='space-align-container '>

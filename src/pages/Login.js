@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar.js';
 import { Layout } from 'antd';
 import FooterMain from '../components/Footers/FooterMain';
 import { CONN_KEY } from "../Conn";
+import Logins from "../imgs/Frame 25480.png"
 const { Header, Footer, Content } = Layout;
 
 const LoginForm = () => {
@@ -15,7 +16,13 @@ const LoginForm = () => {
                 username: values.username,
                 password: values.password,
             });
-            console.log(response.data); // handle successful login
+
+            console.log(response.data.user_id); // Access the user ID from the response              
+
+            // Store user_id as a cookie
+            document.cookie = `user_id=${response.data.user_id}; path=/`;
+
+            window.location.href = '/';
         } catch (error) {
             console.log(error); // handle login error
         }
@@ -48,7 +55,6 @@ const LoginForm = () => {
                             >
                                 <Input />
                             </Form.Item>
-
                             <Form.Item
                                 label="Password"
                                 name="password"
@@ -61,7 +67,6 @@ const LoginForm = () => {
                             >
                                 <Input.Password />
                             </Form.Item>
-
                             <Form.Item name="remember" valuePropName="checked">
                                 <Checkbox>Remember me</Checkbox>
                             </Form.Item>
@@ -70,8 +75,11 @@ const LoginForm = () => {
                                 <Button type="primary" htmlType="submit">
                                     Submit
                                 </Button>
+                                Or <a href="/register">register now!</a>
                             </Form.Item>
                         </Form>
+                        <img src={Logins} alt='Ragister' className='imglosf' />
+
                     </div>
                 </Content>
                 <Footer>

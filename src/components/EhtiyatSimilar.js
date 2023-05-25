@@ -143,7 +143,6 @@ const Cards = ({ item }) => {
                                             className="imga"
                                             loading="lazy"
                                             src={sfhdgdfghesd}
-                                            // src={'http://localhost/tu/api/uploads/' + Val.folder_name}
                                             alt={Val.Marka}
                                         />
                                     </Watermark>

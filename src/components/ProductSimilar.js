@@ -106,7 +106,6 @@ function CardList() {
                                         className="imga"
                                         loading="lazy"
                                         src={sfhdgdfghesd}
-                                        // src={'http://localhost/tu/api/uploads/' + brand.folder_name}
                                         alt={brand.Marka}
                                     />
                                 </Watermark>

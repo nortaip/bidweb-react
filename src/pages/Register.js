@@ -18,11 +18,22 @@ const Ragister = () => {
             const response = await axios.post(`${CONN_KEY}register.php`, values);
             console.log(response.data);
             message.success(JSON.stringify(response.data));
-            // navigate('/login');
+
+            // Save the cookie if login is successful
+            if (response.data.status === 1) {
+                const username = values.username;
+                const expiration = new Date();
+                expiration.setTime(expiration.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days expiration
+
+                document.cookie = `username=${username}; expires=${expiration.toUTCString()}; path=/`;
+            }
+
+            window.location.href = '/Login';
         } catch (error) {
             message.error(JSON.stringify(error.response.data));
         }
     };
+
 
     const validateMessages = {
         required: '${label} is required',
@@ -40,7 +51,6 @@ const Ragister = () => {
         }
         return e && e.fileList;
     };
-
 
     return (
         <Layout>
@@ -73,16 +83,6 @@ const Ragister = () => {
                                 >
                                     <Input.Password />
                                 </Item>
-                                <Form.Item
-                                    label="Profile Picture"
-                                    name="profile_picture"
-                                    valuePropName="fileList"
-                                    getValueFromEvent={normFile}
-                                >
-                                    <Upload name="logo" action="http://localhost/tu/api/uploadProfileimg.php" listType="picture">
-                                        <Button icon={<UploadOutlined />}>Click to upload</Button>
-                                    </Upload>
-                                </Form.Item>
                                 <Item>
                                     <Button type="primary" htmlType="submit">
                                         Register

@@ -6,6 +6,8 @@ import { RWebShare } from "react-web-share";
 import axios from 'axios';
 import Hashtags from '../Hashtags';
 import SkeletonP from '../Skeletons/skaletonProduct';
+import { CONN_KEY } from "../../Conn";
+
 
 function LikeButtons({ id }) {
     const [isLiked, setIsLiked] = useState(false);
@@ -36,7 +38,7 @@ function TableProduct() {
     const { productId } = useParams();
 
     useEffect(() => {
-        const apiUrl = `http://localhost/tu/api/sellimg.php?id=${productId}`;
+        const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
         axios.get(apiUrl)
             .then(response => {
                 setData(response.data);

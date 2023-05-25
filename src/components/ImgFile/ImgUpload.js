@@ -111,7 +111,7 @@ const ImageUploader = () => {
     <>
       <Upload
         name="file"
-        action="http://localhost/tu/api/sell.php"
+        action={`${CONN_KEY}sell.php`}
         headers={{ 'Access-Control-Allow-Origin': '*' }}
         listType="picture-card"
         fileList={fileList}

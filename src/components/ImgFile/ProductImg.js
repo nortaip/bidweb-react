@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { Image } from 'antd';
+import { CONN_KEY } from "../../Conn";
 import axios from 'axios';
 
 function ProductImg() {
@@ -10,7 +11,7 @@ function ProductImg() {
     const [brands, setBrands] = useState([]);
     const { productId } = useParams();
     useEffect(() => {
-        const apiUrl = `http://localhost/tu/api/sellimg.php?id=${productId}`;
+        const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
         axios.get(apiUrl)
             .then(response => {
                 setBrands(response.data);

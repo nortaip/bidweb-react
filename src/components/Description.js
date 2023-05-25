@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom"
 import { Divider, Typography } from 'antd';
 import axios from 'axios';
+import { CONN_KEY } from "../Conn";
+
 const { Paragraph, Text } = Typography;
 
 function Descriptions() {
@@ -11,7 +13,7 @@ function Descriptions() {
     const { productId } = useParams();
 
     useEffect(() => {
-        const apiUrl = `http://localhost/tu/api/sellimg.php?id=${productId}`;
+        const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
         axios.get(apiUrl)
             .then(response => {
                 setData(response.data);
@@ -22,6 +24,7 @@ function Descriptions() {
                 setIsLoading(false);
             });
     }, [productId]);
+    
     return (
         <>
             <div className='Desc'>
