@@ -1,131 +1,35 @@
-import React, { useState } from 'react';
-import { Upload, message, Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import axios from 'axios';
-import { CONN_KEY } from "../../Conn";
+import { InboxOutlined } from '@ant-design/icons';
+import { message, Upload } from 'antd';
 
-const ImageUploader = () => {
-  const [fileList, setFileList] = useState([]);
-
-  const handleImageUpload = async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    try {
-      const response = await axios.post(`${CONN_KEY}sell.php`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-
-      // Create random folder name
-      const folderName = Math.random().toString(36).substring(7);
-      const folderPath = path.join(__dirname, 'uploads', folderName);
-
-      // Create folder if it doesn't exist
-      if (!fs.existsSync(folderPath)) {
-        fs.mkdirSync(folderPath);
-      }
-
-      // Resize and save image to folder
-      const image = sharp(file.path);
-      await image.resize(800, 800).jpeg({ quality: 90 }).toFile(path.join(folderPath, response.data.filename));
-
-      // Save folder name to database
-      await axios.post(`${CONN_KEY}sell.php`, { folder: folderName });
-
-      // Update file list
-      message.success(`${file.name} yüklendi`);
-      const newFileList = [...fileList, { uid: response.data.uid, name: file.name, status: 'done', url: response.data.url }];
-      setFileList(newFileList);
-    } catch (error) {
-      message.error(`Dosya yüklenirken hata oluştu: ${error.message}`);
+const { Dragger } = Upload;
+const props = {
+  name: 'file',
+  multiple: true,
+  onChange(info) {
+    const { status } = info.file;
+    if (status !== 'uploading') {
+      console.log(info.file, info.fileList);
     }
-  };
-
-  const handleImageRemove = async (file) => {
-    try {
-      await axios.post(`${CONN_KEY}delete.php`, { uid: file.uid });
-      message.success(`${file.name} silindi`);
-      const newFileList = fileList.filter(f => f.uid !== file.uid);
-      setFileList(newFileList);
-    } catch (error) {
-      message.error(`Dosya silinirken hata oluştu: ${error.message}`);
+    if (status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully.`);
+    } else if (status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
     }
-  };
-
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
-    setPreviewImage(file.url || file.preview);
-    setPreviewOpen(true);
-    setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
-  };
-
-  const handleImageChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
-
-  const handleImageBeforeUpload = (file) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJpgOrPng) {
-      message.error('Sadece JPG/PNG dosyaları yüklenebilir');
-      return false;
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error('Dosya boyutu 2MB\'dan küçük olmalıdır');
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = async () => {
-    try {
-      const formData = new FormData();
-      fileList.forEach(file => {
-        formData.append('files[]', file.originFileObj);
-      });
-      await axios.post(`${CONN_KEY}sell.php`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      message.success('Resimler gönderildi');
-      setFileList([]);
-    } catch (error) {
-      message.error(`Resim gönderilirken hata oluştu: ${error.message}`);
-    }
-  };
-
-  const renderUploadButton = () => {
-    return (
-      <div>
-        <PlusOutlined />
-        <div style={{ marginTop: 8 }}>Resim yükle</div>
-      </div>
-    );
-  };
-
-  return (
-    <>
-      <Upload
-        name="file"
-        action={`${CONN_KEY}sell.php`}
-        headers={{ 'Access-Control-Allow-Origin': '*' }}
-        listType="picture-card"
-        fileList={fileList}
-        beforeUpload={handleImageBeforeUpload}
-        onPreview={handlePreview}
-        onChange={handleImageChange}
-        onRemove={handleImageRemove}
-        customRequest={({ file }) => handleImageUpload(file)}
-      >
-        {fileList.length >= 25 ? null : renderUploadButton()}
-      </Upload>
-      <Button onClick={handleSubmit}>ммм</Button>
-    </>
-  );
+  },
+  onDrop(e) {
+    console.log('Dropped files', e.dataTransfer.files);
+  },
 };
-
-export default ImageUploader;
+const App = () => (
+  <Dragger {...props}>
+    <p className="ant-upload-drag-icon">
+      <InboxOutlined />
+    </p>
+    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+    <p className="ant-upload-hint">
+      Support for a single or bulk upload. Strictly prohibited from uploading company data or other
+      banned files.
+    </p>
+  </Dragger>
+);
+export default App;

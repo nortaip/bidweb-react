@@ -1,12 +1,14 @@
 import '../../App.css';
-import { Form, Select, Upload, Button, Space, Input, Checkbox, Radio, InputNumber, Col, Row, Modal, message, Alert, } from 'antd';
+import { Form, Select, Upload, Button, Space, Input, Checkbox, InputNumber, Col, Row, Modal, message, Alert, } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { InboxOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
-import kredit from "../../imgs/icons/kredit.svg"
-import barter from "../../imgs/icons/barter.svg"
-import { UploadOutlined } from '@ant-design/icons';
+// import kredit from "../../imgs/icons/kredit.svg"
+// import barter from "../../imgs/icons/barter.svg"
+// import ImageUploader from '../ImgFile/ImgUpload';
+// import { UploadOutlined } from '@ant-design/icons';
 import { CONN_KEY } from "../../Conn";
 
 const { Option } = Select;
@@ -17,7 +19,7 @@ function SellingItem() {
     const [Year, setYear] = useState([]);
 
     const [form] = Form.useForm();
-
+    const { Dragger } = Upload;
 
     useEffect((brand) => {
         fetch(`${CONN_KEY}brand_name.php`)
@@ -39,18 +41,35 @@ function SellingItem() {
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }));
     };
-    const onFinish = (values) => {
+
+
+    const onFinish = async (values) => {
         try {
-            console.log('Received values of form: ', values);
-            axios.post(`${CONN_KEY}sell.php`, values).then(function (response) {
-                console.log(response.data);
-                // navigate('/');
-            });
-        }
-        catch (errInfo) {
-            console.log('Error-:', errInfo);
+            const formData = new FormData();
+            const files = document.querySelector('input[type="file"]').files;
+            for (let i = 0; i < files.length; i++) {
+                formData.append('file[]', files[i]);
+            }
+
+            const uploadResponse = await axios.post(`${CONN_KEY}upload.php`, formData);
+
+            const folderName = uploadResponse.data.folderName;
+
+            const sellData = {
+                ...values,
+                folderName: folderName,
+            };
+            const sellResponse = await axios.post(`${CONN_KEY}sell.php`, sellData);
+
+            console.log(sellResponse.data);
+            navigate('/');
+        } catch (errInfo) {
+            console.log('Error:', errInfo);
         }
     };
+
+
+
     const onReset = () => {
         Form.resetFields();
     };
@@ -254,8 +273,8 @@ function SellingItem() {
                                                 placeholder="İL"
                                             >
                                                 {Year.map(brand => (
-                                                    <Option key={brand.id} value={brand.name}>
-                                                        {brand.brand_name}
+                                                    <Option key={brand.id} value={brand.CYear}>
+                                                        {brand.CYear}
                                                     </Option>
                                                 ))}
                                             </Select>
@@ -668,7 +687,11 @@ function SellingItem() {
                                 }}>
                                 <h2>Foto qalereya</h2>
                                 <Alert message="25-a qədər şəkil yükləyə bilərsiniz. Hər bir şəkil 500000 KB-dan kiçik olmalıdır." type="info" />
-                                {/* <ImageUploader/> */}
+
+                                <Form.Item name="file" label="Şəkillər">
+                                    <input type="file" name="file[]" multiple />
+                                </Form.Item>
+
                                 <Form.Item
                                     name='file'
                                     extra="Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar olmamalıdır. Skrinşotlar qəbul olunmur."
