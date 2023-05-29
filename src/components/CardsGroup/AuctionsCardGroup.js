@@ -101,7 +101,8 @@ const Cards = ({ item }) => {
 
   if (items.length === 0) {
     return <div>
-      <SkeletonC /></div>;
+      <SkeletonC />
+    </div>;
   }
   return (
     <>

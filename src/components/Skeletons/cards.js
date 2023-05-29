@@ -1,8 +1,8 @@
 import React from "react";
 import "../../App.css";
-import { Layout, Space } from 'antd';
-const { Header, Footer, Content } = Layout;
-import { ConfigProvider, Skeleton } from 'antd';
+import { Layout, Divider, ConfigProvider, Skeleton } from 'antd';
+
+const { Content } = Layout;
 const defaultData = {
     borderRadius: 6,
     colorPrimary: '#1677ff',
@@ -23,28 +23,82 @@ function SkeletonC() {
                     }}
                 >
                     <Content>
-                        <div className="products">
-                            <div className="products-i " >
-                                <div className="products-i__top">
-                                    <Skeleton.Image active size="large" shape="round" block/>
+                     
+                        <div className="SKL-products">
+                            <div className="SKL-products-i ">
+                                <div className="SKL-products-i__top">
+                                    <Skeleton.Image active size="large" block className="SKL-" />
+                                </div>
+                                <div className="SKL-products-i__bottom">
+                                    <div className="SKL-title">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-products-i_info ">
+                                        <Skeleton.Input active size="large" block className="SKL-title " />
+                                    </div>
+                                    <div className="SKL-products-i__price ">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-fofgsdfgsr">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="products-i__bottom">
-                                <div className="title">
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
+                            <div className="SKL-products-i ">
+                                <div className="SKL-products-i__top">
+                                    <Skeleton.Image active size="large" block className="SKL-" />
                                 </div>
-                                <div className="products-i_info ">
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
+                                <div className="SKL-products-i__bottom">
+                                    <div className="SKL-title">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-products-i_info ">
+                                        <Skeleton.Input active size="large" block className="SKL-title " />
+                                    </div>
+                                    <div className="SKL-products-i__price ">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-fofgsdfgsr">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
                                 </div>
-                                <div className="products-i__price ">
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
+                            </div>
+                            <div className="SKL-products-i ">
+                                <div className="SKL-products-i__top">
+                                    <Skeleton.Image active size="large" block className="SKL-" />
                                 </div>
-                                <div className="fofgsdfgsr">
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
-                                    <Skeleton.Button active size="large" shape="round" block className="SKL-title" />
+                                <div className="SKL-products-i__bottom">
+                                    <div className="SKL-title">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-products-i_info ">
+                                        <Skeleton.Input active size="large" block className="SKL-title " />
+                                    </div>
+                                    <div className="SKL-products-i__price ">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-fofgsdfgsr">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="SKL-products-i ">
+                                <div className="SKL-products-i__top">
+                                    <Skeleton.Image active size="large" block className="SKL-" />
+                                </div>
+                                <div className="SKL-products-i__bottom">
+                                    <div className="SKL-title">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-products-i_info ">
+                                        <Skeleton.Input active size="large" block className="SKL-title " />
+                                    </div>
+                                    <div className="SKL-products-i__price ">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
+                                    <div className="SKL-fofgsdfgsr">
+                                        <Skeleton.Input active size="large" block className="SKL-title" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -310,19 +310,6 @@ a {
   justify-content: center;
 }
 
-.products-i {
-  font-family: Helvetica, Arial, sans-serif;
-  overflow: hidden;
-  display: inline-block;
-  text-decoration: none;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-shadow: 0 17px 34px 0 rgba(44, 39, 56, 0.04), 0 8px 17px 0 rgba(44, 39, 56, 0.02);
-  box-shadow: 0 17px 34px 0 rgba(44, 39, 56, 0.04), 0 8px 17px 0 rgba(44, 39, 56, 0.02);
-  border-radius: 7px;
-  position: relative;
-  background-color: #fff
-}
 
 .products-i__top.spincar {
   background-size: cover;

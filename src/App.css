@@ -1,32 +1,80 @@
-.SKL-main_img {
-    width: 780px !important;
-    height: 439px !important;
-}
-
-.SKL-main_img2 {
-    width: 86px !important;
-    height: 439px !important;
-}
-
-.SKLIMG {
+.SKL-products-i_info {
     display: flex;
-    margin: auto;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .SKL-title {
-    width: 100% !important;
-    height: 62px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
 }
 
-.SKL-price {
-    width: 384px !important;
-    height: 500px !important;
+.SKL-products-i__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 10px 10px 15px 10px;
+    gap: 10px;
+    flex-wrap: nowrap;
 }
 
-.SKL-undertitle {
-    width: 708px !important;
+.SKL-products-i__top {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    height: 193px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+:where(.css-dev-only-do-not-override-sk7ap8).ant-skeleton.ant-skeleton-element .ant-skeleton-image {
+    display: flex;
+    border-radius: 10px;
+    width: 300px !important;
+    height: 193px !important;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.SKL-products-i {
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 17px 34px 0 rgba(44, 39, 56, 0.04), 0 8px 17px 0 rgba(44, 39, 56, 0.02);
+    box-shadow: 0 17px 34px 0 rgba(44, 39, 56, 0.04), 0 8px 17px 0 rgba(44, 39, 56, 0.02);
+    border-radius: 7px;
+    position: relative;
+    background-color: #fff;
+    width: 260px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+    transition: -webkit-box-shadow 0.2s ease-in-out;
+    -o-transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out,
+        -webkit-box-shadow 0.2s ease-in-out
+}
+
+.SKL-products {
+    max-width: 1100px;
+    margin: 29px 15px 15px;
+    margin-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
 }
