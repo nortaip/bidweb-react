@@ -18,7 +18,7 @@ const contentStyle = {
 };
 
 const ProfileMain = () => {
-    const [cookies] = useCookies(['user_id']);
+    const [cookies] = useCookies(['username']);
     const [data, setData] = useState({ pp: '', username: '' });
 
     const fetchProfileData = async () => {
@@ -38,6 +38,7 @@ const ProfileMain = () => {
     useEffect(() => {
         fetchProfileData();
     }, []);
+
     console.log(data); // Log the data state
 
     return (

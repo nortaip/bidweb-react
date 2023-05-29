@@ -11,7 +11,7 @@ const { Text } = Typography;
 
 const App = () => {
   const [cookies, setCookies, removeCookies] = useCookies(['user_id']);
-  const [data, setData] = useState({ pp: '', username: '' });
+  const [data, setData] = useState({ pp: '', user_id: '' });
 
   const fetchProfileData = async () => {
     try {

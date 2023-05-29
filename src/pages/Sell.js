@@ -8,7 +8,7 @@ import { useCookies } from 'react-cookie';
 const { Header, Footer, Content } = Layout;
 
 function Sell() {
-    const [cookies, setCookie] = useCookies(['user_id']);
+    const [cookies] = useCookies(['user_id']);
 
     useEffect(() => {
       if (!cookies.user_id) {
