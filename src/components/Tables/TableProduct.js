@@ -50,14 +50,6 @@ function TableProduct() {
             });
     }, [productId]);
 
-    // const toggleLike = (id) => {
-    //     setButtons((prevButtons) =>
-    //         prevButtons.map((button) =>
-    //             button.id === id ? { ...button, isLiked: !button.isLiked } : button
-    //         )
-    //     );
-    // };
-
     const confirm = (e) => {
         console.log(e);
         message.success('Reportet Item');

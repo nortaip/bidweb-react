@@ -10,6 +10,7 @@ import barter from "../../imgs/icons/barter.svg"
 import SkeletonM from '../Skeletons/skaletonProduct';
 import SkeletonC from "../Skeletons/cards";
 import { CONN_KEY } from "../../Conn";
+// import { File_KEY } from "C:/xampp/htdocs/tu/api/uploads/";
 
 const { Option } = Select;
 
@@ -97,6 +98,7 @@ const Cards = ({ item }) => {
       });
   }, []);
 
+
   //if not data
 
   if (items.length === 0) {
@@ -104,6 +106,7 @@ const Cards = ({ item }) => {
       <SkeletonC />
     </div>;
   }
+  
   return (
     <>
       {isLoading ? (<SkeletonC />) : (
@@ -126,7 +129,7 @@ const Cards = ({ item }) => {
                       <img
                         className="imga"
                         loading="lazy"
-                        src={`http://localhost:3000/uploads/${Val.product_folder}/${Val.card_img}`}
+                        src={`../../uploads/6433a5d05e554/o_1fuqtt6ac1sn51fk19uk6501ksug.jpg`}
                         alt={Val.Marka}
                       />
                     </Watermark>

@@ -44,12 +44,12 @@ function Index() {
                         <div className='space-align-container '>
                             <MainNormal />
                         </div>
-                        <div className='space-align-container '>
+                        {/* <div className='space-align-container '>
                             <EhtiyatMainCards />
-                        </div>
-                        <div className='space-align-container '>
+                        </div> */}
+                        {/* <div className='space-align-container '>
                             <Cards />
-                        </div>
+                        </div> */}
                     </Content>
                     <Footer>
                         <FooterMain />

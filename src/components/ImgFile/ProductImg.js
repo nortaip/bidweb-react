@@ -10,6 +10,7 @@ function ProductImg() {
     const [visible, setVisible] = useState(false);
     const [brands, setBrands] = useState([]);
     const { productId } = useParams();
+
     useEffect(() => {
         const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
         axios.get(apiUrl)
@@ -29,19 +30,12 @@ function ProductImg() {
                     onVisibleChange: (vis) => setVisible(vis),
                 }}
             >
-                <Carousel interval="1200" transitionTime="900" showArrows={true}>
-                    {Array.isArray(brands) ? (
-                        brands.map(brand => (
-                            <Image key={index} alt={brand.product_folder} className='main-img main-img-border' src={`http://localhost:3000/uploads/${brand.product_folder}/{}`} />
-                        )
-                        )
-                    ) : (
-                        <></>
-                    )}
-                </Carousel>
+
+                <Image className='main-img main-img-border' src={`../../uploads/6433a5d05e554/o_1fuqtt6ac1sn51fk19uk6501ksug.jpg`} />
+
             </Image.PreviewGroup>
         </div>
-    )
+    );
 }
 
 export default ProductImg;
