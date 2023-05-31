@@ -106,7 +106,7 @@ const Cards = ({ item }) => {
       <SkeletonC />
     </div>;
   }
-  
+
   return (
     <>
       {isLoading ? (<SkeletonC />) : (
@@ -129,7 +129,7 @@ const Cards = ({ item }) => {
                       <img
                         className="imga"
                         loading="lazy"
-                        src={`../../uploads/6433a5d05e554/o_1fuqtt6ac1sn51fk19uk6501ksug.jpg`}
+                        src={`${CONN_KEY}uploads/${Val.folder_name}/mer76723_O4mm3IOi0tDvfQJ7597_eg.jpg`}
                         alt={Val.Marka}
                       />
                     </Watermark>

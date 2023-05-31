@@ -131,7 +131,7 @@ const MainNormal = ({ item }) => {
                     <img
                       className="imga"
                       loading="lazy"
-                      src={`../../uploads/6433a5d05e554/o_1fuqtt6ac1sn51fk19uk6501ksug.jpg`}
+                      src={`${CONN_KEY}uploads/${Val.folder_name}/`}
                       alt={Val.Marka}
                     />
                   </Watermark>

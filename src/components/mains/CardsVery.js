@@ -32,6 +32,7 @@ function LikeButton({ id }) {
         </div>
     );
 }
+
 function Activity(props) {
     if (props.isVisible) {
         return <div><Tag className="products-i__label products-i__label_active">Active</Tag></div>;
@@ -44,45 +45,79 @@ function Verified(props) {
     if (props.isVisible) {
         return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
     } else {
-        return;
-    }
-}
-function Top(props) {
-    if (props.isVisible) {
-        return <div><Tooltip placement="top" color="#76C81C" title={Toup}><img src={Topsvg} alt="icon" className="iconCard" /></Tooltip></div>;
-    } else {
-        return;
-    }
-}
-function VIP(props) {
-    if (props.isVisible === "1") {
-        return <div><Tooltip placement="top" color="#F97316" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
-    } else {
-        return;
-    }
-}
-function Pro(props) {
-    if (props.isVisible) {
-        return <div><Tooltip placement="top" color="#FCDB5B" title={Premium}><img src={ProIcon} alt="icon" className="iconCard" /></Tooltip></div>;
-    } else {
-        return;
-    }
-}
-function Barter(props) {
-    if (props.isVisible) {
-        return <div><Tooltip placement="top" color="#000" title={Bter}><img src={barter} alt="icon" className="iconCard" /></Tooltip></div>;
-    } else {
-        return;
-    }
-}
-function Kredit(props) {
-    if (props.isVisible) {
-        return <div><Tooltip placement="top" color="#000" title={Presc}><img src={kredit} alt="icon" className="iconCard" /></Tooltip></div>;
-    } else {
-        return;
+        return null;
     }
 }
 
+function Top(props) {
+    if (props.isVisible) {
+        return (
+            <div>
+                <Tooltip placement="top" color="#76C81C" title={Toup}>
+                    <img src={Topsvg} alt="icon" className="iconCard" />
+                </Tooltip>
+            </div>
+        );
+    } else {
+        return null;
+    }
+}
+
+function VIP(props) {
+    if (props.isVisible === "1") {
+        return (
+            <div>
+                <Tooltip placement="top" color="#F97316" title={VIPE}>
+                    <img src={VIPIcon} alt="icon" className="iconCard" />
+                </Tooltip>
+            </div>
+        );
+    } else {
+        return null;
+    }
+}
+
+function Pro(props) {
+    if (props.isVisible) {
+        return (
+            <div>
+                <Tooltip placement="top" color="#FCDB5B" title={Premium}>
+                    <img src={ProIcon} alt="icon" className="iconCard" />
+                </Tooltip>
+            </div>
+        );
+    } else {
+        return null;
+    }
+}
+
+function Barter(props) {
+    if (props.isVisible) {
+        return (
+            <div>
+                <Tooltip placement="top" color="#000" title={Bter}>
+                    <img src={barter} alt="icon" className="iconCard" />
+                </Tooltip>
+            </div>
+        );
+    } else {
+        return null;
+    }
+}
+
+function Kredit(props) {
+    if (props.isVisible) {
+        return (
+            <div>
+                <Tooltip placement="top" color="#000" title={Presc}>
+                    <img src={kredit} alt="icon" className="iconCard" />
+                </Tooltip>
+            </div>
+        );
+    } else {
+        return null;
+    }
+}
 
 const Bter = <span>Barter</span>;
 const Premium = <span>Premium</span>;
@@ -90,31 +125,38 @@ const Toup = <span>Irəli cək</span>;
 const Presc = <span>Kredit</span>;
 const VIPE = <span>VIP</span>;
 
-const MainVery = ({ item }) => {
+const MainVery = () => {
+    const [items, setItems] = useState([]);
+    const [folderNames, setFolderNames] = useState([]);
+    const [imageNames, setImageNames] = useState([]);
 
-    const [items, setitem] = useState([]);
-    useEffect((Val) => {
+    useEffect(() => {
         fetch(`${CONN_KEY}MainVery.php`)
             .then(response => response.json())
             .then(data => {
-                // İlk veri seti burada state'e atanır
-                setitem(data);
+                setItems(data);
+            });
+
+        fetch(`${CONN_KEY}Getimgs.php`)
+            .then(response => response.json())
+            .then(data => {
+                const folderNames = data.map(item => item.folder_name);
+                const imageNames = data.map(item => item.image_name);
+                setFolderNames(folderNames);
+                // Assuming there is a separate state variable for image names
+                setImageNames(imageNames);
             });
     }, []);
 
-    //if not data
-
-    if (items.length === 0) {
-        return <div>
-        </div>;
-    }
     return (
         <>
             <div className="products">
                 <Divider orientation="left" orientationMargin="50">
                     Doğrulanmış Elanlar
                 </Divider>
-                {items.map((Val) => {
+                {items.map((Val, index) => {
+                    const folderName = folderNames[index];
+                    const imageName = imageNames[index];
                     return (
                         <div className="products-i " key={Val.id}>
                             <div className="products-i__top">
@@ -129,17 +171,16 @@ const MainVery = ({ item }) => {
                                         <img
                                             className="imga"
                                             loading="lazy"
-                                            src={`../../uploads/6433a5d05e554/o_1fuqtt6ac1sn51fk19uk6501ksug.jpg`}
+                                            src={`${CONN_KEY}uploads/${folderName}/${imageName}`}
                                             alt={Val.Marka}
                                         />
                                     </Watermark>
                                 </Link>
                                 <div className="products-i__label-container ">
-                                    {/* <Activity isVisible={Val.Activity} /> */}
+                                    <Activity isVisible={Val.Activity} />
                                     <Verified isVisible={Val.Verified} />
                                     <VIP isVisible={Val.vip} />
                                     <Top isVisible={Val.to_up} />
-                                    {/* <Auction isVisible={Val.Auction} /> */}
                                     <Pro isVisible={Val.prem} />
                                 </div>
                                 <div className="products-barter-kredit-container ">
@@ -169,8 +210,7 @@ const MainVery = ({ item }) => {
                                         </div>
                                     </div>
                                     <div className="products-i__price ">
-                                        <div className="product-price">{Val.Price} <span>AZN</span>
-                                        </div>
+                                        <div className="product-price">{Val.Price} <span>AZN</span></div>
                                     </div>
                                     <div className="fofgsdfgsr">
                                         <div className="post-date Medium">{Val.created_at}</div>
@@ -187,4 +227,3 @@ const MainVery = ({ item }) => {
 };
 
 export default MainVery;
-// to={`/products/${Val.id}`

@@ -42,32 +42,40 @@ function SellingItem() {
         setInputs(values => ({ ...values, [name]: value }));
     };
 
-
     const onFinish = async (values) => {
         try {
-            const formData = new FormData();
-            const files = document.querySelector('input[type="file"]').files;
-            for (let i = 0; i < files.length; i++) {
-                formData.append('file[]', files[i]);
-            }
-
-            const uploadResponse = await axios.post(`${CONN_KEY}upload.php`, formData);
-
-            const folderName = uploadResponse.data.folderName;
-
-            const sellData = {
-                ...values,
-                folderName: folderName,
-            };
-            const sellResponse = await axios.post(`${CONN_KEY}sell.php`, sellData);
-
-            console.log(sellResponse.data);
-            navigate('/');
+          const formData = new FormData();
+          const files = document.querySelector('input[type="file"]').files;
+          for (let i = 0; i < files.length; i++) {
+            formData.append('file[]', files[i]);
+          }
+      
+          const uploadResponse = await axios.post(`${CONN_KEY}upload.php`, formData);
+      
+          const folderName = uploadResponse.data.folderName;
+      
+          // Get user_id from cookie
+          const userId = document.cookie
+            .split(';')
+            .map((cookie) => cookie.trim())
+            .find((cookie) => cookie.startsWith('user_id='))
+            .split('=')[1];
+      
+          const sellData = {
+            ...values,
+            folderName: folderName,
+            user_id: userId, // Include user_id in sellData
+          };
+      
+          const sellResponse = await axios.post(`${CONN_KEY}sell.php`, sellData);
+      
+          console.log(sellResponse.data);
+          // navigate('/');
         } catch (errInfo) {
-            console.log('Error:', errInfo);
+          console.log('Error:', errInfo);
         }
-    };
-
+      };
+      
 
 
     const onReset = () => {
@@ -97,7 +105,7 @@ function SellingItem() {
     }, []);
 
     return (
-        <div className="container ">
+        <div className="container">
             <Form
                 onFinish={onFinish}
                 className="login-form container"

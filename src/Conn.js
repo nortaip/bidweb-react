@@ -1,1 +1,1 @@
-export const CONN_KEY = 'http://localhost/tu/api/';
+export const CONN_KEY = 'https://anbarda.tech/api/xerciaz/';
