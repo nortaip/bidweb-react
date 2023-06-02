@@ -5,16 +5,16 @@ import VerifiedIcon from "../../imgs/icons/Increase-Brightness.svg";
 import VIPIcon from "../../imgs/icons/VIP.svg";
 import ProIcon from "../../imgs/icons/Pro.svg";
 import Topsvg from "../../imgs/icons/top.svg";
-import kredit from "../../imgs/icons/kredit.svg"
-import barter from "../../imgs/icons/barter.svg"
+import kredit from "../../imgs/icons/kredit.svg";
+import barter from "../../imgs/icons/barter.svg";
 import SkeletonM from '../Skeletons/skaletonProduct';
 import SkeletonC from "../Skeletons/cards";
 import { CONN_KEY } from "../../Conn";
-// import { File_KEY } from "C:/xampp/htdocs/tu/api/uploads/";
+import axios from 'axios';
 
 const { Option } = Select;
 
-function LikeButton({ id }) {
+function LikeButton({ post_id }) {
   const [isLiked, setIsLiked] = useState(false);
 
   const toggleLike = () => {
@@ -35,49 +35,84 @@ function LikeButton({ id }) {
     </div>
   );
 }
+
 function Verified(props) {
   if (props.isVisible) {
     return <div><img src={VerifiedIcon} alt="icon" className="iconCard" /></div>;
   } else {
-    return;
-  }
-}
-function Top(props) {
-  if (props.isVisible) {
-    return <div><Tooltip placement="top" color="#76C81C" title={Toup}><img src={Topsvg} alt="icon" className="iconCard" /></Tooltip></div>;
-  } else {
-    return;
-  }
-}
-function VIP(props) {
-  if (props.isVisible) {
-    return <div><Tooltip placement="top" color="#76C81C" title={VIPE}><img src={VIPIcon} alt="icon" className="iconCard" /></Tooltip></div>;
-  } else {
-    return;
-  }
-}
-function Pro(props) {
-  if (props.isVisible) {
-    return <div><Tooltip placement="top" color="#FCDB5B" title={Premium}><img src={ProIcon} alt="icon" className="iconCard" /></Tooltip></div>;
-  } else {
-    return;
-  }
-}
-function Barter(props) {
-  if (props.isVisible) {
-    return <div><Tooltip placement="top" color="#000" title={Bter}><img src={barter} alt="icon" className="iconCard" /></Tooltip></div>;
-  } else {
-    return;
-  }
-}
-function Kredit(props) {
-  if (props.isVisible) {
-    return <div><Tooltip placement="top" color="#000" title={Presc}><img src={kredit} alt="icon" className="iconCard" /></Tooltip></div>;
-  } else {
-    return;
+    return null;
   }
 }
 
+function Top(props) {
+  if (props.isVisible) {
+    return (
+      <div>
+        <Tooltip placement="top" color="#76C81C" title={Toup}>
+          <img src={Topsvg} alt="icon" className="iconCard" />
+        </Tooltip>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
+
+function VIP(props) {
+  if (props.isVisible) {
+    return (
+      <div>
+        <Tooltip placement="top" color="#76C81C" title={VIPE}>
+          <img src={VIPIcon} alt="icon" className="iconCard" />
+        </Tooltip>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
+
+function Pro(props) {
+  if (props.isVisible) {
+    return (
+      <div>
+        <Tooltip placement="top" color="#FCDB5B" title={Premium}>
+          <img src={ProIcon} alt="icon" className="iconCard" />
+        </Tooltip>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
+
+function Barter(props) {
+  if (props.isVisible) {
+    return (
+      <div>
+        <Tooltip placement="top" color="#000" title={Bter}>
+          <img src={barter} alt="icon" className="iconCard" />
+        </Tooltip>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
+
+function Kredit(props) {
+  if (props.isVisible) {
+    return (
+      <div>
+        <Tooltip placement="top" color="#000" title={Presc}>
+          <img src={kredit} alt="icon" className="iconCard" />
+        </Tooltip>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
 
 const Bter = <span>Barter</span>;
 const Premium = <span>Premium</span>;
@@ -86,39 +121,45 @@ const Presc = <span>Kredit</span>;
 const VIPE = <span>VIP</span>;
 
 const Cards = ({ item }) => {
-
   const [isLoading, setIsLoading] = useState(true);
-  const [items, setitem] = useState([]);
-  useEffect((Val) => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
     fetch(`${CONN_KEY}sellimg.php`)
       .then(response => response.json())
       .then(data => {
-        setitem(data);
+        setItems(data);
         setIsLoading(false);
       });
   }, []);
 
-
-  //if not data
-
+  // If no data
   if (items.length === 0) {
-    return <div>
-      <SkeletonC />
-    </div>;
+    return (
+      <div>
+        <SkeletonC />
+      </div>
+    );
   }
 
   return (
     <>
-      {isLoading ? (<SkeletonC />) : (
+      {isLoading ? (
+        <SkeletonC />
+      ) : (
         <div className="products">
           <Divider orientation="left" orientationMargin="50">
             Elanlar
           </Divider>
           {items.map((Val) => {
+            const imageSrc = Val.image_name && Val.image_name.length > 0
+              ? `${CONN_KEY}uploads/${Val.folder_name}/${Val.image_name[0]}`
+              : '';
+
             return (
-              <div className="products-i " key={Val.id}>
+              <div className="products-i" key={Val.post_id}>
                 <div className="products-i__top">
-                  <Link target="_blank" to={`/products/${Val.id}`}>
+                  <Link target="_blank" to={`/products/${Val.post_id}`}>
                     <Watermark
                       content="Xerci.az"
                       fontSize={10}
@@ -129,32 +170,30 @@ const Cards = ({ item }) => {
                       <img
                         className="imga"
                         loading="lazy"
-                        src={`${CONN_KEY}uploads/${Val.folder_name}/mer76723_O4mm3IOi0tDvfQJ7597_eg.jpg`}
+                        src={imageSrc}
                         alt={Val.Marka}
                       />
                     </Watermark>
                   </Link>
-                  <div className="products-i__label-container ">
-                    {/* <Activity isVisible={Val.Activity} /> */}
+                  <div className="products-i__label-container">
                     <Verified isVisible={Val.Verified} />
                     <VIP isVisible={Val.vip} />
                     <Top isVisible={Val.to_up} />
-                    {/* <Auction isVisible={Val.Auction} /> */}
                     <Pro isVisible={Val.prem} />
                   </div>
-                  <div className="products-barter-kredit-container ">
+                  <div className="products-barter-kredit-container">
                     <Barter isVisible={Val.barter} />
                     <Kredit isVisible={Val.barter} />
                   </div>
-                  <LikeButton />
+                  <LikeButton post_id={Val.post_id} />
                 </div>
-                <Link target="_blank" to={`/products/${Val.id}`}>
+                <Link target="_blank" to={`/products/${Val.post_id}`}>
                   <div className="products-i__bottom">
                     <div className="title">
                       <div className="products-i__name Title">{Val.Marka}</div>
-                      <div className="products-i__attributes  Desc">{Val.Model}</div>
+                      <div className="products-i__attributes Desc">{Val.Model}</div>
                     </div>
-                    <div className="products-i_info ">
+                    <div className="products-i_info">
                       <div className="ico">
                         <span className="Gear-icon"></span>
                         <h6 className="Card-icon">{Val.Yanacaq}</h6>
@@ -168,8 +207,9 @@ const Cards = ({ item }) => {
                         <h6 className="Card-icon">{Val.People}</h6>
                       </div>
                     </div>
-                    <div className="products-i__price ">
-                      <div className="product-price">{Val.Price} <span>AZN</span>
+                    <div className="products-i__price">
+                      <div className="product-price">
+                        {Val.Price} <span>AZN</span>
                       </div>
                     </div>
                     <div className="fofgsdfgsr">
@@ -181,10 +221,10 @@ const Cards = ({ item }) => {
               </div>
             );
           })}
-        </div>)}
+        </div>
+      )}
     </>
   );
 };
 
 export default Cards;
-// to={`/products/${Val.id}`

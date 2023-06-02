@@ -2436,3 +2436,35 @@ footer .bottom .links>a {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+
+/* data={data.map(item => ({ 
+  image: `${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`,
+  caption: item.caption
+}))}
+
+import { Carousel } from 'react-carousel-minimal';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { CONN_KEY } from "../../Conn";
+import axios from 'axios';
+
+function App() {
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const { productId } = useParams();
+
+    useEffect(() => {
+        const apiUrl = `${CONN_KEY}getimgsPostId.php?post_id=${productId}`;
+        axios
+            .get(apiUrl)
+            .then(response => {
+                setData(response.data);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error(error);
+                setIsLoading(false);
+            });
+    }, [productId]); */

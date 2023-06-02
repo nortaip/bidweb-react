@@ -156,7 +156,7 @@ function Hashtags() {
     const { productId } = useParams();
 
     useEffect(() => {
-        const apiUrl = `${CONN_KEY}sellimg.php?id=${productId}`;
+        const apiUrl = `${CONN_KEY}sellimg.php?post_id=${productId}`;
         axios.get(apiUrl)
             .then(response => {
                 setData(response.data);

@@ -20,9 +20,10 @@ class App extends Component {
   render() {
     return (
       <Routes>
-        <Route path="/" element={<Index />} />
+        {/* <Route path="/" element={<Index />} /> */}
         <Route path="/SkeletonM" element={<SkeletonM />} />
         <Route path="/Elanlar" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route target="_blank" path="/Sell" element={<Sell />} />
