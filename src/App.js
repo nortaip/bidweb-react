@@ -13,7 +13,7 @@ import Register from "./pages/Register";
 import EhtiyathissələriDetail from "./pages/Ehtiyat";
 import Login from "./pages/Login";
 import Postdata from "./pages/postdata";
-import Index from "./pages/Index";
+// import Index from "./pages/Index";
 import SkeletonM from "./components/Skeletons/skaletonProduct";
 
 class App extends Component {

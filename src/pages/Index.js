@@ -7,7 +7,7 @@ import FooterMain from '../components/Footers/FooterMain';
 import Filter from '../components/Filters/Filters';
 import { ConfigProvider } from 'antd';
 import MainNormal from '../components/mains/OUC-card';
-import EhtiyatMainCards from '../components/mains/Ehtiyat-Card';
+// import EhtiyatMainCards from '../components/mains/Ehtiyat-Card';
 import MainVery from '../components/mains/CardsVery';
 import Cards from '../components/CardsGroup/AuctionsCardGroup';
 

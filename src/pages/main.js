@@ -30,7 +30,7 @@ function App() {
             <Navbar />
           </Header>
           <Content>
-            <Banner />
+            {/* <Banner /> */}
             <Filter />
             <div className='space-align-container '>
               <AuctionsCardGroup />

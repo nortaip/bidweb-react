@@ -31,7 +31,7 @@ function Descriptions() {
                 <Divider orientation="left" orientationMargin="0">
                     Descriptions
                 </Divider>
-                <Text className='container'>
+                <Text className='containera'>
                     {data.elave}
                 </Text >
             </div>

@@ -70,7 +70,7 @@ function SellingItem() {
           const sellResponse = await axios.post(`${CONN_KEY}sell.php`, sellData);
       
           console.log(sellResponse.data);
-          // navigate('/');
+          navigate('/');
         } catch (errInfo) {
           console.log('Error:', errInfo);
         }

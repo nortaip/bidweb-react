@@ -455,6 +455,7 @@ a {
   order: 4;
   align-self: stretch;
   flex-grow: 0;
+  max-width: 730px;
 }
 
 p {
@@ -2437,8 +2438,17 @@ footer .bottom .links>a {
   margin-bottom: 50px;
 }
 
-
 .mySwiper {
-  background-color: #00000042;
+  background: #000000;
   border-radius: 12px;
+  display: flex,
+
+}
+
+.image-slide {
+  width: 100%;
+  height: 819px;
+  position: absolute;
+  top: 0px;
+  z-index: -888;
 }

@@ -33,7 +33,7 @@ function App() {
 
     fetchData();
   }, [productId]);
-
+  const [visible, setVisible] = useState(false);
   return (
     <div className="App">
       {isLoading ? (
@@ -49,22 +49,51 @@ function App() {
             >
               {data.map((item) => (
                 <SwiperSlide key={item.image_name}>
+                  <Image
+                    src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
+                    style={{
+                      width: '100%',
+                      height: "100%"
+                    }}
+                    preview={{
+                      visible: false,
+                    }}
+                    onClick={() => setVisible(true)}
+                  />
+                  <div
+                    style={{
+                      display: 'none',
+                    }}
+                  >
+                    <Image.PreviewGroup
+                      preview={{
+                        visible,
+                        onVisibleChange: (vis) => setVisible(vis),
+                      }}
+                    >
+                      <Image
+                        src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
+                      />
+
+                    </Image.PreviewGroup>
+                  </div>
                   <div
                     className="image-slide"
                     style={{
-                      backgroundImage: `url(${CONN_KEY}uploads/${item.folder_name}/${item.image_name})`                     
+                      backgroundImage: `url(${CONN_KEY}uploads/${item.folder_name}/${item.image_name})`,
+                      WebkitFilter: 'blur(20px) brightness(0.6)',
+                      backdropFilter: 'blur(20px)',
+                      backgroundSize: '150%',
                     }}
-                  />
-                  <Image
-                    src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }
 
