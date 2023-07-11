@@ -53,6 +53,7 @@ function SellingItem() {
           const uploadResponse = await axios.post(`${CONN_KEY}upload.php`, formData);
       
           const folderName = uploadResponse.data.folderName;
+          const image_name = uploadResponse.data.image_name;
       
           // Get user_id from cookie
           const userId = document.cookie
@@ -64,13 +65,14 @@ function SellingItem() {
           const sellData = {
             ...values,
             folderName: folderName,
+            image_name: image_name,
             user_id: userId, // Include user_id in sellData
           };
       
           const sellResponse = await axios.post(`${CONN_KEY}sell.php`, sellData);
       
           console.log(sellResponse.data);
-          // navigate('/');
+          navigate('/');
         } catch (errInfo) {
           console.log('Error:', errInfo);
         }

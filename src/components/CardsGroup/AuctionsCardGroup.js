@@ -153,7 +153,7 @@ const Cards = ({ item }) => {
           </Divider>
           {items.map((Val) => {
             const imageSrc = Val.image_name && Val.image_name.length > 0
-              ? `${CONN_KEY}uploads/${Val.folderName}/${Val.image_name[0]}`
+              ? `${CONN_KEY}uploads/${Val.folderName}/${Val.image_name}`
               : '';
 
             return (
