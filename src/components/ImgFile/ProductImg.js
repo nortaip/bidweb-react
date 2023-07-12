@@ -17,22 +17,36 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const { productId } = useParams();
+  const [folderName, setFoldername] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiUrl = `${CONN_KEY}getimgsPostId.php?post_id=${productId}`;
-        const response = await axios.get(apiUrl);
+    const apiUrl = `${CONN_KEY}sellimg.php?post_id=${productId}`;
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        const { folderName } = response.data;
+        setFoldername(folderName); // Assuming you have a state variable named folderName
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [productId]);
+  
+
+  useEffect(() => {
+    const apiUrl = `${CONN_KEY}getimgsPostId.php?folder_name=${folderName}`;
+    axios
+      .get(apiUrl)
+      .then((response) => {
         setData(response.data);
         setIsLoading(false);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error(error);
         setIsLoading(false);
-      }
-    };
+      });
+  }, [folderName]);
 
-    fetchData();
-  }, [productId]);
   const [visible, setVisible] = useState(false);
   return (
     <div className="App">
@@ -48,12 +62,13 @@ function App() {
               className="mySwiper"
             >
               {data.map((item) => (
-                <SwiperSlide key={item.image_name}>
+                <SwiperSlide key={item.id}>
                   <Image
+                    key={item.image_id} // Assuming there's an image_id field in the response data
                     src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
                     style={{
                       width: '100%',
-                      height: "100%"
+                      height: '100%',
                     }}
                     preview={{
                       visible: false,

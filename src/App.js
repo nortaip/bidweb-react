@@ -30,7 +30,10 @@ class App extends Component {
         <Route target="_blank" path="/Profile" element={<Profile />} />
         <Route target="_blank" path="/SpareParts" element={<SpareParts />} />
         <Route target="_blank" path="/Ehtiyat-hissələri/:Id" element={<EhtiyathissələriDetail />} />
-        <Route target="_blank" path="/products/:productId" element={<ProductDetails />} />
+        <Route
+          target="_blank" path="/products/:productId" element={<ProductDetails />}
+        />
+
         <Route target="_blank" path="/Salons" element={<Salons />} />
         <Route target="_blank" path="/Salon/:productId" element={<Salon />} />
         <Route target="_blank" path="/auction-live/:productId" element={<Auction />} />

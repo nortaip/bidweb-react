@@ -94,7 +94,7 @@ function ProductTitle() {
                         <div className="e1126_12355">
                             <h4 className="e1113_11592 secondary">Elan Nömrəsi</h4>
                             <div className="e1113_11599">
-                                <span className="e1113_11600">#-7127450</span>
+                                <span className="e1113_11600"># {data.folderName}</span>
                             </div>
                         </div>
                     </div>

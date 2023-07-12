@@ -36,7 +36,6 @@ function TableProduct() {
     const [isLoading, setIsLoading] = useState(true);
 
     const { productId } = useParams();
-
     useEffect(() => {
         const apiUrl = `${CONN_KEY}sellimg.php?post_id=${productId}`;
         axios.get(apiUrl)
@@ -49,6 +48,7 @@ function TableProduct() {
                 setIsLoading(false);
             });
     }, [productId]);
+
 
     const confirm = (e) => {
         console.log(e);

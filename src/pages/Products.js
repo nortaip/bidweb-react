@@ -24,7 +24,7 @@ function ProductDetail() {
                         <ProductTitle />
                     </div>
                     <Similar />
-                    <EhtiyatSimilar />
+                    {/* <EhtiyatSimilar /> */}
                 </Space>
             </Content>
             <Footer>
