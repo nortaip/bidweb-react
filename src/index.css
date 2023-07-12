@@ -1967,7 +1967,8 @@ footer .bottom .links>a {
   align-items: flex-start;
   padding: 0px;
   gap: 40px;
-  max-width: 734px !important;
+  max-width: 694px !important;
+  width: 100%;
 }
 
 .fless {
@@ -2439,7 +2440,7 @@ footer .bottom .links>a {
 }
 
 .mySwiper {
-  background: #000000;
+  /* background: #000000; */
   border-radius: 12px;
   display: flex,
 

@@ -31,7 +31,7 @@ function App() {
         console.error(error);
       });
   }, [productId]);
-  
+
 
   useEffect(() => {
     const apiUrl = `${CONN_KEY}getimgsPostId.php?folder_name=${folderName}`;
@@ -68,7 +68,7 @@ function App() {
                     src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
                     style={{
                       width: '100%',
-                      height: '100%',
+                      height: '450px',
                     }}
                     preview={{
                       visible: false,
@@ -89,16 +89,18 @@ function App() {
                       <Image
                         src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
                       />
-
                     </Image.PreviewGroup>
                   </div>
                   <div
                     className="image-slide"
                     style={{
                       backgroundImage: `url(${CONN_KEY}uploads/${item.folder_name}/${item.image_name})`,
-                      WebkitFilter: 'blur(20px) brightness(0.6)',
-                      backdropFilter: 'blur(20px)',
-                      backgroundSize: '150%',
+                      WebkitFilter: 'blur(100px) brightness(1)',
+                      backdropFilter: 'blur(30px)',
+                      backgroundSize: '100%',
+                      opacity:"0.55",
+                      width: '100%',
+                      height: '450px',
                     }}
                   />
                 </SwiperSlide>
