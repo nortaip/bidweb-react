@@ -1,8 +1,9 @@
 import React from "react";
 import "../../App.css";
 import { Layout, Space } from 'antd';
-const { Header, Footer, Content } = Layout;
 import { ConfigProvider, Skeleton } from 'antd';
+const { Header, Footer, Content } = Layout;
+
 const defaultData = {
     borderRadius: 6,
     colorPrimary: '#1677ff',
@@ -10,7 +11,6 @@ const defaultData = {
 
 function SkeletonP() {
     const [data] = React.useState(defaultData);
-
     return (
         <>
             <Layout>
@@ -55,7 +55,6 @@ function SkeletonP() {
                         </div>
                     </Content>
                 </ConfigProvider>
-
             </Layout>
         </>
     );
