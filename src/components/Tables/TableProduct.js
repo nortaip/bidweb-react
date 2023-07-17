@@ -68,8 +68,8 @@ function TableProduct() {
                 <div className='fsdasw contaioner'>
                     <div className='f-hrfeed'>
                         <div className='f-hrfeed-left'>
-                            <h3 className='f-hrfetys Bold'>{data.Marka}</h3>
-                            <div className='f-hrfehheu'>{data.location} </div>
+                            <h3 className='f-hrfetys Bold'>{data.Marka}-{data.Model} {data.mhguc} a.g. {data.CYear} </h3>
+                            <div className='f-hrfehheu'>{data.Marka}-{data.Model} {data.mhguc} a.g. {data.CYear} </div>
                         </div>
                         <div className='f-hrfeed-right'>
                             <div className='f-iconafs'>

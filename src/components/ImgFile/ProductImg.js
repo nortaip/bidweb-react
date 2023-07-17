@@ -63,44 +63,26 @@ function App() {
             >
               {data.map((item) => (
                 <SwiperSlide key={item.id}>
-                  <Image
-                    key={item.image_id} // Assuming there's an image_id field in the response data
-                    src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
-                    style={{
-                      width: '100%',
-                      height: '450px',
-                    }}
-                    preview={{
-                      visible: false,
-                    }}
-                    onClick={() => setVisible(true)}
-                  />
-                  <div
-                    style={{
-                      display: 'none',
-                    }}
-                  >
-                    <Image.PreviewGroup
-                      preview={{
-                        visible,
-                        onVisibleChange: (vis) => setVisible(vis),
+                  <Image.PreviewGroup>
+                    <Image
+                      style={{
+                        width: '100%',
+                        height: '450px',
                       }}
-                    >
-                      <Image
-                        src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
-                      />
-                    </Image.PreviewGroup>
-                  </div>
+                      src={`${CONN_KEY}uploads/${item.folder_name}/${item.image_name}`}
+                      onClick={() => setVisible(true)}
+                    />
+                  </Image.PreviewGroup>
                   <div
                     className="image-slide"
                     style={{
                       backgroundImage: `url(${CONN_KEY}uploads/${item.folder_name}/${item.image_name})`,
-                      WebkitFilter: 'blur(100px) brightness(1)',
+                      WebkitFilter: 'blur(90px) brightness(1)',
                       backdropFilter: 'blur(30px)',
-                      backgroundSize: '100%',
-                      opacity:"0.55",
-                      width: '100%',
-                      height: '450px',
+                      backgroundSize: '50%',
+                      // opacity: '0.55',
+                      // width: '100%',
+                      // height: '450px',
                     }}
                   />
                 </SwiperSlide>
@@ -108,9 +90,8 @@ function App() {
             </Swiper>
           </div>
         </div>
-      )
-      }
-    </div >
+      )}
+    </div>
   );
 }
 

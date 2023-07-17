@@ -2453,3 +2453,7 @@ footer .bottom .links>a {
   top: 0px;
   z-index: -888;
 }
+
+.salon-border {
+  border: 1px solid blue;
+}

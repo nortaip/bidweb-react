@@ -78,3 +78,7 @@
     justify-content: flex-start;
     flex-direction: row;
 }
+
+.salon-border {
+    border: 1px solid blue;
+  }

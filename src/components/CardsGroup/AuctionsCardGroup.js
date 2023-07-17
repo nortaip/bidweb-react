@@ -157,7 +157,7 @@ const Cards = ({ item }) => {
               : '';
 
             return (
-              <div className="products-i" key={Val.post_id}>
+              <div className="products-i" style={Val.Salon == 1 ? { border: '1px solid blue' } : {}} key={Val.post_id}>
                 <div className="products-i__top">
                   <Link target="_blank" to={`/products/${Val.post_id}`}>
                     <Watermark
@@ -209,7 +209,7 @@ const Cards = ({ item }) => {
                     </div>
                     <div className="products-i__price">
                       <div className="product-price">
-                        {Val.Price} <span>AZN</span>
+                        {Val.Price.toLocaleString('en-US', { useGrouping: true }).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')} <span>AZN</span>
                       </div>
                     </div>
                     <div className="fofgsdfgsr">
