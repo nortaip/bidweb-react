@@ -12,7 +12,7 @@ function Filter({ setItem, menuItems }) {
 
   const [options, setOptions] = useState([]);
   const getPanelValue = (searchText) =>
-    !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
+    !searchText ? [] : [];
   const onSelect = (data) => {
     console.log('onSelect', data);
   };

@@ -185,7 +185,7 @@ const Cards = ({ item }) => {
                     <Barter isVisible={Val.barter} />
                     <Kredit isVisible={Val.barter} />
                   </div>
-                  <LikeButton post_id={Val.post_id} />
+                  {/* <LikeButton post_id={Val.post_id} /> */}
                 </div>
                 <Link target="_blank" to={`/products/${Val.post_id}`}>
                   <div className="products-i__bottom">
